@@ -1,0 +1,65 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="memoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F5E9" />
+      <stop offset="50%" stop-color="#C8E6C9" />
+      <stop offset="100%" stop-color="#A5D6A7" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F8E9" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#2E7D32" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="360" rx="24" fill="url(#memoBg)" />
+
+  <!-- Grid subtle pattern -->
+  <circle cx="80" cy="60" r="40" fill="#81C784" opacity="0.25" />
+  <circle cx="520" cy="300" r="70" fill="#66BB6A" opacity="0.2" />
+
+  <!-- Main Floating Card (App Mockup) -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="45" width="460" height="270" rx="20" fill="url(#cardGrad)" stroke="#E0E0E0" stroke-width="1" />
+    
+    <!-- Top Bar -->
+    <rect x="70" y="45" width="460" height="42" rx="20" fill="#E8F5E9" />
+    <rect x="70" y="67" width="460" height="20" fill="#E8F5E9" />
+    <circle cx="95" cy="66" r="5" fill="#EF5350" />
+    <circle cx="110" cy="66" r="5" fill="#FFCA28" />
+    <circle cx="125" cy="66" r="5" fill="#66BB6A" />
+    <text x="300" y="70" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#2E7D32">Money Memo • Dashboard</text>
+
+    <!-- App Content Mockup -->
+    <!-- Balance Card -->
+    <rect x="95" y="102" width="410" height="75" rx="14" fill="#2E7D32" />
+    <text x="115" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#C8E6C9">Total Balance / ยอดเงินคงเหลือ</text>
+    <text x="115" y="156" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">฿ 45,850.00</text>
+    
+    <!-- Mini Pills -->
+    <rect x="365" y="125" width="120" height="30" rx="15" fill="#388E3C" />
+    <text x="425" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#E8F5E9">+14.2% this mo</text>
+
+    <!-- 2 Sub columns (Income / Expense) -->
+    <rect x="95" y="190" width="195" height="105" rx="14" fill="#FFFFFF" stroke="#E8F5E9" stroke-width="2" />
+    <circle cx="120" cy="215" r="14" fill="#E8F5E9" />
+    <text x="120" y="220" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#2E7D32">↓</text>
+    <text x="145" y="214" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#757575">Income / รายรับ</text>
+    <text x="145" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#2E7D32">฿ 58,000</text>
+    <!-- Bar preview -->
+    <rect x="110" y="255" width="165" height="6" rx="3" fill="#E0E0E0" />
+    <rect x="110" y="255" width="130" height="6" rx="3" fill="#66BB6A" />
+
+    <rect x="310" y="190" width="195" height="105" rx="14" fill="#FFFFFF" stroke="#FFEBEE" stroke-width="2" />
+    <circle cx="335" cy="215" r="14" fill="#FFEBEE" />
+    <text x="335" y="220" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#D32F2F">↑</text>
+    <text x="360" y="214" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#757575">Expense / รายจ่าย</text>
+    <text x="360" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" fill="#D32F2F">฿ 12,150</text>
+    <!-- Bar preview -->
+    <rect x="325" y="255" width="165" height="6" rx="3" fill="#E0E0E0" />
+    <rect x="325" y="255" width="55" height="6" rx="3" fill="#EF5350" />
+  </g>
+</svg>

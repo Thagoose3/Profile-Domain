@@ -1,0 +1,47 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nutriBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE5D9" />
+      <stop offset="50%" stop-color="#FFCAD4" />
+      <stop offset="100%" stop-color="#F4ACB7" />
+    </linearGradient>
+    <linearGradient id="nutriCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFF0F3" />
+    </linearGradient>
+    <filter id="nutriShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#D88373" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="360" rx="24" fill="url(#nutriBg)" />
+  <circle cx="100" cy="80" r="50" fill="#FFB4A2" opacity="0.3" />
+  <circle cx="500" cy="280" r="80" fill="#E5989B" opacity="0.25" />
+
+  <g filter="url(#nutriShadow)">
+    <rect x="70" y="45" width="460" height="270" rx="20" fill="url(#nutriCardGrad)" stroke="#FFE5D9" stroke-width="1" />
+    
+    <rect x="70" y="45" width="460" height="42" rx="20" fill="#FFE5D9" />
+    <rect x="70" y="67" width="460" height="20" fill="#FFE5D9" />
+    <circle cx="95" cy="66" r="5" fill="#FF6B6B" />
+    <circle cx="110" cy="66" r="5" fill="#FFD166" />
+    <circle cx="125" cy="66" r="5" fill="#06D6A0" />
+    <text x="300" y="70" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#D88373">NutriTrack • Meal & Fitness</text>
+
+    <!-- Calorie Ring Mockup -->
+    <circle cx="160" cy="185" r="55" fill="none" stroke="#FFE5D9" stroke-width="14" />
+    <circle cx="160" cy="185" r="55" fill="none" stroke="#FF758F" stroke-width="14" stroke-dasharray="260 345" stroke-linecap="round" />
+    <text x="160" y="180" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#590D22">1,850</text>
+    <text x="160" y="198" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#800F2F">kcal left</text>
+
+    <!-- Right Side Nutrition Breakdown -->
+    <rect x="250" y="115" width="250" height="42" rx="10" fill="#FFFFFF" stroke="#FFE5D9" stroke-width="1" />
+    <text x="265" y="138" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#590D22">🍗 Protein (120g / 140g)</text>
+
+    <rect x="250" y="165" width="250" height="42" rx="10" fill="#FFFFFF" stroke="#FFE5D9" stroke-width="1" />
+    <text x="265" y="188" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#590D22">🥑 Healthy Fats (45g / 55g)</text>
+
+    <rect x="250" y="215" width="250" height="42" rx="10" fill="#FFFFFF" stroke="#FFE5D9" stroke-width="1" />
+    <text x="265" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#590D22">🌾 Carbs (180g / 220g)</text>
+  </g>
+</svg>
