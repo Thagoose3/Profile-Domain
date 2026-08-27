@@ -1,0 +1,171 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="farmSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD" />
+      <stop offset="40%" stop-color="#E0F2FE" />
+      <stop offset="80%" stop-color="#FEF3C7" />
+      <stop offset="100%" stop-color="#FED7AA" />
+    </linearGradient>
+
+    <!-- Rolling Hills Gradients -->
+    <linearGradient id="hillBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#86EFAC" />
+      <stop offset="100%" stop-color="#4ADE80" />
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <linearGradient id="hillFront" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+
+    <!-- Pond Gradient -->
+    <linearGradient id="pondGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <!-- Sun Glow -->
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FEF08A" stop-opacity="1" />
+      <stop offset="50%" stop-color="#FDE047" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FDE047" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1920" height="1080" fill="url(#farmSky)" />
+
+  <!-- Sun -->
+  <circle cx="1550" cy="220" r="140" fill="url(#sunGlow)" />
+  <circle cx="1550" cy="220" r="60" fill="#FEF08A" />
+
+  <!-- Fluffy Clouds -->
+  <g fill="#FFFFFF" opacity="0.85">
+    <path d="M 200 180 q 40 -40 80 0 q 50 -20 80 20 q 30 40 -10 60 h -160 q -40 -30 10 -80 z" />
+    <path d="M 850 120 q 50 -50 100 0 q 60 -20 100 25 q 40 50 -20 70 h -200 q -40 -40 20 -95 z" />
+    <path d="M 1250 240 q 35 -35 70 0 q 45 -15 70 20 q 25 35 -10 50 h -140 q -30 -30 10 -70 z" />
+  </g>
+
+  <!-- Distant Mountains / Windmill & Red Barn -->
+  <path d="M 0 520 Q 350 420 800 500 T 1600 480 T 1920 520 L 1920 1080 L 0 1080 Z" fill="#BBF7D0" opacity="0.6" />
+  
+  <!-- Red Barn in distance -->
+  <g transform="translate(1380, 430) scale(0.65)">
+    <!-- Main Barn -->
+    <path d="M 40 100 L 100 40 L 160 100 L 160 180 L 40 180 Z" fill="#DC2626" stroke="#991B1B" stroke-width="3" />
+    <polygon points="100,40 160,100 40,100" fill="#EF4444" />
+    <!-- White Roof Trim -->
+    <path d="M 35 102 L 100 37 L 165 102" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    <!-- Barn Door & Windows -->
+    <rect x="78" y="115" width="44" height="65" fill="#FFFFFF" />
+    <path d="M 78 115 L 122 180 M 122 115 L 78 180" stroke="#DC2626" stroke-width="3" />
+    <!-- Silo -->
+    <rect x="165" y="60" width="35" height="120" rx="17" fill="#CBD5E1" stroke="#94A3B8" stroke-width="2" />
+    <path d="M 165 77 C 165 50, 200 50, 200 77 Z" fill="#94A3B8" />
+  </g>
+
+  <!-- Windmill -->
+  <g transform="translate(320, 390) scale(0.55)">
+    <polygon points="40,220 55,70 85,70 100,220" fill="#F8FAFC" stroke="#64748B" stroke-width="2" />
+    <circle cx="70" cy="70" r="8" fill="#475569" />
+    <!-- Blades -->
+    <line x1="70" y1="70" x2="70" y2="0" stroke="#64748B" stroke-width="4" />
+    <line x1="70" y1="70" x2="70" y2="140" stroke="#64748B" stroke-width="4" />
+    <line x1="70" y1="70" x2="0" y2="70" stroke="#64748B" stroke-width="4" />
+    <line x1="70" y1="70" x2="140" y2="70" stroke="#64748B" stroke-width="4" />
+  </g>
+
+  <!-- Midground Hills -->
+  <path d="M 0 600 Q 500 480 1050 580 T 1920 570 L 1920 1080 L 0 1080 Z" fill="url(#hillMid)" />
+
+  <!-- Wooden Farm Fence -->
+  <g stroke="#D97706" stroke-width="4" fill="none" opacity="0.85">
+    <path d="M 80 630 Q 300 620 600 640 M 80 650 Q 300 640 600 660" />
+    <!-- Fence Posts -->
+    <rect x="120" y="615" width="8" height="50" rx="2" fill="#B45309" />
+    <rect x="220" y="610" width="8" height="55" rx="2" fill="#B45309" />
+    <rect x="320" y="612" width="8" height="55" rx="2" fill="#B45309" />
+    <rect x="420" y="618" width="8" height="52" rx="2" fill="#B45309" />
+    <rect x="520" y="622" width="8" height="50" rx="2" fill="#B45309" />
+  </g>
+
+  <!-- Foreground Green Meadow Hill -->
+  <path d="M 0 720 Q 400 650 950 710 Q 1500 770 1920 690 L 1920 1080 L 0 1080 Z" fill="url(#hillFront)" />
+
+  <!-- Sparkling Farm Pond -->
+  <ellipse cx="1450" cy="860" rx="340" ry="130" fill="url(#pondGrad)" opacity="0.9" />
+  <ellipse cx="1450" cy="855" rx="320" ry="110" fill="#7DD3FC" opacity="0.4" />
+  <!-- Water ripples -->
+  <path d="M 1250 850 Q 1320 840 1390 850 M 1480 870 Q 1550 860 1620 870" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.7" />
+
+  <!-- Geese swimming in the pond -->
+  <g transform="translate(1360, 830) scale(0.65)">
+    <!-- Goose 1 (Swimming) -->
+    <path d="M 30 40 C 30 20, 80 20, 90 40 C 90 55, 30 55, 30 40 Z" fill="#FFFFFF" />
+    <path d="M 75 35 C 75 15, 80 5, 92 5 C 98 5, 98 25, 85 35 Z" fill="#FFFFFF" />
+    <!-- Beak -->
+    <polygon points="98,8 108,12 97,16" fill="#F97316" />
+    <circle cx="93" cy="9" r="1.5" fill="#1E293B" />
+  </g>
+
+  <g transform="translate(1520, 850) scale(0.5)">
+    <!-- Goose 2 (Swimming) -->
+    <path d="M 30 40 C 30 20, 80 20, 90 40 C 90 55, 30 55, 30 40 Z" fill="#FFFFFF" />
+    <path d="M 75 35 C 75 15, 80 5, 92 5 C 98 5, 98 25, 85 35 Z" fill="#FFFFFF" />
+    <polygon points="98,8 108,12 97,16" fill="#F97316" />
+    <circle cx="93" cy="9" r="1.5" fill="#1E293B" />
+  </g>
+
+  <!-- Cute Geese Walking on the Grass (Foreground) -->
+  <!-- Goose Family 1 (Leading Goose) -->
+  <g transform="translate(480, 780) scale(0.75)">
+    <!-- Body -->
+    <ellipse cx="60" cy="70" rx="35" ry="24" fill="#FFFFFF" />
+    <path d="M 25 65 L 10 55 L 30 75 Z" fill="#FFFFFF" /> <!-- Tail -->
+    <!-- Neck & Head -->
+    <path d="M 75 68 C 85 45, 80 25, 92 12 C 102 12, 102 35, 88 68 Z" fill="#FFFFFF" />
+    <!-- Eye -->
+    <circle cx="94" cy="18" r="2.5" fill="#1E293B" />
+    <circle cx="95" cy="17" r="0.8" fill="#FFFFFF" />
+    <!-- Beak -->
+    <path d="M 98 16 L 115 22 L 96 26 Z" fill="#F97316" />
+    <!-- Legs -->
+    <line x1="52" y1="90" x2="48" y2="115" stroke="#F97316" stroke-width="4" stroke-linecap="round" />
+    <line x1="48" y1="115" x2="38" y2="118" stroke="#F97316" stroke-width="4" stroke-linecap="round" />
+    
+    <line x1="68" y1="90" x2="72" y2="115" stroke="#F97316" stroke-width="4" stroke-linecap="round" />
+    <line x1="72" y1="115" x2="82" y2="118" stroke="#F97316" stroke-width="4" stroke-linecap="round" />
+  </g>
+
+  <!-- Goose Family 2 (Cute Gosling / Baby Goose) -->
+  <g transform="translate(410, 820) scale(0.45)">
+    <!-- Yellow/Cream Gosling Body -->
+    <ellipse cx="60" cy="70" rx="30" ry="20" fill="#FEF08A" />
+    <path d="M 70 65 C 78 48, 75 30, 85 20 C 93 20, 93 38, 80 65 Z" fill="#FEF08A" />
+    <circle cx="87" cy="25" r="2" fill="#1E293B" />
+    <path d="M 90 23 L 102 28 L 88 32 Z" fill="#F97316" />
+    <line x1="55" y1="88" x2="52" y2="105" stroke="#F97316" stroke-width="4" />
+    <line x1="68" y1="88" x2="70" y2="105" stroke="#F97316" stroke-width="4" />
+  </g>
+
+  <!-- Goose Family 3 (Another Cute Gosling) -->
+  <g transform="translate(350, 835) scale(0.4)">
+    <ellipse cx="60" cy="70" rx="30" ry="20" fill="#FEF08A" />
+    <path d="M 70 65 C 78 48, 75 30, 85 20 C 93 20, 93 38, 80 65 Z" fill="#FEF08A" />
+    <circle cx="87" cy="25" r="2" fill="#1E293B" />
+    <path d="M 90 23 L 102 28 L 88 32 Z" fill="#F97316" />
+    <line x1="55" y1="88" x2="52" y2="105" stroke="#F97316" stroke-width="4" />
+    <line x1="68" y1="88" x2="70" y2="105" stroke="#F97316" stroke-width="4" />
+  </g>
+
+  <!-- Wild Flowers & Grass Tufts -->
+  <g fill="#FDE047">
+    <circle cx="280" cy="790" r="4" /><circle cx="288" cy="786" r="3" /><circle cx="274" cy="788" r="3" />
+    <circle cx="720" cy="820" r="4" /><circle cx="728" cy="816" r="3" /><circle cx="714" cy="818" r="3" />
+    <circle cx="1080" cy="890" r="5" /><circle cx="1090" cy="885" r="4" /><circle cx="1070" cy="888" r="4" />
+  </g>
+</svg>

@@ -22,10 +22,6 @@
 </head>
 <body>
 
-  <!-- Ambient Glow Blobs -->
-  <div class="ambient-blob blob-1"></div>
-  <div class="ambient-blob blob-2"></div>
-
   <div class="container">
     <!-- Floating Minimal Nav -->
     <header class="header-nav">
@@ -49,7 +45,7 @@
     </header>
 
     <main>
-      <!-- Hero / Profile Section (Compact Goose Style) -->
+      <!-- Hero / Profile Section -->
       <section class="hero-section">
         <div class="profile-card">
           <div class="avatar-wrapper" id="gooseAvatar" title="คลิกเพื่อส่งเสียง Honk! 🪿">
@@ -58,11 +54,9 @@
           </div>
 
           <div class="profile-info">
-            <div class="status-row">
-              <div class="status-badge">
-                <span class="pulse-dot"></span>
-                <span>Nesting Cool Projects 🪿</span>
-              </div>
+            <div class="status-badge">
+              <span class="pulse-dot"></span>
+              <span>Nesting Cool Projects 🪿🌾</span>
             </div>
 
             <h1 class="hero-title">
@@ -87,7 +81,7 @@
         </div>
       </section>
 
-      <!-- Featured Apps (Compact Bento Grid) -->
+      <!-- Featured Apps (Scaled Down Preview Cards) -->
       <section id="apps" class="section">
         <div class="section-header">
           <div>
@@ -96,81 +90,96 @@
           </div>
         </div>
 
-        <div class="bento-compact-grid">
+        <div class="projects-grid-scaled">
           <!-- App 1: Money Memo -->
-          <div class="bento-card-compact">
-            <div>
-              <div class="card-top-row">
-                <div class="app-icon-wrap icon-money-bg">💰</div>
-                <span class="card-status-pill status-featured">Featured</span>
+          <article class="project-card-scaled">
+            <div class="card-preview-wrap">
+              <span class="preview-badge-pill">⭐ Featured</span>
+              <img src="assets/images/money-memo-preview.svg" alt="Money Memo Preview" loading="lazy">
+            </div>
+
+            <div class="card-body-content">
+              <div class="card-header-line">
+                <h3 class="project-title-name">Money Memo</h3>
               </div>
-              <h3 class="app-title">Money Memo</h3>
-              <p class="app-desc">เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดกราฟสรุปยอดเงินและหมวดหมู่อัตโนมัติ</p>
-              <div class="tag-list-compact">
-                <span class="pill-tag tag-teal">Finance</span>
+              <p class="project-desc-text">เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอดเงินและกราฟหมวดหมู่อัตโนมัติ</p>
+              
+              <div class="tag-pills-row">
+                <span class="pill-tag tag-green">Finance</span>
                 <span class="pill-tag tag-orange">Expense</span>
                 <span class="pill-tag tag-sky">Web App</span>
               </div>
+
+              <div class="card-buttons-row">
+                <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>เปิดแอป ↗</span>
+                </a>
+                <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
-            <div class="card-action-btns">
-              <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
-                <span>เปิดแอป ↗</span>
-              </a>
-              <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
+          </article>
 
           <!-- App 2: Exercise Tracker -->
-          <div class="bento-card-compact">
-            <div>
-              <div class="card-top-row">
-                <div class="app-icon-wrap icon-exercise-bg">🏋️</div>
-                <span class="card-status-pill status-active">Active</span>
+          <article class="project-card-scaled">
+            <div class="card-preview-wrap">
+              <span class="preview-badge-pill">🏋️ Fitness</span>
+              <img src="assets/images/exercise-preview.svg" alt="Exercise Tracker Preview" loading="lazy">
+            </div>
+
+            <div class="card-body-content">
+              <div class="card-header-line">
+                <h3 class="project-title-name">Exercise Tracker</h3>
               </div>
-              <h3 class="app-title">Exercise Tracker</h3>
-              <p class="app-desc">แอปพลิเคชันบันทึกและติดตามการออกกำลังกาย วางตารางฝึก Routine เซ็ต และเวลาฝึก</p>
-              <div class="tag-list-compact">
-                <span class="pill-tag tag-purple">Fitness</span>
-                <span class="pill-tag tag-teal">Routine</span>
-                <span class="pill-tag tag-sky">Tracker</span>
+              <p class="project-desc-text">แอปพลิเคชันบันทึกการออกกำลังกาย วางตาราง Routine เซ็ต และติดตามเวลาฝึก</p>
+              
+              <div class="tag-pills-row">
+                <span class="pill-tag tag-purple">Routine</span>
+                <span class="pill-tag tag-green">Workout</span>
+                <span class="pill-tag tag-sky">PWA</span>
+              </div>
+
+              <div class="card-buttons-row">
+                <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>เปิดแอป ↗</span>
+                </a>
+                <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
               </div>
             </div>
-            <div class="card-action-btns">
-              <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
-                <span>เปิดแอป ↗</span>
-              </a>
-              <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
+          </article>
 
           <!-- App 3: Calories Tracker -->
-          <div class="bento-card-compact">
-            <div>
-              <div class="card-top-row">
-                <div class="app-icon-wrap icon-calories-bg">🥗</div>
-                <span class="card-status-pill status-active">Active</span>
+          <article class="project-card-scaled">
+            <div class="card-preview-wrap">
+              <span class="preview-badge-pill">🥗 Nutrition</span>
+              <img src="assets/images/nutritrack-preview.svg" alt="Calories Tracker Preview" loading="lazy">
+            </div>
+
+            <div class="card-body-content">
+              <div class="card-header-line">
+                <h3 class="project-title-name">Calories Tracker</h3>
               </div>
-              <h3 class="app-title">Calories Tracker</h3>
-              <p class="app-desc">ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats)</p>
-              <div class="tag-list-compact">
+              <p class="project-desc-text">ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats)</p>
+              
+              <div class="tag-pills-row">
                 <span class="pill-tag tag-orange">Nutrition</span>
-                <span class="pill-tag tag-teal">Health</span>
+                <span class="pill-tag tag-green">Health</span>
                 <span class="pill-tag tag-purple">Diet</span>
               </div>
+
+              <div class="card-buttons-row">
+                <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  <span>เปิดแอป ↗</span>
+                </a>
+                <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
-            <div class="card-action-btns">
-              <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
-                <span>เปิดแอป ↗</span>
-              </a>
-              <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
-                <span>GitHub</span>
-              </a>
-            </div>
-          </div>
+          </article>
         </div>
       </section>
 
@@ -210,7 +219,7 @@
           <span class="skill-pill">💾 Local Storage / IndexedDB</span>
           <span class="skill-pill">🐙 Git & GitHub Pages</span>
           <span class="skill-pill">⚙️ REST APIs</span>
-          <span class="skill-pill">🪿 Goose Vibes</span>
+          <span class="skill-pill">🪿 Goose Farm Vibes</span>
         </div>
       </section>
 
@@ -264,7 +273,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© <span id="currentYear">2026</span> Thagoose • Crafted with 🪿 Goose Energy & Minimal Aesthetics</p>
+      <p>© <span id="currentYear">2026</span> Thagoose • Crafted with 🪿 Goose Energy & Farm Aesthetics 🌾</p>
       <p style="margin-top: 0.3rem;">Hosted on GitHub Pages • <a href="https://github.com/Thagoose3/Profile-Domain" target="_blank" rel="noopener noreferrer">Profile-Domain</a></p>
     </footer>
   </div>
