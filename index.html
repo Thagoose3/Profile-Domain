@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thagoose | Personal Portfolio & Project Hub</title>
-  <meta name="description" content="พอร์ตโฟลิโอและศูนย์รวมผลงานของ Thagoose - แนะนำตัว โปรเจกต์ Money Memo, Exercise, Calories Tracker และผลงานทั้งหมดบน GitHub">
+  <title>Thagoose 🪿 | Portfolio & Project Hub</title>
+  <meta name="description" content="พอร์ตโฟลิโอและศูนย์รวมผลงานของ Thagoose - แนะนำตัวและเว็บแอป Money Memo, Exercise, Calories Tracker">
   <meta name="author" content="Thagoose">
 
-  <!-- Open Graph / Meta for Social Sharing -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thagoose3.github.io/Profile-Domain/">
-  <meta property="og:title" content="Thagoose | Personal Portfolio & Project Hub">
-  <meta property="og:description" content="พอร์ตโฟลิโอและศูนย์รวมผลงาน พัฒนาเว็บแอปพลิเคชันและโปรเจกต์ต่างๆ">
-  <meta property="og:image" content="assets/images/money-memo-preview.svg">
+  <meta property="og:title" content="Thagoose 🪿 | Portfolio & Project Hub">
+  <meta property="og:description" content="ศูนย์รวมเว็บแอปพลิเคชันและโปรเจกต์ของ Thagoose">
+  <meta property="og:image" content="assets/images/avatar.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/images/avatar.svg">
@@ -22,22 +22,22 @@
 </head>
 <body>
 
-  <!-- Ambient Glow Effects -->
-  <div class="ambient-glow ambient-glow-1"></div>
-  <div class="ambient-glow ambient-glow-2"></div>
+  <!-- Ambient Glow Blobs -->
+  <div class="ambient-blob blob-1"></div>
+  <div class="ambient-blob blob-2"></div>
 
   <div class="container">
-    <!-- Floating Navigation Bar -->
+    <!-- Floating Minimal Nav -->
     <header class="header-nav">
       <nav class="nav-pill" aria-label="Main Navigation">
         <a href="#" class="nav-brand">
-          <span class="brand-dot"></span>
+          <span class="brand-goose">🪿</span>
           <span>thagoose</span>
         </a>
 
         <ul class="nav-links">
-          <li><a href="#projects" class="nav-link">ผลงานหลัก</a></li>
-          <li><a href="#all-repos" class="nav-link">คลัง Repo</a></li>
+          <li><a href="#apps" class="nav-link">เว็บแอป</a></li>
+          <li><a href="#repos" class="nav-link">คลัง Repo</a></li>
           <li><a href="#skills" class="nav-link">ทักษะ</a></li>
           <li><a href="#connect" class="nav-link">ติดต่อ</a></li>
         </ul>
@@ -48,166 +48,145 @@
       </nav>
     </header>
 
-    <!-- Hero / Profile Section -->
     <main>
+      <!-- Hero / Profile Section (Compact Goose Style) -->
       <section class="hero-section">
         <div class="profile-card">
-          <div class="avatar-wrapper">
+          <div class="avatar-wrapper" id="gooseAvatar" title="คลิกเพื่อส่งเสียง Honk! 🪿">
             <img src="assets/images/avatar.svg" alt="Thagoose Avatar" class="avatar-img">
+            <span class="avatar-honk-tag">HONK!</span>
           </div>
 
-          <div class="status-badge">
-            <span class="pulse-dot"></span>
-            <span>พร้อมสร้างสรรค์โปรเจกต์ใหม่ๆ 🌱</span>
-          </div>
+          <div class="profile-info">
+            <div class="status-row">
+              <div class="status-badge">
+                <span class="pulse-dot"></span>
+                <span>Nesting Cool Projects 🪿</span>
+              </div>
+            </div>
 
-          <h1 class="hero-title">
-            สวัสดีครับ, ผม <span class="hero-gradient-text">Thagoose</span> 👋
-          </h1>
-          <p class="hero-subtitle">Developer & Creator</p>
-          <p class="hero-bio">
-            ยินดีต้อนรับสู่พื้นที่รวมผลงานและโปรเจกต์ของผม มุ่งมั่นพัฒนาแอปพลิเคชันและเครื่องมือที่ใช้งานง่าย ดีไซน์สะอาดตา และตอบโจทย์ชีวิตประจำวัน
-          </p>
+            <h1 class="hero-title">
+              สวัสดีครับ, ผม <span class="hero-gradient-text">Thagoose</span>
+            </h1>
+            <p class="hero-bio">
+              พื้นที่รวมเว็บแอปพลิเคชันและโปรเจกต์ทดลอง เน้นดีไซน์มินิมอล ใช้งานง่าย และตอบโจทย์ชีวิตประจำวัน
+            </p>
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              <span>🚀 ดูผลงานเด่น</span>
-            </a>
-            <a href="#all-repos" class="btn btn-secondary">
-              <span>📦 ดูคลัง Repositories</span>
-            </a>
-            <button class="btn btn-secondary" data-copy-email="contact.thagoose@gmail.com">
-              <span>📋 คัดลอกอีเมล</span>
-            </button>
+            <div class="hero-actions">
+              <a href="#apps" class="btn btn-primary">
+                <span>🚀 เปิดเว็บแอป</span>
+              </a>
+              <button class="btn btn-secondary" id="honkBtn">
+                <span>🪿 Honk!</span>
+              </button>
+              <button class="btn btn-secondary" data-copy-email="contact.thagoose@gmail.com">
+                <span>📋 คัดลอกอีเมล</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Featured Projects Section -->
-      <section id="projects" class="section">
+      <!-- Featured Apps (Compact Bento Grid) -->
+      <section id="apps" class="section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">✨ ผลงานเด่น (Featured Projects)</h2>
-            <p class="section-subtitle">แอปพลิเคชันหลักที่เปิดให้ทดลองใช้งานจริงผ่าน GitHub Pages</p>
+            <h2 class="section-title">✨ เว็บแอปพลิเคชันหลัก (Featured Apps)</h2>
+            <p class="section-subtitle">กดเพื่อเปิดใช้งานเว็บแอปจริงผ่าน GitHub Pages ได้ทันที</p>
           </div>
         </div>
 
-        <div class="projects-grid">
-          <!-- Featured Project 1: Money Memo -->
-          <article class="project-card featured-card">
-            <div class="project-preview">
-              <span class="project-badge-top">⭐ Featured App</span>
-              <img src="assets/images/money-memo-preview.svg" alt="Money Memo Preview Mockup" loading="lazy">
-            </div>
-
-            <div class="project-content">
-              <div class="project-header-row">
-                <h3 class="project-name">Money Memo</h3>
+        <div class="bento-compact-grid">
+          <!-- App 1: Money Memo -->
+          <div class="bento-card-compact">
+            <div>
+              <div class="card-top-row">
+                <div class="app-icon-wrap icon-money-bg">💰</div>
+                <span class="card-status-pill status-featured">Featured</span>
               </div>
-
-              <p class="project-desc">
-                เว็บแอปพลิเคชันบันทึกรายรับ-รายจ่ายอัจฉริยะ (Smart Expense Tracker) ใช้งานง่าย ช่วยวางแผนการเงิน มีแดชบอร์ดสรุปยอดชัดเจน โหลดเร็ว พร้อมใช้งานผ่านเว็บเบราว์เซอร์
-              </p>
-
-              <div class="project-tags">
-                <span class="tag-pill tag-mint">Web Application</span>
-                <span class="tag-pill tag-sky">Finance</span>
-                <span class="tag-pill tag-lavender">Responsive</span>
-                <span class="tag-pill tag-peach">Productivity</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <span>เปิดใช้งานแอป ↗</span>
-                </a>
-                <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                  <span>GitHub Code</span>
-                </a>
+              <h3 class="app-title">Money Memo</h3>
+              <p class="app-desc">เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดกราฟสรุปยอดเงินและหมวดหมู่อัตโนมัติ</p>
+              <div class="tag-list-compact">
+                <span class="pill-tag tag-teal">Finance</span>
+                <span class="pill-tag tag-orange">Expense</span>
+                <span class="pill-tag tag-sky">Web App</span>
               </div>
             </div>
-          </article>
-
-          <!-- Project 2: Exercise App -->
-          <article class="project-card">
-            <div class="project-preview">
-              <img src="assets/images/exercise-preview.svg" alt="Exercise Tracker Preview Mockup" loading="lazy">
+            <div class="card-action-btns">
+              <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                <span>เปิดแอป ↗</span>
+              </a>
+              <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+                <span>GitHub</span>
+              </a>
             </div>
+          </div>
 
-            <div class="project-content">
-              <div class="project-header-row">
-                <h3 class="project-name">Exercise Tracker</h3>
+          <!-- App 2: Exercise Tracker -->
+          <div class="bento-card-compact">
+            <div>
+              <div class="card-top-row">
+                <div class="app-icon-wrap icon-exercise-bg">🏋️</div>
+                <span class="card-status-pill status-active">Active</span>
               </div>
-
-              <p class="project-desc">
-                แอปพลิเคชันบันทึกการออกกำลังกาย วางแผนตารางฝึก Routine ติดตามเซ็ตและเวลาในการเทรนนิ่งอย่างเป็นระบบ
-              </p>
-
-              <div class="project-tags">
-                <span class="tag-pill tag-lavender">Fitness</span>
-                <span class="tag-pill tag-sky">Routine Tracker</span>
-                <span class="tag-pill tag-mint">PWA Ready</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <span>เปิดใช้งานแอป ↗</span>
-                </a>
-                <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                  <span>GitHub</span>
-                </a>
+              <h3 class="app-title">Exercise Tracker</h3>
+              <p class="app-desc">แอปพลิเคชันบันทึกและติดตามการออกกำลังกาย วางตารางฝึก Routine เซ็ต และเวลาฝึก</p>
+              <div class="tag-list-compact">
+                <span class="pill-tag tag-purple">Fitness</span>
+                <span class="pill-tag tag-teal">Routine</span>
+                <span class="pill-tag tag-sky">Tracker</span>
               </div>
             </div>
-          </article>
-
-          <!-- Project 3: Calories Tracker (NutriTrack) -->
-          <article class="project-card">
-            <div class="project-preview">
-              <img src="assets/images/nutritrack-preview.svg" alt="Calories Tracker Preview Mockup" loading="lazy">
+            <div class="card-action-btns">
+              <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                <span>เปิดแอป ↗</span>
+              </a>
+              <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+                <span>GitHub</span>
+              </a>
             </div>
+          </div>
 
-            <div class="project-content">
-              <div class="project-header-row">
-                <h3 class="project-name">Calories Tracker</h3>
+          <!-- App 3: Calories Tracker -->
+          <div class="bento-card-compact">
+            <div>
+              <div class="card-top-row">
+                <div class="app-icon-wrap icon-calories-bg">🥗</div>
+                <span class="card-status-pill status-active">Active</span>
               </div>
-
-              <p class="project-desc">
-                ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสารอาหารหลัก (Macronutrients: Protein, Carbs, Fats) เพื่อสุขภาพที่ดี
-              </p>
-
-              <div class="project-tags">
-                <span class="tag-pill tag-rose">Health & Diet</span>
-                <span class="tag-pill tag-peach">NutriTrack</span>
-                <span class="tag-pill tag-mint">Calculator</span>
-              </div>
-
-              <div class="project-links">
-                <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                  <span>เปิดใช้งานแอป ↗</span>
-                </a>
-                <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-                  <span>GitHub</span>
-                </a>
+              <h3 class="app-title">Calories Tracker</h3>
+              <p class="app-desc">ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats)</p>
+              <div class="tag-list-compact">
+                <span class="pill-tag tag-orange">Nutrition</span>
+                <span class="pill-tag tag-teal">Health</span>
+                <span class="pill-tag tag-purple">Diet</span>
               </div>
             </div>
-          </article>
+            <div class="card-action-btns">
+              <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                <span>เปิดแอป ↗</span>
+              </a>
+              <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- Live GitHub Repositories Section (Dynamic Fetch) -->
-      <section id="all-repos" class="section">
+      <!-- Live GitHub Repos Section (Compact) -->
+      <section id="repos" class="section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">📦 คลังผลงานทั้งหมด (All GitHub Repositories)</h2>
-            <p class="section-subtitle">ดึงข้อมูล Repo สดจาก GitHub ของคุณโดยอัตโนมัติ พร้อมปุ่มเปิดหน้าเว็บและดูซอร์สโค้ด</p>
+            <h2 class="section-title">📦 คลังผลงาน GitHub (All Repositories)</h2>
+            <p class="section-subtitle">ดึงข้อมูลสดจากบัญชี @Thagoose3 โดยอัตโนมัติ</p>
           </div>
-          <a href="https://github.com/Thagoose3?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-            <span>ไปที่ GitHub ↗</span>
+          <a href="https://github.com/Thagoose3?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+            <span>ดูทั้งหมดบน GitHub ↗</span>
           </a>
         </div>
 
-        <!-- Repositories Grid Container -->
-        <div id="reposGrid" class="repos-live-grid">
-          <!-- Fallback / Loading State -->
+        <div id="reposGrid" class="repos-compact-grid">
           <div class="repo-loading-card">
             <div class="repo-loading-spinner"></div>
             <p>กำลังโหลดคลังผลงานจาก GitHub...</p>
@@ -215,118 +194,69 @@
         </div>
       </section>
 
-      <!-- Skills Section -->
+      <!-- Skills Section (Compact) -->
       <section id="skills" class="section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">🛠️ ทักษะและเทคโนโลยี (Skills & Tools)</h2>
-            <p class="section-subtitle">เครื่องมือและเทคโนโลยีที่เลือกใช้ในการพัฒนา</p>
+            <h2 class="section-title">🛠️ ทักษะและเครื่องมือ (Skills & Tech)</h2>
           </div>
         </div>
 
-        <div class="skills-grid">
-          <div class="skill-category-card">
-            <h3 class="skill-cat-title">💻 Frontend & Web</h3>
-            <div class="skill-pills-wrap">
-              <span class="skill-item">HTML5 / CSS3</span>
-              <span class="skill-item">JavaScript (ES6+)</span>
-              <span class="skill-item">Responsive Design</span>
-              <span class="skill-item">UI/UX Prototyping</span>
-            </div>
-          </div>
-
-          <div class="skill-category-card">
-            <h3 class="skill-cat-title">📱 App & Logic</h3>
-            <div class="skill-pills-wrap">
-              <span class="skill-item">State Management</span>
-              <span class="skill-item">RESTful APIs</span>
-              <span class="skill-item">Local Storage / IndexedDB</span>
-              <span class="skill-item">PWA (Progressive Web App)</span>
-            </div>
-          </div>
-
-          <div class="skill-category-card">
-            <h3 class="skill-cat-title">⚙️ Tools & DevOps</h3>
-            <div class="skill-pills-wrap">
-              <span class="skill-item">Git & GitHub</span>
-              <span class="skill-item">GitHub Pages</span>
-              <span class="skill-item">VS Code</span>
-              <span class="skill-item">Figma</span>
-            </div>
-          </div>
+        <div class="compact-skills-row">
+          <span class="skill-pill">💻 HTML5 & CSS3</span>
+          <span class="skill-pill">⚡ JavaScript (ES6+)</span>
+          <span class="skill-pill">📱 Responsive & Mobile First</span>
+          <span class="skill-pill">🎨 Modern UI / UX</span>
+          <span class="skill-pill">💾 Local Storage / IndexedDB</span>
+          <span class="skill-pill">🐙 Git & GitHub Pages</span>
+          <span class="skill-pill">⚙️ REST APIs</span>
+          <span class="skill-pill">🪿 Goose Vibes</span>
         </div>
       </section>
 
-      <!-- Social & Connect Hub (Linktree Bento) -->
+      <!-- Connect & Links Hub (Compact) -->
       <section id="connect" class="section">
         <div class="section-header">
           <div>
-            <h2 class="section-title">🌐 ช่องทางติดต่อ & ลิงก์สำคัญ (Connect Hub)</h2>
-            <p class="section-subtitle">ติดตามผลงานและติดต่อพูดคุยได้ผ่านช่องทางด้านล่าง</p>
+            <h2 class="section-title">🌐 ช่องทางติดต่อ & ลิงก์ (Connect Hub)</h2>
           </div>
         </div>
 
-        <div class="social-bento-grid">
-          <!-- GitHub Card -->
-          <a href="https://github.com/Thagoose3" target="_blank" rel="noopener noreferrer" class="social-card">
-            <div class="social-icon-box icon-github">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </div>
-            <div class="social-text">
+        <div class="connect-mini-grid">
+          <a href="https://github.com/Thagoose3" target="_blank" rel="noopener noreferrer" class="connect-card">
+            <div class="connect-icon">🐙</div>
+            <div class="connect-info">
               <h4>GitHub</h4>
               <p>@Thagoose3</p>
             </div>
-            <span class="social-arrow">↗</span>
+            <span class="connect-arrow">↗</span>
           </a>
 
-          <!-- Money Memo App Direct Link -->
-          <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="social-card">
-            <div class="social-icon-box icon-money">
-              <span style="font-size: 1.25rem;">💰</span>
-            </div>
-            <div class="social-text">
-              <h4>Money Memo</h4>
-              <p>เปิดใช้งานเว็บแอป</p>
-            </div>
-            <span class="social-arrow">↗</span>
-          </a>
-
-          <!-- Exercise App Direct Link -->
-          <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="social-card">
-            <div class="social-icon-box icon-exercise">
-              <span style="font-size: 1.25rem;">🏋️</span>
-            </div>
-            <div class="social-text">
-              <h4>Exercise App</h4>
-              <p>เปิดใช้งานเว็บแอป</p>
-            </div>
-            <span class="social-arrow">↗</span>
-          </a>
-
-          <!-- Calories Tracker Direct Link -->
-          <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="social-card">
-            <div class="social-icon-box icon-calories">
-              <span style="font-size: 1.25rem;">🥗</span>
-            </div>
-            <div class="social-text">
-              <h4>Calories Tracker</h4>
-              <p>เปิดใช้งานเว็บแอป</p>
-            </div>
-            <span class="social-arrow">↗</span>
-          </a>
-
-          <!-- Email Copy Card -->
-          <a href="mailto:contact.thagoose@gmail.com" class="social-card" data-copy-email="contact.thagoose@gmail.com">
-            <div class="social-icon-box icon-email">
-              <span style="font-size: 1.25rem;">✉️</span>
-            </div>
-            <div class="social-text">
+          <a href="mailto:contact.thagoose@gmail.com" class="connect-card" data-copy-email="contact.thagoose@gmail.com">
+            <div class="connect-icon">✉️</div>
+            <div class="connect-info">
               <h4>Email</h4>
-              <p>กดเพื่อคัดลอกอีเมล</p>
+              <p>กดเพื่อคัดลอก</p>
             </div>
-            <span class="social-arrow">📋</span>
+            <span class="connect-arrow">📋</span>
+          </a>
+
+          <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="connect-card">
+            <div class="connect-icon">💰</div>
+            <div class="connect-info">
+              <h4>Money Memo</h4>
+              <p>Live Web App</p>
+            </div>
+            <span class="connect-arrow">↗</span>
+          </a>
+
+          <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="connect-card">
+            <div class="connect-icon">🏋️</div>
+            <div class="connect-info">
+              <h4>Exercise</h4>
+              <p>Live Web App</p>
+            </div>
+            <span class="connect-arrow">↗</span>
           </a>
         </div>
       </section>
@@ -334,20 +264,20 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© <span id="currentYear">2026</span> Thagoose • Crafted with <span class="footer-heart">♥</span> and Modern Pastel Design</p>
-      <p style="font-size: 0.8rem; color: var(--text-muted);">Portfolio & Hub for <a href="https://github.com/Thagoose3" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: underline;">@Thagoose3</a></p>
+      <p>© <span id="currentYear">2026</span> Thagoose • Crafted with 🪿 Goose Energy & Minimal Aesthetics</p>
+      <p style="margin-top: 0.3rem;">Hosted on GitHub Pages • <a href="https://github.com/Thagoose3/Profile-Domain" target="_blank" rel="noopener noreferrer">Profile-Domain</a></p>
     </footer>
   </div>
 
   <!-- Toast Notification Box -->
   <div class="toast-container">
     <div id="copyToast" class="toast">
-      <span>✅</span>
-      <span class="toast-msg">คัดลอกอีเมลเรียบร้อยแล้ว</span>
+      <span id="toastIcon">✅</span>
+      <span class="toast-msg" id="toastMsg">คัดลอกเรียบร้อย</span>
     </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>

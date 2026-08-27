@@ -1,28 +1,27 @@
 ﻿/**
- * Modern Minimal Pastel Portfolio - JavaScript
- * Features: Dark/Light Mode, Live GitHub Repos Fetcher, Copy Email Toast, Smooth Scroll
+ * Thagoose - Modern Minimal Goose Portfolio JavaScript 🪿
+ * Features: Dark/Light Mode, Web Audio "Honk!" Easter Egg, Live GitHub Repos Fetcher, Copy Toast
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initCopyEmail();
+  initHonkEasterEgg();
   initFooterYear();
   initSmoothScroll();
   fetchGitHubRepos('Thagoose3');
 });
 
 /* ==========================================================================
-   Theme Management (Light / Dark Pastel)
+   Theme Management (Goose Light / Midnight Dark)
    ========================================================================== */
 function initTheme() {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = document.getElementById('themeIcon');
-  
   if (!themeToggleBtn) return;
 
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
   const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
   applyTheme(currentTheme);
 
@@ -46,118 +45,156 @@ function applyTheme(theme) {
 }
 
 /* ==========================================================================
-   Fetch GitHub Repositories Dynamically
+   Goose "Honk!" Synthesizer Easter Egg (Pure Web Audio API) 🪿
+   ========================================================================== */
+function initHonkEasterEgg() {
+  const gooseAvatar = document.getElementById('gooseAvatar');
+  const honkBtn = document.getElementById('honkBtn');
+  const toast = document.getElementById('copyToast');
+
+  const honkMessages = [
+    '🪿 HONK! Welcome to the nest!',
+    '🪿 Honk honk! Keep on building cool apps!',
+    '🪿 Goose approved! Peace was never an option.',
+    '🪿 *Happy Goose Noises*',
+    '🪿 Honk! Have a productive day!'
+  ];
+
+  function triggerHonk() {
+    playHonkSound();
+    const randomMsg = honkMessages[Math.floor(Math.random() * honkMessages.length)];
+    showToast(toast, randomMsg, '🪿');
+  }
+
+  if (gooseAvatar) gooseAvatar.addEventListener('click', triggerHonk);
+  if (honkBtn) honkBtn.addEventListener('click', triggerHonk);
+}
+
+function playHonkSound() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+
+    // Goose Honk pitch bend & harmonics
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(420, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(260, ctx.currentTime + 0.18);
+
+    gain.gain.setValueAtTime(0.2, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.18);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start();
+    osc.stop(ctx.currentTime + 0.2);
+  } catch (e) {
+    // Silent fail if audio context blocked
+  }
+}
+
+/* ==========================================================================
+   Fetch GitHub Repositories Dynamically (Compact Cards)
    ========================================================================== */
 async function fetchGitHubRepos(username) {
   const reposGrid = document.getElementById('reposGrid');
   if (!reposGrid) return;
 
   try {
-    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=15`);
-    if (!response.ok) throw new Error('Failed to load GitHub repos');
+    const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=12`);
+    if (!response.ok) throw new Error('GitHub API rate limited or unreachable');
     
     const repos = await response.json();
     if (!Array.isArray(repos) || repos.length === 0) {
-      reposGrid.innerHTML = `
-        <div class="repo-empty-card">
-          <p>ยังไม่มีคลังผลงานสาธารณะ หรือกำลังโหลดข้อมูล</p>
-        </div>
-      `;
+      reposGrid.innerHTML = `<div class="repo-loading-card"><p>ยังไม่มีคลังผลงาน</p></div>`;
       return;
     }
 
-    // Filter out profile-domain if desired or display all
     reposGrid.innerHTML = repos.map(repo => {
-      const liveUrl = repo.has_pages 
-        ? `https://${username.toLowerCase()}.github.io/${repo.name}` 
-        : `https://${username.toLowerCase()}.github.io/${repo.name}`;
-      
-      const langTag = repo.language ? `<span class="tag-pill tag-sky">${repo.language}</span>` : '';
-      const starsTag = repo.stargazers_count > 0 ? `<span class="repo-meta-star">⭐ ${repo.stargazers_count}</span>` : '';
-      const description = repo.description || 'โปรเจกต์และซอร์สโค้ดบน GitHub';
+      const liveUrl = `https://${username.toLowerCase()}.github.io/${repo.name}`;
+      const langTag = repo.language ? `<span class="pill-tag tag-sky">${repo.language}</span>` : '';
+      const description = repo.description || 'โปรเจกต์และโค้ดบน GitHub';
 
       return `
-        <div class="repo-card-live">
-          <div class="repo-card-top">
-            <div class="repo-name-group">
-              <span class="repo-icon">📂</span>
-              <h3 class="repo-name">${escapeHTML(repo.name)}</h3>
+        <div class="repo-mini-card">
+          <div>
+            <div class="repo-mini-header">
+              <span class="repo-mini-name">📂 ${escapeHTML(repo.name)}</span>
+              ${langTag}
             </div>
-            ${starsTag}
+            <p class="repo-mini-desc">${escapeHTML(description)}</p>
           </div>
 
-          <p class="repo-desc">${escapeHTML(description)}</p>
-
-          <div class="repo-meta-row">
-            ${langTag}
-            <span class="repo-update-time">อัปเดต: ${formatDate(repo.updated_at)}</span>
-          </div>
-
-          <div class="repo-btn-group">
-            <a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-              <span>เปิดเว็บแอป ↗</span>
-            </a>
-            <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
-              <span>โค้ด GitHub</span>
-            </a>
+          <div class="repo-mini-footer">
+            <div class="repo-mini-btns">
+              <a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">
+                เปิดแอป ↗
+              </a>
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">
+                โค้ด
+              </a>
+            </div>
           </div>
         </div>
       `;
     }).join('');
 
   } catch (error) {
-    console.warn('GitHub API fetch failed or rate limited:', error);
-    // Fallback static cards
+    console.warn('Using fallback repos:', error);
     reposGrid.innerHTML = `
-      <div class="repo-card-live">
-        <div class="repo-card-top">
-          <div class="repo-name-group">
-            <span class="repo-icon">📂</span>
-            <h3 class="repo-name">Money-memo</h3>
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 Money-memo</span>
+            <span class="pill-tag tag-teal">JavaScript</span>
           </div>
+          <p class="repo-mini-desc">เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ</p>
         </div>
-        <p class="repo-desc">เว็บแอปพลิเคชันบันทึกรายรับ-รายจ่ายอัจฉริยะ</p>
-        <div class="repo-btn-group">
-          <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">เปิดเว็บแอป ↗</a>
-          <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">โค้ด GitHub</a>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
+            <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
         </div>
       </div>
 
-      <div class="repo-card-live">
-        <div class="repo-card-top">
-          <div class="repo-name-group">
-            <span class="repo-icon">📂</span>
-            <h3 class="repo-name">Exercise</h3>
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 Exercise</span>
+            <span class="pill-tag tag-purple">PWA</span>
           </div>
+          <p class="repo-mini-desc">แอปพลิเคชันบันทึกและวางแผนการออกกำลังกาย</p>
         </div>
-        <p class="repo-desc">แอปพลิเคชันบันทึกและวางแผนการออกกำลังกาย</p>
-        <div class="repo-btn-group">
-          <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">เปิดเว็บแอป ↗</a>
-          <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">โค้ด GitHub</a>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
+            <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
         </div>
       </div>
 
-      <div class="repo-card-live">
-        <div class="repo-card-top">
-          <div class="repo-name-group">
-            <span class="repo-icon">📂</span>
-            <h3 class="repo-name">Calories_Tracker</h3>
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 Calories_Tracker</span>
+            <span class="pill-tag tag-orange">HTML5</span>
           </div>
+          <p class="repo-mini-desc">ระบบคำนวณและติดตามโภชนาการ แคลอรี่</p>
         </div>
-        <p class="repo-desc">ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสารอาหารหลัก</p>
-        <div class="repo-btn-group">
-          <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">เปิดเว็บแอป ↗</a>
-          <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">โค้ด GitHub</a>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
+            <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
         </div>
       </div>
     `;
   }
-}
-
-function formatDate(isoString) {
-  if (!isoString) return '';
-  const date = new Date(isoString);
-  return date.toLocaleDateString('th-TH', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 function escapeHTML(str) {
@@ -180,7 +217,7 @@ function initCopyEmail() {
 
       try {
         await navigator.clipboard.writeText(email);
-        showToast(toast, `คัดลอกอีเมลเรียบร้อย: ${email}`);
+        showToast(toast, `คัดลอกอีเมลเรียบร้อย: ${email}`, '📋');
       } catch (err) {
         const tempInput = document.createElement('input');
         tempInput.value = email;
@@ -188,32 +225,33 @@ function initCopyEmail() {
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-        showToast(toast, `คัดลอกอีเมลเรียบร้อย: ${email}`);
+        showToast(toast, `คัดลอกอีเมลเรียบร้อย: ${email}`, '📋');
       }
     });
   });
 }
 
-function showToast(toastEl, message) {
+function showToast(toastEl, message, icon = '✅') {
   if (!toastEl) return;
-  const toastMsg = toastEl.querySelector('.toast-msg') || toastEl;
-  if (toastMsg) toastMsg.textContent = message;
+  const msgEl = document.getElementById('toastMsg') || toastEl.querySelector('.toast-msg');
+  const iconEl = document.getElementById('toastIcon');
+
+  if (msgEl) msgEl.textContent = message;
+  if (iconEl) iconEl.textContent = icon;
 
   toastEl.classList.add('show');
   clearTimeout(window._toastTimeout);
   window._toastTimeout = setTimeout(() => {
     toastEl.classList.remove('show');
-  }, 2800);
+  }, 2600);
 }
 
 /* ==========================================================================
-   Footer Current Year & Smooth Scroll
+   Footer Current Year & Smooth Scrolling
    ========================================================================== */
 function initFooterYear() {
   const yearEl = document.getElementById('currentYear');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
 function initSmoothScroll() {
