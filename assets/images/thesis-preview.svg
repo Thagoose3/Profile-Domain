@@ -1,0 +1,67 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="thesisBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E7FF" />
+      <stop offset="50%" stop-color="#C7D2FE" />
+      <stop offset="100%" stop-color="#A5B4FC" />
+    </linearGradient>
+    <linearGradient id="thesisCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F5F7FF" />
+    </linearGradient>
+    <filter id="thesisShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#4338CA" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <rect width="600" height="360" rx="24" fill="url(#thesisBg)" />
+  <circle cx="80" cy="70" r="45" fill="#818CF8" opacity="0.35" />
+  <circle cx="520" cy="290" r="75" fill="#6366F1" opacity="0.25" />
+
+  <g filter="url(#thesisShadow)">
+    <rect x="70" y="45" width="460" height="270" rx="20" fill="url(#thesisCardGrad)" stroke="#C7D2FE" stroke-width="1" />
+    
+    <!-- Top Bar -->
+    <rect x="70" y="45" width="460" height="42" rx="20" fill="#E0E7FF" />
+    <rect x="70" y="67" width="460" height="20" fill="#E0E7FF" />
+    <circle cx="95" cy="66" r="5" fill="#EF4444" />
+    <circle cx="110" cy="66" r="5" fill="#F59E0B" />
+    <circle cx="125" cy="66" r="5" fill="#10B981" />
+    <text x="300" y="70" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" fill="#4338CA">PaperVault • Research & Thesis Studio</text>
+
+    <!-- Workspace Layout Mockup -->
+    <!-- Left Sidebar / Paper List -->
+    <rect x="95" y="100" width="130" height="195" rx="12" fill="#EEF2FF" stroke="#E0E7FF" stroke-width="1.5" />
+    <text x="110" y="122" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#3730A3">📚 Paper Library</text>
+    
+    <rect x="105" y="135" width="110" height="36" rx="8" fill="#FFFFFF" stroke="#C7D2FE" stroke-width="1" />
+    <text x="115" y="152" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#4338CA">AI Attention.pdf</text>
+    <text x="115" y="164" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#6B7280">Vaswani et al. (2017)</text>
+
+    <rect x="105" y="178" width="110" height="36" rx="8" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1" />
+    <text x="115" y="195" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#1F2937">Deep Residual.pdf</text>
+    <text x="115" y="207" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#6B7280">He et al. (2016)</text>
+
+    <rect x="105" y="221" width="110" height="36" rx="8" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1" />
+    <text x="115" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#1F2937">Neural Network.pdf</text>
+    <text x="115" y="250" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#6B7280">LeCun et al. (2015)</text>
+
+    <!-- Main Reading & Annotation Panel -->
+    <rect x="235" y="100" width="270" height="195" rx="12" fill="#FFFFFF" stroke="#E0E7FF" stroke-width="1.5" />
+    
+    <!-- Paper Title Bar -->
+    <text x="250" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#1E1B4B">Attention Is All You Need</text>
+    <text x="250" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#4F46E5">Matrix Synthesis & BibTeX Active ✓</text>
+
+    <!-- Highlighted Text Mockup -->
+    <rect x="250" y="155" width="240" height="14" rx="3" fill="#FEF08A" opacity="0.8" />
+    <rect x="250" y="174" width="220" height="10" rx="3" fill="#E2E8F0" />
+    <rect x="250" y="190" width="235" height="10" rx="3" fill="#E2E8F0" />
+    
+    <!-- Annotation Sticky Note -->
+    <rect x="330" y="210" width="160" height="65" rx="8" fill="#FEF3C7" stroke="#FDE68A" stroke-width="1" />
+    <text x="342" y="230" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#92400E">📝 Key Finding:</text>
+    <text x="342" y="246" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#78350F">Self-attention replaces</text>
+    <text x="342" y="260" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#78350F">recurrent layers effectively.</text>
+  </g>
+</svg>

@@ -1,11 +1,12 @@
 ﻿/**
  * Thagoose - Daily Life Ecosystem Portfolio JavaScript 🪿🌾
- * Features: Typewriter, Goose Footprints Trail, 3D Tilt Cards, Live Simulator, Honk Sound, Live GitHub API
+ * Features: Typewriter, Carousel Slider, Goose Footprints, 3D Tilt, Live Simulator, Honk Sound, Live GitHub API
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initTypewriter();
+  initCarousel();
   initFootprintsTrail();
   init3DTiltCards();
   initAppSimulatorModal();
@@ -49,6 +50,62 @@ function applyTheme(theme) {
 }
 
 /* ==========================================================================
+   Carousel Horizontal Slider (Left / Right Nav + Dots)
+   ========================================================================== */
+function initCarousel() {
+  const track = document.getElementById('appsTrack');
+  const leftBtn = document.getElementById('scrollLeftBtn');
+  const rightBtn = document.getElementById('scrollRightBtn');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.project-card-scaled');
+  if (cards.length === 0) return;
+
+  // Create Pagination Dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    cards.forEach((_, idx) => {
+      const dot = document.createElement('span');
+      dot.className = `carousel-dot ${idx === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth + 20; // width + gap
+        track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Scroll Left / Right Buttons
+  if (leftBtn) {
+    leftBtn.addEventListener('click', () => {
+      const scrollAmount = cards[0].offsetWidth + 20;
+      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+  }
+
+  if (rightBtn) {
+    rightBtn.addEventListener('click', () => {
+      const scrollAmount = cards[0].offsetWidth + 20;
+      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+  }
+
+  // Update active dot on scroll
+  track.addEventListener('scroll', () => {
+    if (!dotsContainer) return;
+    const cardWidth = cards[0].offsetWidth + 20;
+    const activeIndex = Math.round(track.scrollLeft / cardWidth);
+    const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === activeIndex);
+    });
+  }, { passive: true });
+}
+
+/* ==========================================================================
    Typewriter Effect (Hero Subtitle)
    ========================================================================== */
 function initTypewriter() {
@@ -57,6 +114,7 @@ function initTypewriter() {
 
   const words = [
     'Thagoose Daily Life Ecosystem 🌐',
+    'PaperVault (Research Suite) 🎓',
     'Money Memo (Finance Suite) 💰',
     'Exercise & Routine Tracker 🏋️',
     'Calories & Nutrition Tracker 🥗',
@@ -359,6 +417,22 @@ async function fetchGitHubRepos(username) {
   } catch (error) {
     console.warn('Using fallback repos:', error);
     reposGrid.innerHTML = `
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 thesis-workspace</span>
+            <span class="pill-tag tag-indigo">JavaScript</span>
+          </div>
+          <p class="repo-mini-desc">สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ PaperVault</p>
+        </div>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/thesis-workspace" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
+            <a href="https://github.com/Thagoose3/thesis-workspace" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
+        </div>
+      </div>
+
       <div class="repo-mini-card">
         <div>
           <div class="repo-mini-header">

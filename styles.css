@@ -1,6 +1,6 @@
 ﻿/* ==========================================================================
    Thagoose - Modern Farm & Goose Theme Stylesheet 🪿🌾
-   Features: 3D Tilt Cards, Live Preview Modal, Footprints Trail, Night Fireflies
+   Features: 3D Tilt Cards, Horizontal Slider / Carousel, Live Simulator
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600&display=swap');
@@ -39,6 +39,11 @@
   --goose-sky-bg: #E0F2FE;
   --goose-sky-border: #BAE6FD;
   --goose-sky-text: #0369A1;
+
+  --goose-indigo: #4F46E5;
+  --goose-indigo-bg: #E0E7FF;
+  --goose-indigo-border: #C7D2FE;
+  --goose-indigo-text: #4338CA;
 
   --goose-purple: #7C3AED;
   --goose-purple-bg: #EDE9FE;
@@ -95,6 +100,10 @@
   --goose-sky-text: #7DD3FC;
   --goose-sky-border: rgba(56, 189, 248, 0.35);
 
+  --goose-indigo-bg: rgba(79, 70, 229, 0.22);
+  --goose-indigo-text: #A5B4FC;
+  --goose-indigo-border: rgba(99, 102, 241, 0.35);
+
   --goose-purple-bg: rgba(124, 58, 237, 0.22);
   --goose-purple-text: #C4B5FD;
   --goose-purple-border: rgba(124, 58, 237, 0.35);
@@ -136,7 +145,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Atmospheric Overlay */
 body::before {
   content: '';
   position: fixed;
@@ -149,7 +157,6 @@ body::before {
   transition: background 0.3s ease;
 }
 
-/* Goose Footprints Canvas */
 #cursorCanvas {
   position: fixed;
   inset: 0;
@@ -352,7 +359,6 @@ body::before {
   -webkit-text-fill-color: transparent;
 }
 
-/* Typewriter Subtitle */
 .hero-typewriter-wrap {
   font-size: 0.95rem;
   font-weight: 600;
@@ -441,7 +447,7 @@ body::before {
   font-size: 0.78rem;
 }
 
-/* --- Section Styling --- */
+/* --- Section Styling & Carousel Controls --- */
 .section {
   margin-bottom: 2.75rem;
 }
@@ -468,15 +474,60 @@ body::before {
   color: var(--text-muted);
 }
 
-/* --- 3D Tilt Scaled Projects Grid --- */
-.projects-grid-scaled {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.carousel-nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--card-shadow);
+}
+
+.carousel-nav-btn:hover {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  transform: scale(1.08);
+}
+
+/* --- Horizontal Carousel Slider for Ecosystem Cards --- */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
   gap: 1.25rem;
-  perspective: 1000px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0.5rem 0.25rem 1.25rem 0.25rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 .project-card-scaled {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
   background: var(--card-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -529,6 +580,11 @@ body::before {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
+.preview-memo-bg { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.preview-exercise-bg { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
+.preview-calories-bg { background: linear-gradient(135deg, #FFE5D9, #FFCAD4); }
+.preview-thesis-bg { background: linear-gradient(135deg, #E0E7FF, #C7D2FE); }
+
 .card-body-content {
   padding: 1.25rem;
   display: flex;
@@ -576,6 +632,7 @@ body::before {
 .tag-orange { background: var(--goose-orange-bg); color: var(--goose-orange-text); border-color: var(--goose-orange-border); }
 .tag-sky { background: var(--goose-sky-bg); color: var(--goose-sky-text); border-color: var(--goose-sky-border); }
 .tag-purple { background: var(--goose-purple-bg); color: var(--goose-purple-text); border-color: var(--goose-purple-border); }
+.tag-indigo { background: var(--goose-indigo-bg); color: var(--goose-indigo-text); border-color: var(--goose-indigo-border); }
 
 .card-buttons-row {
   display: flex;
@@ -585,6 +642,29 @@ body::before {
 
 .card-buttons-row .btn {
   flex: 1;
+}
+
+/* Carousel Dots Indicator */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.carousel-dot.active {
+  width: 22px;
+  border-radius: var(--radius-pill);
+  background: var(--goose-orange);
 }
 
 /* --- Live GitHub Repos Compact Cards --- */
@@ -907,13 +987,13 @@ body::before {
   .hero-actions {
     justify-content: center;
   }
-  .projects-grid-scaled, .repos-compact-grid, .connect-mini-grid {
+  .project-card-scaled {
+    flex: 0 0 85vw;
+  }
+  .repos-compact-grid, .connect-mini-grid {
     grid-template-columns: 1fr;
   }
   .nav-pill {
     padding: 0.4rem 0.8rem;
   }
 }
-.preview-memo-bg { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
-.preview-exercise-bg { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
-.preview-calories-bg { background: linear-gradient(135deg, #FFE5D9, #FFCAD4); }
