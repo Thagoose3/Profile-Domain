@@ -1,5 +1,5 @@
 ﻿/**
- * Thagoose - Modern Farm & Goose Portfolio JavaScript 🪿🌾
+ * Thagoose - Daily Life Ecosystem Portfolio JavaScript 🪿🌾
  * Features: Typewriter, Goose Footprints Trail, 3D Tilt Cards, Live Simulator, Honk Sound, Live GitHub API
  */
 
@@ -56,36 +56,37 @@ function initTypewriter() {
   if (!targetEl) return;
 
   const words = [
-    'Developer & Creator 💻',
-    'Creator of Money Memo 💰',
-    'Fitness & Nutrition Apps 🥗',
+    'Thagoose Daily Life Ecosystem 🌐',
+    'Money Memo (Finance Suite) 💰',
+    'Exercise & Routine Tracker 🏋️',
+    'Calories & Nutrition Tracker 🥗',
     'just a goose vibe 🪿'
   ];
 
   let wordIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  let typeSpeed = 90;
+  let typeSpeed = 85;
 
   function type() {
     const currentWord = words[wordIndex];
     if (isDeleting) {
       targetEl.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
-      typeSpeed = 45;
+      typeSpeed = 40;
     } else {
       targetEl.textContent = currentWord.substring(0, charIndex + 1);
       charIndex++;
-      typeSpeed = 90;
+      typeSpeed = 85;
     }
 
     if (!isDeleting && charIndex === currentWord.length) {
-      typeSpeed = 1800; // Pause at end of word
+      typeSpeed = 1900;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      typeSpeed = 400; // Pause before typing next word
+      typeSpeed = 380;
     }
 
     setTimeout(type, typeSpeed);
@@ -116,7 +117,7 @@ function initFootprintsTrail() {
 
   window.addEventListener('mousemove', (e) => {
     const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
-    if (dist > 35) { // Spawn print every 35px moved
+    if (dist > 35) {
       const angle = Math.atan2(e.clientY - lastY, e.clientX - lastX);
       const offset = leftFoot ? -7 : 7;
       
@@ -141,16 +142,13 @@ function initFootprintsTrail() {
     ctx.globalAlpha = alpha;
     ctx.fillStyle = document.documentElement.getAttribute('data-theme') === 'dark' ? '#FDBA74' : '#F97316';
 
-    // Cute Goose 3-webbed footprint
     ctx.beginPath();
-    // Middle toe
     ctx.moveTo(0, -7);
     ctx.lineTo(2, 0);
     ctx.lineTo(-2, 0);
     ctx.closePath();
     ctx.fill();
 
-    // Left toe
     ctx.beginPath();
     ctx.moveTo(-5, -5);
     ctx.lineTo(0, 2);
@@ -158,7 +156,6 @@ function initFootprintsTrail() {
     ctx.closePath();
     ctx.fill();
 
-    // Right toe
     ctx.beginPath();
     ctx.moveTo(5, -5);
     ctx.lineTo(0, 2);
@@ -166,7 +163,6 @@ function initFootprintsTrail() {
     ctx.closePath();
     ctx.fill();
 
-    // Heel
     ctx.beginPath();
     ctx.arc(0, 2, 2.2, 0, Math.PI * 2);
     ctx.fill();
@@ -180,7 +176,7 @@ function initFootprintsTrail() {
     for (let i = prints.length - 1; i >= 0; i--) {
       const p = prints[i];
       drawFootprint(p.x, p.y, p.angle, p.alpha);
-      p.alpha -= 0.008; // Fade out slowly
+      p.alpha -= 0.008;
       if (p.alpha <= 0) {
         prints.splice(i, 1);
       }
@@ -207,7 +203,7 @@ function init3DTiltCards() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -6; // max 6 deg
+      const rotateX = ((y - centerY) / centerY) * -6;
       const rotateY = ((x - centerX) / centerX) * 6;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
@@ -271,8 +267,8 @@ function initHonkEasterEgg() {
   const toast = document.getElementById('copyToast');
 
   const honkMessages = [
-    '🪿 HONK! just a goose vibe',
-    '🪿 Honk honk! Have a goose-tastic day!',
+    '🪿 HONK! Welcome to Thagoose Daily Life Ecosystem',
+    '🪿 Honk honk! Just a goose vibe',
     '🪿 *Happy Goose Noises*',
     '🪿 Goose approved! Peace was never an option.',
     '🪿 HONK! Keep on building awesome apps!'
@@ -310,7 +306,7 @@ function playHonkSound() {
     osc.start();
     osc.stop(ctx.currentTime + 0.2);
   } catch (e) {
-    // Silent fail if blocked by browser policy
+    // Silent fail if blocked
   }
 }
 
