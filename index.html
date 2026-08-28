@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thagoose 🪿 | Portfolio & Project Hub</title>
-  <meta name="description" content="พอร์ตโฟลิโอและศูนย์รวมผลงานของ Thagoose - แนะนำตัวและเว็บแอป Money Memo, Exercise, Calories Tracker">
+  <title>Thagoose 🪿 | just a goose vibe</title>
+  <meta name="description" content="Thagoose - just a goose vibe 🪿 ศูนย์รวมผลงานและเว็บแอปพลิเคชัน Money Memo, Exercise, Calories Tracker">
   <meta name="author" content="Thagoose">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thagoose3.github.io/Profile-Domain/">
-  <meta property="og:title" content="Thagoose 🪿 | Portfolio & Project Hub">
-  <meta property="og:description" content="ศูนย์รวมเว็บแอปพลิเคชันและโปรเจกต์ของ Thagoose">
+  <meta property="og:title" content="Thagoose 🪿 | just a goose vibe">
+  <meta property="og:description" content="just a goose vibe 🪿 • ศูนย์รวมเว็บแอปพลิเคชันและโปรเจกต์ของ Thagoose">
   <meta property="og:image" content="assets/images/avatar.svg">
 
   <!-- Favicon -->
@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+  <!-- Goose Footprints Canvas Trail -->
+  <canvas id="cursorCanvas"></canvas>
 
   <div class="container">
     <!-- Floating Minimal Nav -->
@@ -56,14 +59,20 @@
           <div class="profile-info">
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              <span>Nesting Cool Projects 🪿🌾</span>
+              <span>🟢 3 Web Apps Online • Goose Farm 🌾</span>
             </div>
 
             <h1 class="hero-title">
-              สวัสดีครับ, ผม <span class="hero-gradient-text">Thagoose</span>
+              สวัสดีครับ, ผม <span class="hero-gradient-text">Thagoose</span> 👋
             </h1>
+            
+            <div class="hero-typewriter-wrap">
+              <span id="typewriterText">Developer & Creator</span>
+              <span class="typewriter-cursor"></span>
+            </div>
+
             <p class="hero-bio">
-              พื้นที่รวมเว็บแอปพลิเคชันและโปรเจกต์ทดลอง เน้นดีไซน์มินิมอล ใช้งานง่าย และตอบโจทย์ชีวิตประจำวัน
+              just a goose vibe 🪿
             </p>
 
             <div class="hero-actions">
@@ -81,7 +90,7 @@
         </div>
       </section>
 
-      <!-- Featured Apps (Scaled Down Preview Cards) -->
+      <!-- Featured Apps (3D Tilt Scaled Preview Cards) -->
       <section id="apps" class="section">
         <div class="section-header">
           <div>
@@ -92,7 +101,7 @@
 
         <div class="projects-grid-scaled">
           <!-- App 1: Money Memo -->
-          <article class="project-card-scaled">
+          <article class="project-card-scaled tilt-card">
             <div class="card-preview-wrap">
               <span class="preview-badge-pill">⭐ Featured</span>
               <img src="assets/images/money-memo-preview.svg" alt="Money Memo Preview" loading="lazy">
@@ -114,6 +123,9 @@
                 <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <span>เปิดแอป ↗</span>
                 </a>
+                <button class="btn btn-secondary btn-sm open-simulator-btn" data-url="https://thagoose3.github.io/Money-memo" data-title="Money Memo">
+                  <span>📱 พรีวิว</span>
+                </button>
                 <a href="https://github.com/Thagoose3/Money-memo" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                   <span>GitHub</span>
                 </a>
@@ -122,7 +134,7 @@
           </article>
 
           <!-- App 2: Exercise Tracker -->
-          <article class="project-card-scaled">
+          <article class="project-card-scaled tilt-card">
             <div class="card-preview-wrap">
               <span class="preview-badge-pill">🏋️ Fitness</span>
               <img src="assets/images/exercise-preview.svg" alt="Exercise Tracker Preview" loading="lazy">
@@ -144,6 +156,9 @@
                 <a href="https://thagoose3.github.io/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <span>เปิดแอป ↗</span>
                 </a>
+                <button class="btn btn-secondary btn-sm open-simulator-btn" data-url="https://thagoose3.github.io/Exercise" data-title="Exercise Tracker">
+                  <span>📱 พรีวิว</span>
+                </button>
                 <a href="https://github.com/Thagoose3/Exercise" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                   <span>GitHub</span>
                 </a>
@@ -152,7 +167,7 @@
           </article>
 
           <!-- App 3: Calories Tracker -->
-          <article class="project-card-scaled">
+          <article class="project-card-scaled tilt-card">
             <div class="card-preview-wrap">
               <span class="preview-badge-pill">🥗 Nutrition</span>
               <img src="assets/images/nutritrack-preview.svg" alt="Calories Tracker Preview" loading="lazy">
@@ -174,6 +189,9 @@
                 <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                   <span>เปิดแอป ↗</span>
                 </a>
+                <button class="btn btn-secondary btn-sm open-simulator-btn" data-url="https://thagoose3.github.io/Calories_Tracker" data-title="Calories Tracker">
+                  <span>📱 พรีวิว</span>
+                </button>
                 <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                   <span>GitHub</span>
                 </a>
@@ -276,6 +294,21 @@
       <p>© <span id="currentYear">2026</span> Thagoose • Crafted with 🪿 Goose Energy & Farm Aesthetics 🌾</p>
       <p style="margin-top: 0.3rem;">Hosted on GitHub Pages • <a href="https://github.com/Thagoose3/Profile-Domain" target="_blank" rel="noopener noreferrer">Profile-Domain</a></p>
     </footer>
+  </div>
+
+  <!-- Interactive Live Simulator Modal -->
+  <div id="simulatorModal" class="modal-overlay">
+    <div class="phone-simulator-frame">
+      <div class="phone-top-notch">
+        <span id="modalAppTitle">App Simulator</span>
+        <span style="font-size: 0.7rem; opacity: 0.7;">9:41 🔋</span>
+      </div>
+      <iframe id="simulatorIframe" class="phone-iframe-content" src="about:blank" title="Live App Simulator"></iframe>
+      <div class="phone-bottom-bar">
+        <button id="closeModalBtn" class="modal-close-btn">✕ ปิดหน้าจอ</button>
+        <a id="modalExternalLink" href="#" target="_blank" rel="noopener noreferrer" class="modal-open-external">เปิดเต็มจอ ↗</a>
+      </div>
+    </div>
   </div>
 
   <!-- Toast Notification Box -->
