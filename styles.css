@@ -914,3 +914,6 @@ body::before {
     padding: 0.4rem 0.8rem;
   }
 }
+.preview-memo-bg { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.preview-exercise-bg { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
+.preview-calories-bg { background: linear-gradient(135deg, #FFE5D9, #FFCAD4); }
