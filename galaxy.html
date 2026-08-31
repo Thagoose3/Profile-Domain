@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -330,6 +330,44 @@
         </div>
       </div>
 
+      <!-- Planet 6: GooseFocus (Living Farm & Focus Planet - 31 ส.ค. 2026) -->
+      <div class="planet-node planet-goosefocus" id="planet-goosefocus">
+        <div class="planet-render-wrap">
+          <svg class="planet-svg-scene" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="gooseGrad" cx="35%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#ECFDF5" />
+                <stop offset="25%" stop-color="#A7F3D0" />
+                <stop offset="55%" stop-color="#10B981" />
+                <stop offset="80%" stop-color="#047857" />
+                <stop offset="100%" stop-color="#064E3B" />
+              </radialGradient>
+              <filter id="gooseGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <circle cx="85" cy="85" r="48" fill="#10B981" opacity="0.4" filter="url(#gooseGlow)" />
+            <circle cx="85" cy="85" r="43" fill="url(#gooseGrad)" />
+            <!-- Little Goose Silhouette & Grass patch -->
+            <ellipse cx="85" cy="98" rx="24" ry="8" fill="#022C22" opacity="0.4" />
+            <ellipse cx="85" cy="82" rx="14" ry="10" fill="#FFFFFF" />
+            <circle cx="94" cy="74" r="5" fill="#FFFFFF" />
+            <path d="M 98 73 L 105 75 L 98 77 Z" fill="#F59E0B" />
+            <circle cx="95" cy="73" r="1.2" fill="#0F172A" />
+            <!-- Golden Crown -->
+            <path d="M 90 69 L 91 63 L 93 66 L 95 62 L 97 66 L 99 63 L 100 69 Z" fill="#FBBF24" />
+          </svg>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🪿</span>
+            <span>GooseFocus</span>
+          </div>
+          <span class="planet-date-pill">📅 31 ส.ค. 2026</span>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -355,6 +393,10 @@
       <button class="selector-chip" data-planet="timeflow">
         <span>⏳</span>
         <span>TimeFlow</span>
+      </button>
+      <button class="selector-chip" data-planet="goosefocus">
+        <span>🪿</span>
+        <span>GooseFocus</span>
       </button>
     </nav>
   </footer>

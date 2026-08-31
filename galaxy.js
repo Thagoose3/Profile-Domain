@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Thagoose Galaxy Universe JavaScript 🚀🌌🪐
  * Features:
  * 1. Spaceship Flight Mode (Astro-Goose Shuttle exploration)
@@ -116,6 +116,25 @@ const PLANETS_DATA = {
       crust: 'Frameless Transparent Window, Quantum Clock Gauges, Glassmorphism',
       mantle: 'Real-time Time Elapsed / Remaining Percentile Calculator',
       core: 'Python Desktop UI (PyQt / Tkinter / Win32 API), Web Companion'
+    }
+  },
+  goosefocus: {
+    id: 'goosefocus',
+    name: 'GooseFocus 🪿',
+    suite: 'Productivity & Farm Suite',
+    date: '31 ส.ค. 2026',
+    icon: '🪿',
+    color: '#10B981',
+    glowRgba: 'rgba(16, 185, 129, 0.55)',
+    desc: 'ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas พร้อมระบบสะสมชั่วโมง ยศชาวไร่ห่าน Leaderboard และ Web Audio Synthesizer',
+    url: 'GooseFocus/index.html',
+    github: 'https://github.com/Thagoose3/Profile-Domain/tree/main/GooseFocus',
+    x: 1200 - 320,
+    y: 1200 - 320,
+    techStack: {
+      crust: 'Full-screen 2D Canvas Viewport, Glassmorphic HUD, CSS3 Animations',
+      mantle: 'Live Goose Entity Physics Engine, Precision Focus Hours Accumulator',
+      core: 'Browser LocalStorage, Web Audio API Synthesizer (Zero External Audio)'
     }
   }
 };
