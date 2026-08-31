@@ -1,8 +1,9 @@
 ﻿# 🪿🌾 Thagoose - Daily Life Ecosystem
 
-เว็บไซต์โปรไฟล์ส่วนตัวและศูนย์รวมเว็บแอปพลิเคชัน (Portfolio & App Hub) สไตล์ **Modern Farm & Goose Theme 🪿🌾**
+เว็บไซต์โปรไฟล์ส่วนตัวและศูนย์รวมเว็บแอปพลิเคชัน (Portfolio & App Hub) สไตล์ **Modern Farm & Space Universe Theme 🪿🌾🚀**
 
-🌐 **Live URL**: [https://thagoose3.github.io/Profile-Domain/](https://thagoose3.github.io/Profile-Domain/)
+🌐 **Live URL**: [https://thagoose3.github.io/Profile-Domain/](https://thagoose3.github.io/Profile-Domain/)  
+🪐 **3D Galaxy Space Map**: [https://thagoose3.github.io/Profile-Domain/galaxy.html](https://thagoose3.github.io/Profile-Domain/galaxy.html)
 
 > *"Thagoose Daily Life Ecosystem — just a goose vibe 🪿"*
 
@@ -10,6 +11,7 @@
 
 ## 🎨 จุดเด่นและลูกเล่นของโปรเจกต์ (Features & Polish)
 
+- 🚀 **Interactive 3D Galaxy Map (`galaxy.html`)**: แผนที่อวกาศสุดล้ำ จำลองจักรวาลที่แต่ละโปรเจกต์คือ **ดวงดาวเคราะห์ (Planets)** มีเส้นกลุ่มดาวตามลำดับเวลา (Constellation Timeline), ป้ายวันที่สร้าง, การ์ดโฮโลแกรมสรุปข้อมูล และคลิกเพื่อวาร์ปเข้าสู่แอป
 - 🌾 **Illustrated Farm & Geese Background**: ภาพพื้นหลังฟาร์มและฝูงห่าน พร้อม Day & Night Mode (โหมดกลางคืนพร้อมแสงจันทร์และหิ่งห้อย)
 - 🎠 **Ecosystem Carousel Slider**: แถบเลื่อนการ์ดผลงานแนวนอน พร้อมปุ่มเลื่อนซ้าย-ขวา (`❮` `❯`) และจุดบอกตำแหน่ง (Pagination Dots) ใช้งานลื่นไหลทั้งบนคอมและมือถือ
 - 🐾 **Goose Footprints Cursor Trail**: ขยับเมาส์แล้วมีรอยเท้าเจ้าห่านเล็กๆ ลอยตามเมาส์อย่างนุ่มนวล
@@ -23,7 +25,7 @@
   - 🏋️ **[Exercise Tracker](https://thagoose3.github.io/Exercise)**: แอปพลิเคชันบันทึกตารางการออกกำลังกายและ Routine
   - 🥗 **[Calories Tracker](https://thagoose3.github.io/Calories_Tracker)**: ระบบคำนวณและติดตามโภชนาการ แคลอรี่
 - ⚡ **Live GitHub Repos Sync**: ดึงข้อมูลคลัง Repository สดจากบัญชี `@Thagoose3` อัตโนมัติ
-- 🔊 **"Honk!" Sound Easter Egg**: สังเคราะห์เสียงร้องเจ้าห่านผ่าน Web Audio API
+- 🔊 **"Honk!" & Cosmic Audio Synthesizer**: สังเคราะห์เสียงร้องเจ้าห่านและเสียงอวกาศผ่าน Web Audio API
 
 ---
 
@@ -31,9 +33,12 @@
 
 ```
 Profile-Domain/
-├── index.html                  # โครงสร้างหน้าเว็บหลัก
+├── index.html                  # โครงสร้างหน้าเว็บหลัก (Farm Theme)
 ├── styles.css                  # สไตล์ Farm Theme, Carousel, 3D Tilt, Phone Simulator
 ├── script.js                   # ระบบสลับ Theme, Carousel, Typewriter, Footprints, Honk Sound
+├── galaxy.html                 # หน้าแผนที่จักรวาลอวกาศ 3D Galaxy Map
+├── galaxy.css                  # สไตล์ Sci-Fi Glassmorphism, 3D Planet Orbits, Hologram HUD
+├── galaxy.js                   # Particle Starfield Canvas, Cosmic Physics, Pan & Zoom, Audio
 ├── README.md                   # เอกสารแนะนำโปรเจกต์และการใช้งาน
 └── assets/
     └── images/

@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thagoose Galaxy Map 🚀🌌 | Cosmic Ecosystem Universe</title>
+  <meta name="description" content="Thagoose Space Universe - สำรวจดวงดาวแห่งโปรเจกต์ใน Thagoose Daily Life Ecosystem ในรูปแบบแผนที่จักรวาลอวกาศ 3D">
+  <meta name="author" content="Thagoose">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Thagoose Galaxy Map 🚀🌌">
+  <meta property="og:description" content="สำรวจดวงดาวแห่งโปรเจกต์ใน Thagoose Daily Life Ecosystem">
+  <meta property="og:image" content="assets/images/avatar.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/avatar.svg">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="galaxy.css?v=1">
+</head>
+<body>
+
+  <!-- Starfield Particle Canvas Background -->
+  <canvas id="spaceCanvas"></canvas>
+
+  <!-- Top HUD Control Bar -->
+  <header class="galaxy-hud-top">
+    <div class="hud-panel">
+      <a href="index.html" class="hud-btn" title="กลับสู่หน้าโปรไฟล์ฟาร์ม">
+        <span>🌾</span>
+        <span>กลับสู่ฟาร์ม</span>
+      </a>
+      <button class="hud-btn" id="resetViewBtn" title="รีเซ็ตมุมมองสู่จุดศูนย์กลาง">
+        <span>🎯</span>
+        <span>รีเซ็ตมุมมอง</span>
+      </button>
+    </div>
+
+    <div class="hud-panel hud-title-wrap">
+      <h1 class="hud-title">THAGOOSE GALAXY</h1>
+      <span class="hud-subtitle">SPACE MAP • DAILY LIFE ECOSYSTEM 🪐</span>
+    </div>
+
+    <div class="hud-panel">
+      <button class="hud-btn" id="soundToggleBtn" title="เปิด/ปิดเสียงคอสมิก">
+        <span id="soundIcon">🔊</span>
+        <span>เสียงอวกาศ</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Toast Notification Message -->
+  <div id="galaxyToast" class="galaxy-toast">
+    <span>✨</span>
+    <span id="galaxyToastMsg">ยินดีต้อนรับสู่ Thagoose Space Ecosystem</span>
+  </div>
+
+  <!-- Interactive Galaxy Viewport (Pan & Zoom) -->
+  <main id="galaxyViewport">
+    <div id="galaxyWorld">
+
+      <!-- Constellation Timeline & Orbit SVG Overlay -->
+      <svg id="constellationSvg" viewBox="0 0 2400 2400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="constellationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8" />
+            <stop offset="25%" stop-color="#818CF8" />
+            <stop offset="50%" stop-color="#10B981" />
+            <stop offset="75%" stop-color="#A855F7" />
+            <stop offset="100%" stop-color="#FB923C" />
+          </linearGradient>
+        </defs>
+
+        <!-- Orbit Concentric Rings -->
+        <circle cx="1200" cy="1200" r="280" class="orbit-line" />
+        <circle cx="1200" cy="1200" r="460" class="orbit-line" />
+        <circle cx="1200" cy="1200" r="620" class="orbit-line" />
+
+        <!-- Constellation Path Connecting All 5 Project Planets (Timeline Order) -->
+        <!-- Order: MoneyMemo (880, 1540) -> Exercise (750, 1040) -> Calories (1160, 720) -> PaperVault (1460, 1580) -> TimeFlow (1620, 1020) -->
+        <path d="M 880 1540 L 750 1040 L 1160 720 L 1460 1580 L 1620 1020" class="timeline-constellation-path" />
+      </svg>
+
+      <!-- Central Sun: Thagoose Prime 🪿☀️ -->
+      <div class="galaxy-core-sun" id="coreSun" title="Thagoose Prime • คลิกเพื่อส่งเสียง Honk! 🪿">
+        <span class="core-sun-mascot">🪿</span>
+        <span class="core-sun-tag">THAGOOSE PRIME</span>
+      </div>
+
+      <!-- Orbiting Astro-Goose Satellite 🪿🚀 -->
+      <div class="astro-goose-satellite">
+        <span class="astro-goose-avatar">🚀</span>
+      </div>
+
+      <!-- Planet 1: TimeFlow Widget (Cyan Ice & Chrono Ring) -->
+      <div class="planet-node planet-timeflow" id="planet-timeflow">
+        <div class="planet-sphere-wrap" style="width: 90px; height: 90px;">
+          <div class="planet-sphere"></div>
+          <div class="planet-ring"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>⏳</span>
+            <span>TimeFlow</span>
+          </div>
+          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+        </div>
+      </div>
+
+      <!-- Planet 2: PaperVault Workspace (Deep Cosmic Indigo & Saturn Ring) -->
+      <div class="planet-node planet-papervault" id="planet-papervault">
+        <div class="planet-sphere-wrap" style="width: 105px; height: 105px;">
+          <div class="planet-sphere"></div>
+          <div class="planet-ring" style="width: 210%; height: 50%; margin-left: -105%;"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🎓</span>
+            <span>PaperVault</span>
+          </div>
+          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+        </div>
+      </div>
+
+      <!-- Planet 3: Money Memo (Emerald Gold Crystal) -->
+      <div class="planet-node planet-moneymemo" id="planet-moneymemo">
+        <div class="planet-sphere-wrap" style="width: 95px; height: 95px;">
+          <div class="planet-sphere"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>💰</span>
+            <span>Money Memo</span>
+          </div>
+          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+        </div>
+      </div>
+
+      <!-- Planet 4: Exercise Tracker (Neon Violet Planet) -->
+      <div class="planet-node planet-exercise" id="planet-exercise">
+        <div class="planet-sphere-wrap" style="width: 88px; height: 88px;">
+          <div class="planet-sphere"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🏋️</span>
+            <span>Exercise</span>
+          </div>
+          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+        </div>
+      </div>
+
+      <!-- Planet 5: Calories Tracker (Solar Coral Planet) -->
+      <div class="planet-node planet-calories" id="planet-calories">
+        <div class="planet-sphere-wrap" style="width: 86px; height: 86px;">
+          <div class="planet-sphere"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🥗</span>
+            <span>Calories</span>
+          </div>
+          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Bottom HUD: Planet Quick Warp Selector Bar -->
+  <footer class="galaxy-hud-bottom">
+    <nav class="planet-selector-bar" aria-label="Project Planets Selector">
+      <button class="selector-chip" data-planet="timeflow">
+        <span>⏳</span>
+        <span>TimeFlow</span>
+      </button>
+      <button class="selector-chip" data-planet="papervault">
+        <span>🎓</span>
+        <span>PaperVault</span>
+      </button>
+      <button class="selector-chip" data-planet="moneymemo">
+        <span>💰</span>
+        <span>Money Memo</span>
+      </button>
+      <button class="selector-chip" data-planet="exercise">
+        <span>🏋️</span>
+        <span>Exercise</span>
+      </button>
+      <button class="selector-chip" data-planet="calories">
+        <span>🥗</span>
+        <span>Calories</span>
+      </button>
+    </nav>
+  </footer>
+
+  <!-- Holographic Planet Detail Modal -->
+  <div id="hologramModal" class="hologram-modal-overlay">
+    <div class="hologram-card">
+      <button id="hologramCloseBtn" class="hologram-close-btn" aria-label="ปิดโฮโลแกรม">✕</button>
+      
+      <div class="hologram-header">
+        <div class="hologram-planet-icon" id="hologramIcon">🪐</div>
+        <div class="hologram-title-info">
+          <h3 id="hologramTitle">Planet Name</h3>
+          <div class="hologram-tags-row">
+            <span class="hologram-badge" id="hologramBadge">Suite Tag</span>
+            <span class="hologram-date-tag" id="hologramDate">📅 Launch Date</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="hologram-desc" id="hologramDesc">รายละเอียดโปรเจกต์จะแสดงผลที่นี่...</p>
+
+      <div class="hologram-actions">
+        <a id="hologramWarpBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-warp-primary">
+          <span>🚀 วาร์ปเข้าสู่แอป ↗</span>
+        </a>
+        <button id="hologramPreviewBtn" class="btn-warp-secondary">
+          <span>📱 พรีวิวสด</span>
+        </button>
+        <a id="hologramGithubBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-warp-secondary">
+          <span>🐙 โค้ด</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Live Simulator Modal Inside Galaxy -->
+  <div id="galaxySimulatorModal" class="modal-overlay">
+    <div class="phone-simulator-frame">
+      <div class="phone-top-notch">
+        <span id="galaxySimulatorTitle">App Simulator</span>
+        <span style="font-size: 0.7rem; opacity: 0.7;">9:41 🔋</span>
+      </div>
+      <iframe id="galaxySimulatorIframe" class="phone-iframe-content" src="about:blank" title="Galaxy Live App Simulator"></iframe>
+      <div class="phone-bottom-bar">
+        <button id="galaxySimulatorClose" class="modal-close-btn">✕ ปิดหน้าจอ</button>
+        <a id="galaxySimulatorExternal" href="#" target="_blank" rel="noopener noreferrer" class="modal-open-external">เปิดเต็มจอ ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="galaxy.js?v=1"></script>
+</body>
+</html>

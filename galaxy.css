@@ -1,0 +1,801 @@
+﻿/* ==========================================================================
+   Thagoose Galaxy Universe Stylesheet 🚀🌌🪐
+   Sci-Fi Glassmorphism, 3D Planet Animations, Nebula Atmospheric Glow
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --space-bg: #030712;
+  --space-dark: #070D1F;
+  --hud-bg: rgba(15, 23, 42, 0.75);
+  --hud-border: rgba(56, 189, 248, 0.28);
+  --hud-glow: rgba(56, 189, 248, 0.15);
+
+  --neon-cyan: #38BDF8;
+  --neon-purple: #A855F7;
+  --neon-orange: #F97316;
+  --neon-green: #10B981;
+  --neon-gold: #FBBF24;
+  --neon-pink: #EC4899;
+  --neon-indigo: #6366F1;
+
+  --font-display: 'Orbitron', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Prompt', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--space-bg);
+  font-family: var(--font-body);
+  color: #F8FAFC;
+  position: relative;
+}
+
+/* Background Cosmic Canvas */
+#spaceCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- HUD Top Navigation Bar --- */
+.galaxy-hud-top {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.75rem;
+  pointer-events: none;
+}
+
+.hud-panel {
+  pointer-events: auto;
+  background: var(--hud-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--hud-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 15px var(--hud-glow);
+  border-radius: 9999px;
+  padding: 0.5rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.hud-panel:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.35);
+}
+
+.hud-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #F8FAFC;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hud-btn:hover {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: var(--neon-cyan);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.hud-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hud-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  background: linear-gradient(135deg, #FFFFFF, #38BDF8, #A855F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.hud-subtitle {
+  font-size: 0.72rem;
+  color: #94A3B8;
+  letter-spacing: 0.05em;
+}
+
+/* --- Interactive Galaxy World Viewport (Draggable & Zoomable) --- */
+#galaxyViewport {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  z-index: 10;
+  overflow: hidden;
+}
+
+#galaxyViewport:active {
+  cursor: grabbing;
+}
+
+#galaxyWorld {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2400px;
+  height: 2400px;
+  margin-top: -1200px;
+  margin-left: -1200px;
+  transform-origin: center center;
+  transition: transform 0.08s ease-out;
+  pointer-events: none;
+}
+
+/* Constellation SVG Overlay */
+#constellationSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.orbit-line {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.18);
+  stroke-dasharray: 6 8;
+  stroke-width: 1.5;
+  animation: rotateOrbit 120s linear infinite;
+  transform-origin: center center;
+}
+
+.timeline-constellation-path {
+  fill: none;
+  stroke: url(#constellationGrad);
+  stroke-width: 2.5;
+  stroke-dasharray: 8 6;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+  animation: dashFlow 25s linear infinite;
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -1000; }
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Central Sun: Thagoose Prime 🪿☀️ */
+.galaxy-core-sun {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  height: 170px;
+  margin-top: -85px;
+  margin-left: -85px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFBEB 0%, #FBBF24 45%, #F97316 75%, #EA580C 100%);
+  box-shadow: 0 0 60px #F59E0B, 0 0 120px rgba(249, 115, 22, 0.6), inset 0 0 30px #FEF3C7;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  animation: sunPulsate 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunPulsate {
+  0% { transform: scale(0.96); box-shadow: 0 0 50px #F59E0B, 0 0 100px rgba(249, 115, 22, 0.5); }
+  100% { transform: scale(1.04); box-shadow: 0 0 80px #FBBF24, 0 0 160px rgba(249, 115, 22, 0.8); }
+}
+
+.core-sun-mascot {
+  font-size: 3.2rem;
+  filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.4));
+  animation: floatingGoose 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatingGoose {
+  0% { transform: translateY(-4px) rotate(-4deg); }
+  100% { transform: translateY(4px) rotate(4deg); }
+}
+
+.core-sun-tag {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #78350F;
+  background: rgba(254, 243, 199, 0.95);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Floating Astro-Goose Satellite 🪿🚀 */
+.astro-goose-satellite {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  z-index: 20;
+  pointer-events: none;
+  animation: orbitAstroGoose 18s linear infinite;
+}
+
+.astro-goose-avatar {
+  font-size: 1.8rem;
+  transform: translate(140px, 0) rotate(90deg);
+  filter: drop-shadow(0 0 10px #38BDF8);
+}
+
+@keyframes orbitAstroGoose {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Project Planets (Interactive Nodes) --- */
+.planet-node {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.planet-sphere-wrap {
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.planet-node:hover {
+  transform: scale(1.18);
+  z-index: 50;
+}
+
+.planet-node:hover .planet-sphere-wrap {
+  box-shadow: 0 0 45px var(--planet-glow), 0 0 90px var(--planet-glow);
+}
+
+/* Planet Specific Spheres */
+.planet-sphere {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset -12px -12px 25px rgba(0, 0, 0, 0.7), 0 0 30px var(--planet-glow);
+}
+
+/* Ring for Planets (Saturn style) */
+.planet-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 48%;
+  margin-top: -24%;
+  margin-left: -90%;
+  border-radius: 50%;
+  border: 4px solid var(--planet-glow);
+  transform: rotate(-25deg);
+  pointer-events: none;
+  opacity: 0.75;
+  box-shadow: 0 0 15px var(--planet-glow);
+}
+
+/* Planet Info Tags */
+.planet-meta-tag {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.planet-name-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--planet-glow);
+  padding: 0.22rem 0.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 12px var(--planet-glow);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.planet-date-pill {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.12rem 0.55rem;
+  border-radius: 9999px;
+  margin-top: 0.25rem;
+  letter-spacing: 0.04em;
+}
+
+/* Planet Specific Themes */
+/* 1. TimeFlow Planet (Cyan Ice & Quantum Clock) */
+.planet-timeflow {
+  --planet-glow: #38BDF8;
+  width: 90px;
+  height: 90px;
+}
+.planet-timeflow .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #BAE6FD, #0284C7 60%, #082F49 100%);
+}
+
+/* 2. PaperVault Planet (Cosmic Deep Indigo with Rings) */
+.planet-papervault {
+  --planet-glow: #818CF8;
+  width: 105px;
+  height: 105px;
+}
+.planet-papervault .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #E0E7FF, #4F46E5 55%, #1E1B4B 100%);
+}
+
+/* 3. Money Memo Planet (Emerald Gold Crystal) */
+.planet-moneymemo {
+  --planet-glow: #10B981;
+  width: 95px;
+  height: 95px;
+}
+.planet-moneymemo .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #A7F3D0, #059669 60%, #064E3B 100%);
+}
+
+/* 4. Exercise Planet (Neon Violet Gravity) */
+.planet-exercise {
+  --planet-glow: #A855F7;
+  width: 88px;
+  height: 88px;
+}
+.planet-exercise .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #F3E8FF, #9333EA 60%, #3B0764 100%);
+}
+
+/* 5. Calories Planet (Solar Coral Vitality) */
+.planet-calories {
+  --planet-glow: #FB923C;
+  width: 86px;
+  height: 86px;
+}
+.planet-calories .planet-sphere {
+  background: radial-gradient(circle at 35% 35%, #FFEDD5, #EA580C 60%, #7C2D12 100%);
+}
+
+/* --- Holographic Planet Detail Modal HUD --- */
+.hologram-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(3, 7, 18, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hologram-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hologram-card {
+  width: 440px;
+  max-width: 92vw;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1.5px solid var(--active-planet-glow, var(--neon-cyan));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 35px var(--active-planet-glow, rgba(56, 189, 248, 0.35));
+  border-radius: 24px;
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transform: scale(0.92);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hologram-modal-overlay.active .hologram-card {
+  transform: scale(1);
+}
+
+.hologram-close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #F8FAFC;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hologram-close-btn:hover {
+  background: #EF4444;
+  border-color: #EF4444;
+  color: #FFFFFF;
+}
+
+.hologram-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.hologram-planet-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid var(--active-planet-glow, var(--neon-cyan));
+  box-shadow: 0 0 20px var(--active-planet-glow, rgba(56, 189, 248, 0.4));
+  flex-shrink: 0;
+}
+
+.hologram-title-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.2rem;
+}
+
+.hologram-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.hologram-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(56, 189, 248, 0.2);
+  color: var(--neon-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.hologram-date-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+}
+
+.hologram-desc {
+  font-size: 0.88rem;
+  color: #CBD5E1;
+  line-height: 1.55;
+  margin-bottom: 1.4rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hologram-actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.hologram-actions .btn-warp-primary {
+  flex: 1.3;
+  background: var(--active-planet-glow, var(--neon-cyan));
+  color: #030712;
+  font-weight: 700;
+  border: none;
+  padding: 0.65rem 1rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--active-planet-glow, rgba(56, 189, 248, 0.5));
+  transition: all 0.2s ease;
+}
+
+.hologram-actions .btn-warp-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 30px var(--active-planet-glow, rgba(56, 189, 248, 0.8));
+}
+
+.hologram-actions .btn-warp-secondary {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.08);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.65rem 0.8rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hologram-actions .btn-warp-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* --- HUD Bottom Planet Quick Selector Bar --- */
+.galaxy-hud-bottom {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.planet-selector-bar {
+  pointer-events: auto;
+  background: var(--hud-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--hud-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px var(--hud-glow);
+  border-radius: 9999px;
+  padding: 0.4rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  max-width: 95vw;
+}
+
+.selector-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E2E8F0;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.selector-chip:hover, .selector-chip.active {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: var(--neon-cyan);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+/* --- Interactive Live Simulator Modal Inside Galaxy --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.phone-simulator-frame {
+  width: 380px;
+  max-width: 95vw;
+  height: 720px;
+  max-height: 90vh;
+  background: #000000;
+  border: 10px solid #1E293B;
+  border-radius: 40px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.92);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .phone-simulator-frame {
+  transform: scale(1);
+}
+
+.phone-top-notch {
+  height: 30px;
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.phone-iframe-content {
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  background: #FFFFFF;
+}
+
+.phone-bottom-bar {
+  height: 48px;
+  background: #1E293B;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  flex-shrink: 0;
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: #EF4444;
+}
+
+.modal-open-external {
+  color: #7DD3FC;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Toast Message */
+.galaxy-toast {
+  position: fixed;
+  top: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: var(--hud-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--neon-cyan);
+  color: #FFFFFF;
+  padding: 0.6rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.galaxy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Rules */
+@media (max-width: 768px) {
+  .galaxy-hud-top {
+    padding: 0 0.75rem;
+  }
+  .hud-title {
+    font-size: 0.92rem;
+  }
+  .hud-subtitle {
+    display: none;
+  }
+  .hud-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.78rem;
+  }
+}
