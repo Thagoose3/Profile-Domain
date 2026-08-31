@@ -1,6 +1,6 @@
 ﻿/* ==========================================================================
    Thagoose Galaxy Universe Stylesheet 🚀🌌🪐
-   Sci-Fi Glassmorphism, True 3D Sphere Planets, Nebula Atmospheric Glow
+   Ultra-Realistic 3D Planets, True Planetary Rings with Z-Depth & Shadow
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
@@ -209,8 +209,8 @@ html, body {
   margin-left: -85px;
   border-radius: 50%;
   aspect-ratio: 1 / 1;
-  background: radial-gradient(circle at 35% 35%, #FFFBEB 0%, #FBBF24 45%, #F97316 75%, #EA580C 100%);
-  box-shadow: 0 0 60px #F59E0B, 0 0 120px rgba(249, 115, 22, 0.6), inset 0 0 30px #FEF3C7;
+  background: radial-gradient(circle at 35% 35%, #FFFBEB 0%, #FBBF24 40%, #F97316 70%, #EA580C 100%);
+  box-shadow: 0 0 60px #F59E0B, 0 0 130px rgba(249, 115, 22, 0.7), inset 0 0 35px #FEF3C7;
   z-index: 15;
   display: flex;
   flex-direction: column;
@@ -223,7 +223,7 @@ html, body {
 
 @keyframes sunPulsate {
   0% { transform: scale(0.96); box-shadow: 0 0 50px #F59E0B, 0 0 100px rgba(249, 115, 22, 0.5); }
-  100% { transform: scale(1.04); box-shadow: 0 0 80px #FBBF24, 0 0 160px rgba(249, 115, 22, 0.8); }
+  100% { transform: scale(1.04); box-shadow: 0 0 80px #FBBF24, 0 0 160px rgba(249, 115, 22, 0.85); }
 }
 
 .core-sun-mascot {
@@ -275,7 +275,7 @@ html, body {
   to { transform: rotate(360deg); }
 }
 
-/* --- Project Planets (Interactive Nodes - Perfectly Round 3D Spheres) --- */
+/* --- Project Planets (Interactive Nodes) --- */
 .planet-node {
   position: absolute;
   pointer-events: auto;
@@ -285,24 +285,18 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
-  min-width: 130px;
   transform: translate(-50%, -50%);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.planet-sphere-wrap {
+.planet-render-wrap {
   position: relative;
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  width: var(--planet-size, 96px);
-  height: var(--planet-size, 96px);
-  flex-shrink: 0;
+  width: 170px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .planet-node:hover {
@@ -310,41 +304,20 @@ html, body {
   z-index: 50;
 }
 
-.planet-node:hover .planet-sphere-wrap {
-  box-shadow: 0 0 50px var(--planet-glow), 0 0 100px var(--planet-glow);
+.planet-node:hover .planet-render-wrap {
+  filter: drop-shadow(0 0 25px var(--planet-glow)) drop-shadow(0 0 50px var(--planet-glow));
 }
 
-/* 3D Realistic Planet Spheres */
-.planet-sphere {
+.planet-svg-scene {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
-  aspect-ratio: 1 / 1;
-  position: relative;
-  overflow: hidden;
-  box-shadow: inset -18px -18px 30px rgba(0, 0, 0, 0.8), inset 8px 8px 20px rgba(255, 255, 255, 0.35), 0 0 35px var(--planet-glow);
-}
-
-/* Ring for Planets (Saturn style) */
-.planet-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 52%;
-  margin-top: -26%;
-  margin-left: -100%;
-  border-radius: 50%;
-  border: 4px solid var(--planet-glow);
-  transform: rotate(-25deg);
-  pointer-events: none;
-  opacity: 0.8;
-  box-shadow: 0 0 20px var(--planet-glow), inset 0 0 10px var(--planet-glow);
+  overflow: visible;
+  filter: drop-shadow(0 0 15px var(--planet-glow));
 }
 
 /* Planet Info Tags */
 .planet-meta-tag {
-  margin-top: 0.85rem;
+  margin-top: 0.45rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -355,10 +328,10 @@ html, body {
 
 .planet-name-badge {
   font-family: var(--font-display);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: #FFFFFF;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.92);
   backdrop-filter: blur(12px);
   border: 1.5px solid var(--planet-glow);
   padding: 0.25rem 0.85rem;
@@ -383,51 +356,12 @@ html, body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Planet Specific Themes */
-/* 1. Calories Planet (Solar Coral Vitality - 21 ส.ค. 2026) */
-.planet-calories {
-  --planet-glow: #FB923C;
-  --planet-size: 92px;
-}
-.planet-calories .planet-sphere {
-  background: radial-gradient(circle at 30% 30%, #FED7AA 0%, #F97316 55%, #9A3412 85%, #431407 100%);
-}
-
-/* 2. Money Memo Planet (Emerald Gold Crystal - 23 ส.ค. 2026) */
-.planet-moneymemo {
-  --planet-glow: #10B981;
-  --planet-size: 98px;
-}
-.planet-moneymemo .planet-sphere {
-  background: radial-gradient(circle at 30% 30%, #A7F3D0 0%, #10B981 50%, #047857 80%, #064E3B 100%);
-}
-
-/* 3. Exercise Planet (Neon Violet Gravity - 27 ส.ค. 2026) */
-.planet-exercise {
-  --planet-glow: #A855F7;
-  --planet-size: 94px;
-}
-.planet-exercise .planet-sphere {
-  background: radial-gradient(circle at 30% 30%, #F3E8FF 0%, #A855F7 50%, #7E22CE 80%, #3B0764 100%);
-}
-
-/* 4. PaperVault Planet (Deep Cosmic Indigo with Rings - 28 ส.ค. 2026) */
-.planet-papervault {
-  --planet-glow: #818CF8;
-  --planet-size: 108px;
-}
-.planet-papervault .planet-sphere {
-  background: radial-gradient(circle at 30% 30%, #E0E7FF 0%, #6366F1 50%, #4338CA 80%, #1E1B4B 100%);
-}
-
-/* 5. TimeFlow Planet (Cyan Ice & Quantum Clock - 31 ส.ค. 2026) */
-.planet-timeflow {
-  --planet-glow: #38BDF8;
-  --planet-size: 96px;
-}
-.planet-timeflow .planet-sphere {
-  background: radial-gradient(circle at 30% 30%, #E0F2FE 0%, #38BDF8 50%, #0284C7 80%, #082F49 100%);
-}
+/* Planet Themes */
+.planet-calories { --planet-glow: #FB923C; }
+.planet-moneymemo { --planet-glow: #10B981; }
+.planet-exercise { --planet-glow: #A855F7; }
+.planet-papervault { --planet-glow: #818CF8; }
+.planet-timeflow { --planet-glow: #38BDF8; }
 
 /* --- Holographic Planet Detail Modal HUD --- */
 .hologram-modal-overlay {
