@@ -17,7 +17,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/avatar.svg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="galaxy.css?v=1">
+  <link rel="stylesheet" href="galaxy.css?v=2">
 </head>
 <body>
 
@@ -64,22 +64,21 @@
       <svg id="constellationSvg" viewBox="0 0 2400 2400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="constellationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#38BDF8" />
-            <stop offset="25%" stop-color="#818CF8" />
-            <stop offset="50%" stop-color="#10B981" />
-            <stop offset="75%" stop-color="#A855F7" />
-            <stop offset="100%" stop-color="#FB923C" />
+            <stop offset="0%" stop-color="#FB923C" />
+            <stop offset="25%" stop-color="#10B981" />
+            <stop offset="50%" stop-color="#A855F7" />
+            <stop offset="75%" stop-color="#818CF8" />
+            <stop offset="100%" stop-color="#38BDF8" />
           </linearGradient>
         </defs>
 
         <!-- Orbit Concentric Rings -->
         <circle cx="1200" cy="1200" r="280" class="orbit-line" />
         <circle cx="1200" cy="1200" r="460" class="orbit-line" />
-        <circle cx="1200" cy="1200" r="620" class="orbit-line" />
+        <circle cx="1200" cy="1200" r="640" class="orbit-line" />
 
-        <!-- Constellation Path Connecting All 5 Project Planets (Timeline Order) -->
-        <!-- Order: MoneyMemo (880, 1540) -> Exercise (750, 1040) -> Calories (1160, 720) -> PaperVault (1460, 1580) -> TimeFlow (1620, 1020) -->
-        <path d="M 880 1540 L 750 1040 L 1160 720 L 1460 1580 L 1620 1020" class="timeline-constellation-path" />
+        <!-- Constellation Path in Chronological Order: Calories -> MoneyMemo -> Exercise -> PaperVault -> TimeFlow -->
+        <path d="M 750 1020 L 960 1560 L 1320 1640 L 1640 1300 L 1480 820" class="timeline-constellation-path" />
       </svg>
 
       <!-- Central Sun: Thagoose Prime 🪿☀️ -->
@@ -93,39 +92,23 @@
         <span class="astro-goose-avatar">🚀</span>
       </div>
 
-      <!-- Planet 1: TimeFlow Widget (Cyan Ice & Chrono Ring) -->
-      <div class="planet-node planet-timeflow" id="planet-timeflow">
-        <div class="planet-sphere-wrap" style="width: 90px; height: 90px;">
+      <!-- Planet 1: Calories Tracker (Solar Coral Planet - 21 ส.ค. 2026) -->
+      <div class="planet-node planet-calories" id="planet-calories">
+        <div class="planet-sphere-wrap">
           <div class="planet-sphere"></div>
-          <div class="planet-ring"></div>
         </div>
         <div class="planet-meta-tag">
           <div class="planet-name-badge">
-            <span>⏳</span>
-            <span>TimeFlow</span>
+            <span>🥗</span>
+            <span>Calories Tracker</span>
           </div>
-          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+          <span class="planet-date-pill">📅 21 ส.ค. 2026</span>
         </div>
       </div>
 
-      <!-- Planet 2: PaperVault Workspace (Deep Cosmic Indigo & Saturn Ring) -->
-      <div class="planet-node planet-papervault" id="planet-papervault">
-        <div class="planet-sphere-wrap" style="width: 105px; height: 105px;">
-          <div class="planet-sphere"></div>
-          <div class="planet-ring" style="width: 210%; height: 50%; margin-left: -105%;"></div>
-        </div>
-        <div class="planet-meta-tag">
-          <div class="planet-name-badge">
-            <span>🎓</span>
-            <span>PaperVault</span>
-          </div>
-          <span class="planet-date-pill">📅 ส.ค. 2026</span>
-        </div>
-      </div>
-
-      <!-- Planet 3: Money Memo (Emerald Gold Crystal) -->
+      <!-- Planet 2: Money Memo (Emerald Gold Crystal - 23 ส.ค. 2026) -->
       <div class="planet-node planet-moneymemo" id="planet-moneymemo">
-        <div class="planet-sphere-wrap" style="width: 95px; height: 95px;">
+        <div class="planet-sphere-wrap">
           <div class="planet-sphere"></div>
         </div>
         <div class="planet-meta-tag">
@@ -133,35 +116,51 @@
             <span>💰</span>
             <span>Money Memo</span>
           </div>
-          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+          <span class="planet-date-pill">📅 23 ส.ค. 2026</span>
         </div>
       </div>
 
-      <!-- Planet 4: Exercise Tracker (Neon Violet Planet) -->
+      <!-- Planet 3: Exercise Tracker (Neon Violet Planet - 27 ส.ค. 2026) -->
       <div class="planet-node planet-exercise" id="planet-exercise">
-        <div class="planet-sphere-wrap" style="width: 88px; height: 88px;">
+        <div class="planet-sphere-wrap">
           <div class="planet-sphere"></div>
         </div>
         <div class="planet-meta-tag">
           <div class="planet-name-badge">
             <span>🏋️</span>
-            <span>Exercise</span>
+            <span>Exercise Tracker</span>
           </div>
-          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+          <span class="planet-date-pill">📅 27 ส.ค. 2026</span>
         </div>
       </div>
 
-      <!-- Planet 5: Calories Tracker (Solar Coral Planet) -->
-      <div class="planet-node planet-calories" id="planet-calories">
-        <div class="planet-sphere-wrap" style="width: 86px; height: 86px;">
+      <!-- Planet 4: PaperVault Workspace (Deep Cosmic Indigo & Saturn Ring - 28 ส.ค. 2026) -->
+      <div class="planet-node planet-papervault" id="planet-papervault">
+        <div class="planet-sphere-wrap">
           <div class="planet-sphere"></div>
+          <div class="planet-ring"></div>
         </div>
         <div class="planet-meta-tag">
           <div class="planet-name-badge">
-            <span>🥗</span>
-            <span>Calories</span>
+            <span>🎓</span>
+            <span>PaperVault</span>
           </div>
-          <span class="planet-date-pill">📅 ส.ค. 2026</span>
+          <span class="planet-date-pill">📅 28 ส.ค. 2026</span>
+        </div>
+      </div>
+
+      <!-- Planet 5: TimeFlow Widget (Cyan Ice & Chrono Ring - 31 ส.ค. 2026) -->
+      <div class="planet-node planet-timeflow" id="planet-timeflow">
+        <div class="planet-sphere-wrap">
+          <div class="planet-sphere"></div>
+          <div class="planet-ring"></div>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>⏳</span>
+            <span>TimeFlow Widget</span>
+          </div>
+          <span class="planet-date-pill">📅 31 ส.ค. 2026</span>
         </div>
       </div>
 
@@ -171,13 +170,9 @@
   <!-- Bottom HUD: Planet Quick Warp Selector Bar -->
   <footer class="galaxy-hud-bottom">
     <nav class="planet-selector-bar" aria-label="Project Planets Selector">
-      <button class="selector-chip" data-planet="timeflow">
-        <span>⏳</span>
-        <span>TimeFlow</span>
-      </button>
-      <button class="selector-chip" data-planet="papervault">
-        <span>🎓</span>
-        <span>PaperVault</span>
+      <button class="selector-chip" data-planet="calories">
+        <span>🥗</span>
+        <span>Calories</span>
       </button>
       <button class="selector-chip" data-planet="moneymemo">
         <span>💰</span>
@@ -187,9 +182,13 @@
         <span>🏋️</span>
         <span>Exercise</span>
       </button>
-      <button class="selector-chip" data-planet="calories">
-        <span>🥗</span>
-        <span>Calories</span>
+      <button class="selector-chip" data-planet="papervault">
+        <span>🎓</span>
+        <span>PaperVault</span>
+      </button>
+      <button class="selector-chip" data-planet="timeflow">
+        <span>⏳</span>
+        <span>TimeFlow</span>
       </button>
     </nav>
   </footer>
@@ -242,6 +241,6 @@
   </div>
 
   <!-- Script -->
-  <script src="galaxy.js?v=1"></script>
+  <script src="galaxy.js?v=2"></script>
 </body>
 </html>

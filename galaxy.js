@@ -13,78 +13,78 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   Project Planets Data (Timeline & Specs)
+   Project Planets Data (Timeline & Exact GitHub Launch Dates)
    ========================================================================== */
 const PLANETS_DATA = {
-  timeflow: {
-    id: 'timeflow',
-    name: 'TimeFlow Widget',
-    suite: 'Productivity Suite',
-    date: 'สิงหาคม 2026',
-    icon: '⏳',
-    color: '#38BDF8',
-    glowRgba: 'rgba(56, 189, 248, 0.45)',
-    desc: 'วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, สัปดาห์, วัน) บนเดสก์ท็อป สไตล์ Frosted Glass กระจกใส ช่วยเตือนสติและบริหารเวลาอย่างมีเป้าหมาย',
-    url: 'https://thagoose3.github.io/time-progress-widget',
-    github: 'https://github.com/Thagoose3/time-progress-widget',
-    x: 1200 + 420, // Relative to galaxyWorld center (1200, 1200)
-    y: 1200 - 180
-  },
-  papervault: {
-    id: 'papervault',
-    name: 'PaperVault Workspace',
-    suite: 'Academic Suite',
-    date: 'สิงหาคม 2026',
-    icon: '🎓',
-    color: '#818CF8',
-    glowRgba: 'rgba(129, 140, 248, 0.45)',
-    desc: 'สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ระดับโปร ระบบอ่าน PDF ไฮไลต์ข้อความ สังเคราะห์ Matrix และบันทึก Citation/BibTeX สำหรับนักวิจัย',
-    url: 'https://thagoose3.github.io/thesis-workspace',
-    github: 'https://github.com/Thagoose3/thesis-workspace',
-    x: 1200 + 260,
-    y: 1200 + 380
-  },
-  moneymemo: {
-    id: 'moneymemo',
-    name: 'Money Memo',
-    suite: 'Finance Suite',
-    date: 'สิงหาคม 2026',
-    icon: '💰',
-    color: '#10B981',
-    glowRgba: 'rgba(16, 185, 129, 0.45)',
-    desc: 'เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอดเงินและกราฟวิเคราะห์หมวดหมู่อัตโนมัติ ดีไซน์ใช้งานง่ายและคลีนตา',
-    url: 'https://thagoose3.github.io/Money-memo',
-    github: 'https://github.com/Thagoose3/Money-memo',
-    x: 1200 - 320,
-    y: 1200 + 340
-  },
-  exercise: {
-    id: 'exercise',
-    name: 'Exercise Tracker',
-    suite: 'Fitness Suite',
-    date: 'สิงหาคม 2026',
-    icon: '🏋️',
-    color: '#A855F7',
-    glowRgba: 'rgba(168, 85, 247, 0.45)',
-    desc: 'แอปพลิเคชันบันทึกการออกกำลังกาย วางตาราง Routine เซ็ต จำนวนครั้ง และจับเวลาฝึกซ้อมอย่างเป็นระบบ',
-    url: 'https://thagoose3.github.io/Exercise',
-    github: 'https://github.com/Thagoose3/Exercise',
-    x: 1200 - 450,
-    y: 1200 - 160
-  },
   calories: {
     id: 'calories',
     name: 'Calories Tracker',
     suite: 'Nutrition Suite',
-    date: 'สิงหาคม 2026',
+    date: '21 ส.ค. 2026',
     icon: '🥗',
     color: '#FB923C',
     glowRgba: 'rgba(251, 146, 60, 0.45)',
     desc: 'ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats) เพื่อสุขภาพและรูปร่างที่ดี',
     url: 'https://thagoose3.github.io/Calories_Tracker',
     github: 'https://github.com/Thagoose3/Calories_Tracker',
-    x: 1200 - 40,
-    y: 1200 - 480
+    x: 1200 - 450,
+    y: 1200 - 180
+  },
+  moneymemo: {
+    id: 'moneymemo',
+    name: 'Money Memo',
+    suite: 'Finance Suite',
+    date: '23 ส.ค. 2026',
+    icon: '💰',
+    color: '#10B981',
+    glowRgba: 'rgba(16, 185, 129, 0.45)',
+    desc: 'เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอดเงินและกราฟวิเคราะห์หมวดหมู่อัตโนมัติ ดีไซน์ใช้งานง่ายและคลีนตา',
+    url: 'https://thagoose3.github.io/Money-memo',
+    github: 'https://github.com/Thagoose3/Money-memo',
+    x: 1200 - 240,
+    y: 1200 + 360
+  },
+  exercise: {
+    id: 'exercise',
+    name: 'Exercise Tracker',
+    suite: 'Fitness Suite',
+    date: '27 ส.ค. 2026',
+    icon: '🏋️',
+    color: '#A855F7',
+    glowRgba: 'rgba(168, 85, 247, 0.45)',
+    desc: 'แอปพลิเคชันบันทึกการออกกำลังกาย วางตาราง Routine เซ็ต จำนวนครั้ง และจับเวลาฝึกซ้อมอย่างเป็นระบบ',
+    url: 'https://thagoose3.github.io/Exercise',
+    github: 'https://github.com/Thagoose3/Exercise',
+    x: 1200 + 120,
+    y: 1200 + 440
+  },
+  papervault: {
+    id: 'papervault',
+    name: 'PaperVault Workspace',
+    suite: 'Academic Suite',
+    date: '28 ส.ค. 2026',
+    icon: '🎓',
+    color: '#818CF8',
+    glowRgba: 'rgba(129, 140, 248, 0.45)',
+    desc: 'สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ระดับโปร ระบบอ่าน PDF ไฮไลต์ข้อความ สังเคราะห์ Matrix และบันทึก Citation/BibTeX สำหรับนักวิจัย',
+    url: 'https://thagoose3.github.io/thesis-workspace',
+    github: 'https://github.com/Thagoose3/thesis-workspace',
+    x: 1200 + 440,
+    y: 1200 + 100
+  },
+  timeflow: {
+    id: 'timeflow',
+    name: 'TimeFlow Widget',
+    suite: 'Productivity Suite',
+    date: '31 ส.ค. 2026',
+    icon: '⏳',
+    color: '#38BDF8',
+    glowRgba: 'rgba(56, 189, 248, 0.45)',
+    desc: 'วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, สัปดาห์, วัน) บนเดสก์ท็อป สไตล์ Frosted Glass กระจกใส ช่วยเตือนสติและบริหารเวลาอย่างมีเป้าหมาย',
+    url: 'https://thagoose3.github.io/time-progress-widget',
+    github: 'https://github.com/Thagoose3/time-progress-widget',
+    x: 1200 + 280,
+    y: 1200 - 380
   }
 };
 
@@ -326,7 +326,7 @@ function initPlanetInteraction() {
     activePlanet = data;
     titleEl.textContent = data.name;
     badgeEl.textContent = data.suite;
-    dateEl.textContent = `📅 ปล่อยโปรเจกต์: ${data.date}`;
+    dateEl.textContent = `📅 วันที่สร้างบน GitHub: ${data.date}`;
     descEl.textContent = data.desc;
     iconEl.textContent = data.icon;
     warpBtn.href = data.url;
