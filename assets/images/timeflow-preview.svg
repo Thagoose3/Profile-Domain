@@ -1,0 +1,68 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="timeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="widgetGlass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.18)" />
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)" />
+    </linearGradient>
+    <linearGradient id="barGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+    <linearGradient id="barGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <filter id="glassShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background Wallpaper -->
+  <rect width="600" height="360" rx="24" fill="url(#timeBg)" />
+  <circle cx="100" cy="80" r="90" fill="#38BDF8" opacity="0.12" />
+  <circle cx="500" cy="280" r="110" fill="#818CF8" opacity="0.15" />
+
+  <!-- Floating Glassmorphism Time Widget -->
+  <g filter="url(#glassShadow)">
+    <rect x="110" y="45" width="380" height="270" rx="24" fill="url(#widgetGlass)" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.5" />
+    
+    <!-- Top Header Bar -->
+    <circle cx="138" cy="72" r="5.5" fill="#EF4444" />
+    <circle cx="154" cy="72" r="5.5" fill="#F59E0B" />
+    <circle cx="170" cy="72" r="5.5" fill="#10B981" />
+    
+    <text x="300" y="77" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#F8FAFC">⏳ TimeFlow • Desktop Widget</text>
+    <text x="460" y="76" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#94A3B8">📌 PIN</text>
+
+    <!-- Clock Display -->
+    <text x="300" y="125" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="32" font-weight="800" fill="#FFFFFF" letter-spacing="1">14:32:45</text>
+    <text x="300" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" fill="#94A3B8">Monday, August 31 • Year 2026</text>
+
+    <!-- Progress Bar 1: Year Progress -->
+    <text x="140" y="178" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Year 2026</text>
+    <text x="460" y="178" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#38BDF8">66.4% (123d left)</text>
+    <rect x="140" y="186" width="320" height="10" rx="5" fill="rgba(255, 255, 255, 0.1)" />
+    <rect x="140" y="186" width="212" height="10" rx="5" fill="url(#barGrad1)" />
+
+    <!-- Progress Bar 2: Month Progress -->
+    <text x="140" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">August</text>
+    <text x="460" y="222" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#34D399">99.8% (1d left)</text>
+    <rect x="140" y="230" width="320" height="10" rx="5" fill="rgba(255, 255, 255, 0.1)" />
+    <rect x="140" y="230" width="319" height="10" rx="5" fill="url(#barGrad2)" />
+
+    <!-- Progress Bar 3: Day Progress -->
+    <text x="140" y="266" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#E2E8F0">Today's Focus</text>
+    <text x="460" y="266" text-anchor="end" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#FBBF24">60.5% (9h left)</text>
+    <rect x="140" y="274" width="320" height="10" rx="5" fill="rgba(255, 255, 255, 0.1)" />
+    <rect x="140" y="274" width="194" height="10" rx="5" fill="url(#barGrad3)" />
+  </g>
+</svg>

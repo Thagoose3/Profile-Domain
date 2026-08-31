@@ -584,6 +584,7 @@ body::before {
 .preview-exercise-bg { background: linear-gradient(135deg, #EDE9FE, #DDD6FE); }
 .preview-calories-bg { background: linear-gradient(135deg, #FFE5D9, #FFCAD4); }
 .preview-thesis-bg { background: linear-gradient(135deg, #E0E7FF, #C7D2FE); }
+.preview-timeflow-bg { background: linear-gradient(135deg, #0F172A, #1E293B); }
 
 .card-body-content {
   padding: 1.25rem;

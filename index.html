@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thagoose 🪿 | Daily Life Ecosystem</title>
-  <meta name="description" content="Thagoose Daily Life Ecosystem - just a goose vibe 🪿 ศูนย์รวมเว็บแอปพลิเคชัน Money Memo, Exercise, Calories Tracker, Thesis Workspace">
+  <meta name="description" content="Thagoose Daily Life Ecosystem - just a goose vibe 🪿 ศูนย์รวมเว็บแอปพลิเคชัน TimeFlow, PaperVault, Money Memo, Exercise, Calories Tracker">
   <meta name="author" content="Thagoose">
 
   <!-- Open Graph -->
@@ -18,7 +18,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/images/avatar.svg">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -52,14 +52,14 @@
       <section class="hero-section">
         <div class="profile-card">
           <div class="avatar-wrapper" id="gooseAvatar" title="คลิกเพื่อส่งเสียง Honk! 🪿">
-            <img src="assets/images/avatar.svg?v=4" alt="Thagoose Avatar" class="avatar-img">
+            <img src="assets/images/avatar.svg?v=5" alt="Thagoose Avatar" class="avatar-img">
             <span class="avatar-honk-tag">HONK!</span>
           </div>
 
           <div class="profile-info">
             <div class="status-badge">
               <span class="pulse-dot"></span>
-              <span>🟢 4 Web Apps Online • Goose Ecosystem 🌾</span>
+              <span>🟢 5 Web Apps Online • Goose Ecosystem 🌾</span>
             </div>
 
             <h1 class="hero-title">
@@ -95,7 +95,7 @@
         <div class="section-header">
           <div>
             <h2 class="section-title">✨ Thagoose Daily Life Ecosystem</h2>
-            <p class="section-subtitle">ศูนย์รวมเว็บแอปพลิเคชันเพื่อการใช้ชีวิตประจำวัน (Finance • Fitness • Nutrition • Research)</p>
+            <p class="section-subtitle">ศูนย์รวมเว็บแอปพลิเคชันเพื่อการใช้ชีวิตประจำวัน (Time & Focus • Research • Finance • Fitness • Nutrition)</p>
           </div>
 
           <!-- Carousel Arrow Controls -->
@@ -108,11 +108,44 @@
         <div class="carousel-wrapper">
           <div class="carousel-track" id="appsTrack">
             
-            <!-- App 1: PaperVault (Thesis Workspace) -->
+            <!-- App 1: TimeFlow Widget -->
+            <article class="project-card-scaled tilt-card">
+              <div class="card-preview-wrap preview-timeflow-bg">
+                <span class="preview-badge-pill">⏳ Focus</span>
+                <img src="assets/images/timeflow-preview.svg?v=5" alt="TimeFlow Progress Widget Preview" loading="eager" onerror="this.style.display='none'">
+              </div>
+
+              <div class="card-body-content">
+                <div class="card-header-line">
+                  <h3 class="project-title-name">TimeFlow Widget</h3>
+                </div>
+                <p class="project-desc-text">วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, วัน, สัปดาห์) สไตล์ Frosted Glass กระจกใส</p>
+                
+                <div class="tag-pills-row">
+                  <span class="pill-tag tag-sky">Productivity Suite</span>
+                  <span class="pill-tag tag-purple">Desktop Widget</span>
+                  <span class="pill-tag tag-orange">Time Flow</span>
+                </div>
+
+                <div class="card-buttons-row">
+                  <a href="https://thagoose3.github.io/time-progress-widget" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <span>เปิดแอป ↗</span>
+                  </a>
+                  <button class="btn btn-secondary btn-sm open-simulator-btn" data-url="https://thagoose3.github.io/time-progress-widget" data-title="TimeFlow Widget">
+                    <span>📱 พรีวิว</span>
+                  </button>
+                  <a href="https://github.com/Thagoose3/time-progress-widget" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- App 2: PaperVault (Thesis Workspace) -->
             <article class="project-card-scaled tilt-card">
               <div class="card-preview-wrap preview-thesis-bg">
                 <span class="preview-badge-pill">🎓 Research</span>
-                <img src="assets/images/thesis-preview.svg?v=4" alt="PaperVault Workspace Preview" loading="eager" onerror="this.style.display='none'">
+                <img src="assets/images/thesis-preview.svg?v=5" alt="PaperVault Workspace Preview" loading="eager" onerror="this.style.display='none'">
               </div>
 
               <div class="card-body-content">
@@ -141,11 +174,11 @@
               </div>
             </article>
 
-            <!-- App 2: Money Memo -->
+            <!-- App 3: Money Memo -->
             <article class="project-card-scaled tilt-card">
               <div class="card-preview-wrap preview-memo-bg">
                 <span class="preview-badge-pill">⭐ Finance</span>
-                <img src="assets/images/money-memo-preview.svg?v=4" alt="Money Memo Preview" loading="eager" onerror="this.style.display='none'">
+                <img src="assets/images/money-memo-preview.svg?v=5" alt="Money Memo Preview" loading="eager" onerror="this.style.display='none'">
               </div>
 
               <div class="card-body-content">
@@ -174,11 +207,11 @@
               </div>
             </article>
 
-            <!-- App 3: Exercise Tracker -->
+            <!-- App 4: Exercise Tracker -->
             <article class="project-card-scaled tilt-card">
               <div class="card-preview-wrap preview-exercise-bg">
                 <span class="preview-badge-pill">🏋️ Fitness</span>
-                <img src="assets/images/exercise-preview.svg?v=4" alt="Exercise Tracker Preview" loading="eager" onerror="this.style.display='none'">
+                <img src="assets/images/exercise-preview.svg?v=5" alt="Exercise Tracker Preview" loading="eager" onerror="this.style.display='none'">
               </div>
 
               <div class="card-body-content">
@@ -207,11 +240,11 @@
               </div>
             </article>
 
-            <!-- App 4: Calories Tracker -->
+            <!-- App 5: Calories Tracker -->
             <article class="project-card-scaled tilt-card">
               <div class="card-preview-wrap preview-calories-bg">
                 <span class="preview-badge-pill">🥗 Nutrition</span>
-                <img src="assets/images/nutritrack-preview.svg?v=4" alt="Calories Tracker Preview" loading="eager" onerror="this.style.display='none'">
+                <img src="assets/images/nutritrack-preview.svg?v=5" alt="Calories Tracker Preview" loading="eager" onerror="this.style.display='none'">
               </div>
 
               <div class="card-body-content">
@@ -278,8 +311,9 @@
         <div class="compact-skills-row">
           <span class="skill-pill">💻 HTML5 & CSS3</span>
           <span class="skill-pill">⚡ JavaScript (ES6+)</span>
+          <span class="skill-pill">🐍 Python & Desktop UI</span>
           <span class="skill-pill">📱 Responsive & Mobile First</span>
-          <span class="skill-pill">🎨 Modern UI / UX</span>
+          <span class="skill-pill">🎨 Modern UI / UX & Glassmorphism</span>
           <span class="skill-pill">💾 Local Storage / IndexedDB</span>
           <span class="skill-pill">🐙 Git & GitHub Pages</span>
           <span class="skill-pill">⚙️ REST APIs</span>
@@ -315,20 +349,20 @@
             <span class="connect-arrow">📋</span>
           </a>
 
+          <a href="https://thagoose3.github.io/time-progress-widget" target="_blank" rel="noopener noreferrer" class="connect-card">
+            <div class="connect-icon">⏳</div>
+            <div class="connect-info">
+              <h4>TimeFlow</h4>
+              <p>Time Widget</p>
+            </div>
+            <span class="connect-arrow">↗</span>
+          </a>
+
           <a href="https://thagoose3.github.io/thesis-workspace" target="_blank" rel="noopener noreferrer" class="connect-card">
             <div class="connect-icon">🎓</div>
             <div class="connect-info">
               <h4>PaperVault</h4>
               <p>Thesis Studio</p>
-            </div>
-            <span class="connect-arrow">↗</span>
-          </a>
-
-          <a href="https://thagoose3.github.io/Money-memo" target="_blank" rel="noopener noreferrer" class="connect-card">
-            <div class="connect-icon">💰</div>
-            <div class="connect-info">
-              <h4>Money Memo</h4>
-              <p>Finance App</p>
             </div>
             <span class="connect-arrow">↗</span>
           </a>
@@ -367,6 +401,6 @@
   </div>
 
   <!-- Script -->
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

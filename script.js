@@ -114,6 +114,7 @@ function initTypewriter() {
 
   const words = [
     'Thagoose Daily Life Ecosystem 🌐',
+    'TimeFlow (Productivity Suite) ⏳',
     'PaperVault (Research Suite) 🎓',
     'Money Memo (Finance Suite) 💰',
     'Exercise & Routine Tracker 🏋️',
@@ -417,6 +418,22 @@ async function fetchGitHubRepos(username) {
   } catch (error) {
     console.warn('Using fallback repos:', error);
     reposGrid.innerHTML = `
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 time-progress-widget</span>
+            <span class="pill-tag tag-purple">Python</span>
+          </div>
+          <p class="repo-mini-desc">วิดเจ็ตแสดงความคืบหน้าของเวลา TimeFlow Desktop Widget</p>
+        </div>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/time-progress-widget" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
+            <a href="https://github.com/Thagoose3/time-progress-widget" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
+        </div>
+      </div>
+
       <div class="repo-mini-card">
         <div>
           <div class="repo-mini-header">

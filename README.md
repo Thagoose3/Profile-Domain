@@ -17,6 +17,7 @@
 - 🎴 **3D Tilt Cards**: การ์ดแสดงผลงานเอียงตามองศาเมาส์แบบ 3 มิติ พร้อมเงากระทบกระจก Frosted Glass
 - 📱 **Interactive App Simulator**: ปุ่ม `📱 พรีวิว` เปิดหน้าต่างจำลองทรงมือถือ ให้ทดลองเล่นแอปในหน้าเว็บได้ทันที
 - 🚀 **Featured Web Apps (Daily Life Ecosystem)**:
+  - ⏳ **[TimeFlow Widget](https://thagoose3.github.io/time-progress-widget)**: วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, สัปดาห์, วัน) สไตล์ Frosted Glass
   - 🎓 **[PaperVault Workspace](https://thagoose3.github.io/thesis-workspace)**: สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ ระบบอ่าน PDF ไฮไลต์ สรุป Matrix และ Citation
   - 💰 **[Money Memo](https://thagoose3.github.io/Money-memo)**: เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอด
   - 🏋️ **[Exercise Tracker](https://thagoose3.github.io/Exercise)**: แอปพลิเคชันบันทึกตารางการออกกำลังกายและ Routine
@@ -39,16 +40,9 @@ Profile-Domain/
         ├── farm-goose-bg.svg           # พื้นหลังฟาร์มตอนกลางวัน
         ├── farm-goose-night-bg.svg     # พื้นหลังฟาร์มตอนกลางคืน
         ├── avatar.svg                  # เวกเตอร์เจ้าห่าน Mascot
+        ├── timeflow-preview.svg        # พรีวิวแอป TimeFlow Widget
         ├── thesis-preview.svg          # พรีวิวแอป PaperVault Workspace
         ├── money-memo-preview.svg      # พรีวิวแอป Money Memo
         ├── exercise-preview.svg        # พรีวิวแอป Exercise Tracker
         └── nutritrack-preview.svg      # พรีวิวแอป Calories Tracker
 ```
-
----
-
-## 🚀 การจัดการและ Push ผ่าน GitHub Desktop
-
-1. เปิดโปรแกรม **GitHub Desktop**
-2. เลือก Repository **`Profile-Domain`**
-3. คลิกปุ่ม **Push origin** ที่มุมขวาบน เพื่อนำขึ้นหน้าเว็บจริงได้ทันทีครับ
