@@ -127,8 +127,8 @@ const PLANETS_DATA = {
     color: '#10B981',
     glowRgba: 'rgba(16, 185, 129, 0.55)',
     desc: 'ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas พร้อมระบบสะสมชั่วโมง ยศชาวไร่ห่าน Leaderboard และ Web Audio Synthesizer',
-    url: 'GooseFocus/index.html',
-    github: 'https://github.com/Thagoose3/Profile-Domain/tree/main/GooseFocus',
+    url: 'https://thagoose3.github.io/GooseFocus/',
+    github: 'https://github.com/Thagoose3/GooseFocus',
     x: 1200 - 320,
     y: 1200 - 320,
     techStack: {
