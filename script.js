@@ -1,6 +1,6 @@
 ﻿/**
  * Thagoose - Daily Life Ecosystem Portfolio JavaScript 🪿🌾
- * Features: Typewriter, Carousel Slider, Goose Footprints, 3D Tilt, Live Simulator, Honk Sound, Live GitHub API
+ * Features: Typewriter, Carousel Slider, Goose Footprints, 3D Tilt, Live Simulator, Honk Sound, Live GitHub API, Hyperspace Warp Jump
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyEmail();
   initFooterYear();
   initSmoothScroll();
+  initHyperspaceTransition();
   fetchGitHubRepos('Thagoose3');
 });
 
@@ -50,6 +51,97 @@ function applyTheme(theme) {
 }
 
 /* ==========================================================================
+   Hyperspace Warp Jump to Galaxy Map 🚀🌠
+   ========================================================================== */
+function initHyperspaceTransition() {
+  const galaxyLinks = document.querySelectorAll('a[href="galaxy.html"]');
+
+  galaxyLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      triggerIndexHyperspace('galaxy.html');
+    });
+  });
+}
+
+function triggerIndexHyperspace(destUrl) {
+  let canvas = document.getElementById('indexWarpCanvas');
+  if (!canvas) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'indexWarpCanvas';
+    document.body.appendChild(canvas);
+  }
+
+  const ctx = canvas.getContext('2d');
+  const width = canvas.width = window.innerWidth;
+  const height = canvas.height = window.innerHeight;
+  const cx = width / 2;
+  const cy = height / 2;
+
+  canvas.classList.add('active');
+
+  const numStreaks = 380;
+  const streaks = [];
+
+  for (let i = 0; i < numStreaks; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const dist = Math.random() * 50 + 10;
+    streaks.push({
+      angle,
+      dist,
+      speed: Math.random() * 15 + 15,
+      length: 2,
+      color: ['#38BDF8', '#818CF8', '#A855F7', '#FFFFFF', '#F97316'][Math.floor(Math.random() * 5)]
+    });
+  }
+
+  let startTime = performance.now();
+  const duration = 480;
+
+  function render(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+
+    ctx.fillStyle = 'rgba(3, 7, 18, 0.28)';
+    ctx.fillRect(0, 0, width, height);
+
+    for (let s of streaks) {
+      s.speed *= 1.08;
+      s.length = Math.min(s.length * 1.15 + 4, 350);
+      s.dist += s.speed;
+
+      const x1 = cx + Math.cos(s.angle) * s.dist;
+      const y1 = cy + Math.sin(s.angle) * s.dist;
+      const x2 = cx + Math.cos(s.angle) * (s.dist + s.length);
+      const y2 = cy + Math.sin(s.angle) * (s.dist + s.length);
+
+      ctx.save();
+      ctx.strokeStyle = s.color;
+      ctx.lineWidth = Math.min(progress * 4 + 1.5, 5);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    if (progress > 0.45) {
+      const flashAlpha = (progress - 0.45) / 0.55;
+      ctx.fillStyle = `rgba(255, 255, 255, ${flashAlpha * 0.95})`;
+      ctx.fillRect(0, 0, width, height);
+    }
+
+    if (progress < 1) {
+      requestAnimationFrame(render);
+    } else {
+      window.location.href = destUrl;
+    }
+  }
+
+  requestAnimationFrame(render);
+}
+
+/* ==========================================================================
    Carousel Horizontal Slider (Left / Right Nav + Dots)
    ========================================================================== */
 function initCarousel() {
@@ -70,7 +162,7 @@ function initCarousel() {
       const dot = document.createElement('span');
       dot.className = `carousel-dot ${idx === 0 ? 'active' : ''}`;
       dot.addEventListener('click', () => {
-        const cardWidth = cards[0].offsetWidth + 20; // width + gap
+        const cardWidth = cards[0].offsetWidth + 20;
         track.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
       });
       dotsContainer.appendChild(dot);
@@ -353,7 +445,7 @@ function playHonkSound() {
     const gain = ctx.createGain();
 
     osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(420, ctx.currentTime);
+    osc.frequency.setValueAtTime(440, ctx.currentTime);
     osc.frequency.exponentialRampToValueAtTime(260, ctx.currentTime + 0.18);
 
     gain.gain.setValueAtTime(0.2, ctx.currentTime);
@@ -364,9 +456,7 @@ function playHonkSound() {
 
     osc.start();
     osc.stop(ctx.currentTime + 0.2);
-  } catch (e) {
-    // Silent fail if blocked
-  }
+  } catch (e) {}
 }
 
 /* ==========================================================================

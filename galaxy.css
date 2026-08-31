@@ -1,6 +1,6 @@
 ﻿/* ==========================================================================
    Thagoose Galaxy Universe Stylesheet 🚀🌌🪐
-   Ultra-Realistic 3D Planets, True Planetary Rings with Z-Depth & Shadow
+   Ultra-Realistic 3D Planets, Hyperspace Warp, Spaceship Flight Mode & Core Scan
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
@@ -8,7 +8,7 @@
 :root {
   --space-bg: #030712;
   --space-dark: #070D1F;
-  --hud-bg: rgba(15, 23, 42, 0.82);
+  --hud-bg: rgba(15, 23, 42, 0.85);
   --hud-border: rgba(56, 189, 248, 0.35);
   --hud-glow: rgba(56, 189, 248, 0.2);
 
@@ -51,6 +51,23 @@ html, body {
   pointer-events: none;
 }
 
+/* Hyperspace Fullscreen Warp Canvas Overlay */
+#warpCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+#warpCanvas.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* --- HUD Top Navigation Bar --- */
 .galaxy-hud-top {
   position: fixed;
@@ -76,7 +93,7 @@ html, body {
   padding: 0.5rem 1.15rem;
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.75rem;
   transition: all 0.25s ease;
 }
 
@@ -89,7 +106,7 @@ html, body {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #F8FAFC;
-  padding: 0.45rem 1rem;
+  padding: 0.45rem 0.95rem;
   border-radius: 9999px;
   font-size: 0.84rem;
   font-weight: 600;
@@ -101,12 +118,25 @@ html, body {
   transition: all 0.2s ease;
 }
 
-.hud-btn:hover {
-  background: rgba(56, 189, 248, 0.22);
+.hud-btn:hover, .hud-btn.active {
+  background: rgba(56, 189, 248, 0.25);
   border-color: var(--neon-cyan);
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+}
+
+.hud-btn.flight-active {
+  background: linear-gradient(135deg, #F97316, #EA580C);
+  border-color: #FED7AA;
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+  animation: pulseFlight 1.5s infinite alternate;
+}
+
+@keyframes pulseFlight {
+  from { box-shadow: 0 0 12px rgba(249, 115, 22, 0.5); }
+  to { box-shadow: 0 0 25px rgba(249, 115, 22, 0.9); }
 }
 
 .hud-title-wrap {
@@ -148,6 +178,10 @@ html, body {
   cursor: grabbing;
 }
 
+body.flight-mode #galaxyViewport {
+  cursor: crosshair !important;
+}
+
 #galaxyWorld {
   position: absolute;
   top: 50%;
@@ -159,6 +193,78 @@ html, body {
   transform-origin: center center;
   transition: transform 0.08s ease-out;
   pointer-events: none;
+}
+
+/* Spaceship in Flight Mode 🚀🪿 */
+#playerSpaceship {
+  position: fixed;
+  width: 54px;
+  height: 54px;
+  margin-top: -27px;
+  margin-left: -27px;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#playerSpaceship.active {
+  opacity: 1;
+}
+
+.ship-body {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 14px #38BDF8) drop-shadow(0 0 25px rgba(56, 189, 248, 0.6));
+  transform-origin: center center;
+}
+
+.ship-thruster-flame {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 22px;
+  background: linear-gradient(to bottom, #38BDF8, #F97316, transparent);
+  border-radius: 50%;
+  filter: blur(1.5px);
+  animation: flameFlicker 0.12s infinite alternate;
+}
+
+@keyframes flameFlicker {
+  0% { height: 16px; opacity: 0.7; }
+  100% { height: 26px; opacity: 1; }
+}
+
+/* Flight Mode Flight Instructions Overlay */
+.flight-hud-guide {
+  position: fixed;
+  top: 5.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 9999px;
+  padding: 0.45rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  z-index: 120;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.flight-hud-guide.show {
+  opacity: 1;
 }
 
 /* Constellation SVG Overlay */
@@ -299,13 +405,13 @@ html, body {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.planet-node:hover {
+.planet-node:hover, .planet-node.flight-hover {
   transform: translate(-50%, -50%) scale(1.18);
   z-index: 50;
 }
 
-.planet-node:hover .planet-render-wrap {
-  filter: drop-shadow(0 0 25px var(--planet-glow)) drop-shadow(0 0 50px var(--planet-glow));
+.planet-node:hover .planet-render-wrap, .planet-node.flight-hover .planet-render-wrap {
+  filter: drop-shadow(0 0 25px var(--planet-glow)) drop-shadow(0 0 55px var(--planet-glow));
 }
 
 .planet-svg-scene {
@@ -386,13 +492,13 @@ html, body {
 }
 
 .hologram-card {
-  width: 440px;
-  max-width: 92vw;
-  background: rgba(15, 23, 42, 0.94);
+  width: 480px;
+  max-width: 94vw;
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 1.5px solid var(--active-planet-glow, var(--neon-cyan));
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 40px var(--active-planet-glow, rgba(56, 189, 248, 0.4));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 45px var(--active-planet-glow, rgba(56, 189, 248, 0.4));
   border-radius: 24px;
   padding: 1.75rem;
   position: relative;
@@ -437,8 +543,8 @@ html, body {
 }
 
 .hologram-planet-icon {
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -489,11 +595,87 @@ html, body {
   font-size: 0.88rem;
   color: #CBD5E1;
   line-height: 1.55;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.1rem;
   background: rgba(0, 0, 0, 0.35);
   padding: 0.9rem 1.1rem;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* --- Feature 5: Planetary Core Scan (3D Layered Tech Stack) --- */
+.scan-core-toggle-btn {
+  width: 100%;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px dashed var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 0.45rem 1rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.scan-core-toggle-btn:hover {
+  background: rgba(56, 189, 248, 0.28);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+}
+
+.core-scan-container {
+  display: none;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  animation: fadeInScan 0.3s ease;
+}
+
+.core-scan-container.active {
+  display: flex;
+}
+
+@keyframes fadeInScan {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scan-layer-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.scan-layer-icon {
+  font-size: 1.25rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.scan-layer-info h5 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.15rem;
+}
+
+.scan-layer-info p {
+  font-size: 0.74rem;
+  color: #94A3B8;
+  line-height: 1.35;
 }
 
 .hologram-actions {
