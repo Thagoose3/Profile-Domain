@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    Thagoose Galaxy Universe Stylesheet 🚀🌌🪐
    Ultra-Realistic 3D Planets, Hyperspace Warp, Spaceship Flight Mode & Core Scan
    ========================================================================== */
@@ -468,6 +468,7 @@ body.flight-mode #galaxyViewport {
 .planet-exercise { --planet-glow: #A855F7; }
 .planet-papervault { --planet-glow: #818CF8; }
 .planet-timeflow { --planet-glow: #38BDF8; }
+.planet-goosefocus { --planet-glow: #10B981; }
 
 /* --- Holographic Planet Detail Modal HUD --- */
 .hologram-modal-overlay {
