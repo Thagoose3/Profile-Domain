@@ -96,8 +96,8 @@
         <circle cx="1200" cy="1200" r="460" class="orbit-line" />
         <circle cx="1200" cy="1200" r="640" class="orbit-line" />
 
-        <!-- Constellation Path in Chronological Order: Calories -> MoneyMemo -> Exercise -> PaperVault -> TimeFlow -> GooseFocus -->
-        <path d="M 750 1020 L 960 1560 L 1320 1640 L 1640 1300 L 1480 820 L 880 880" class="timeline-constellation-path" />
+        <!-- Constellation Path in Chronological Order: Calories -> MoneyMemo -> Exercise -> PaperVault -> TimeFlow -> GooseFocus -> Goose Survivor -->
+        <path d="M 750 1020 L 960 1560 L 1320 1640 L 1640 1300 L 1480 820 L 880 880 L 700 1320" class="timeline-constellation-path" />
       </svg>
 
       <!-- Central Sun: Thagoose Prime 🪿☀️ -->
@@ -366,6 +366,53 @@
           </div>
           <span class="planet-date-pill">📅 31 ส.ค. 2026</span>
         </div>
+      <!-- Planet 7: Goose Survivor (Cosmic Crimson Supernova - 7 ก.ย. 2026) -->
+      <div class="planet-node planet-survivor" id="planet-survivor">
+        <div class="planet-render-wrap">
+          <svg class="planet-svg-scene" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="survivorGrad" cx="35%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#FFF1F2" />
+                <stop offset="25%" stop-color="#FDA4AF" />
+                <stop offset="55%" stop-color="#EF4444" />
+                <stop offset="80%" stop-color="#991B1B" />
+                <stop offset="100%" stop-color="#450A0A" />
+              </radialGradient>
+              <linearGradient id="laserRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FDE047" />
+                <stop offset="50%" stop-color="#EF4444" />
+                <stop offset="100%" stop-color="#7F1D1D" />
+              </linearGradient>
+              <filter id="survivorGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <!-- Outer Shield Aura -->
+            <circle cx="85" cy="85" r="50" fill="#EF4444" opacity="0.38" filter="url(#survivorGlow)" />
+            <!-- Laser Crosshair Rings -->
+            <circle cx="85" cy="85" r="62" fill="none" stroke="url(#laserRingGrad)" stroke-width="1.8" stroke-dasharray="6 6" opacity="0.75" />
+            <circle cx="85" cy="85" r="44" fill="url(#survivorGrad)" />
+            <!-- Battle Goose & Feather Blades -->
+            <path d="M 52 75 Q 85 64 118 78 Q 85 92 52 75 Z" fill="#FDE047" opacity="0.35" />
+            <path d="M 50 96 Q 85 86 120 102 Q 85 116 50 96 Z" fill="#7F1D1D" opacity="0.5" />
+            <!-- Golden Crown & Beak -->
+            <circle cx="85" cy="80" r="10" fill="#FFFBEB" />
+            <polygon points="82,72 84,66 86,69 88,65 90,69 92,66 94,72" fill="#FBBF24" />
+            <polygon points="93,79 101,81 93,84" fill="#F97316" />
+            <circle cx="88" cy="78" r="1.5" fill="#0F172A" />
+            <!-- Orbiting Bullet Feathers -->
+            <polygon points="135,75 145,72 138,78" fill="#FDE047" filter="url(#survivorGlow)" />
+            <polygon points="35,95 25,98 32,92" fill="#FDE047" filter="url(#survivorGlow)" />
+          </svg>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🦆💥</span>
+            <span>Goose Survivor</span>
+          </div>
+          <span class="planet-date-pill">📅 7 ก.ย. 2026</span>
+        </div>
       </div>
 
     </div>
@@ -397,6 +444,10 @@
       <button class="selector-chip" data-planet="goosefocus">
         <span>🪿</span>
         <span>GooseFocus</span>
+      </button>
+      <button class="selector-chip" data-planet="survivor">
+        <span>🦆💥</span>
+        <span>Survivor</span>
       </button>
     </nav>
   </footer>

@@ -136,6 +136,25 @@ const PLANETS_DATA = {
       mantle: 'Live Goose Entity Physics Engine, Precision Focus Hours Accumulator',
       core: 'Browser LocalStorage, Web Audio API Synthesizer (Zero External Audio)'
     }
+  },
+  survivor: {
+    id: 'survivor',
+    name: 'Goose Survivor 🦆💥',
+    suite: 'Game & Action Roguelite Suite',
+    date: '7 ก.ย. 2026',
+    icon: '🦆💥',
+    color: '#EF4444',
+    glowRgba: 'rgba(239, 68, 68, 0.55)',
+    desc: 'เกมแอ็กชันเอาชีวิตรอด Roguelite ผสม Bullet Hell: เดิน WASD หลบดงกระสุน สาดขนนก ปล่อยไข่ระเบิด Mega Honk ล้างจอ พร้อมระบบอัปเกรดการ์ดและดูดเลือด',
+    url: 'https://thagoose3.github.io/goose-survivor/',
+    github: 'https://github.com/Thagoose3/goose-survivor',
+    x: 1200 - 500,
+    y: 1200 + 120,
+    techStack: {
+      crust: 'High-Performance 2D Canvas Viewport, 60FPS Entity Loop, Low-CPU Vector FX',
+      mantle: 'Roguelite Card Deck, Wave Spawner Physics, Graze Bullet Hell Collision Engine',
+      core: 'Web Audio API Synthesizer (Zero External Libs), Local Storage High Scores'
+    }
   }
 };
 

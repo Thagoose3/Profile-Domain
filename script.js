@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Thagoose - Daily Life Ecosystem Portfolio JavaScript 🪿🌾
  * Features: Typewriter, Carousel Slider, Goose Footprints, 3D Tilt, Live Simulator, Honk Sound, Live GitHub API, Hyperspace Warp Jump
  */
@@ -584,6 +584,22 @@ async function fetchGitHubRepos(username) {
           <div class="repo-mini-btns">
             <a href="https://thagoose3.github.io/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เปิดแอป ↗</a>
             <a href="https://github.com/Thagoose3/Calories_Tracker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="repo-mini-card">
+        <div>
+          <div class="repo-mini-header">
+            <span class="repo-mini-name">📂 goose-survivor</span>
+            <span class="pill-tag tag-orange">Canvas Game</span>
+          </div>
+          <p class="repo-mini-desc">Goose Survivor: Bullet Hell - เกมแอ็กชัน Roguelite เอาชีวิตรอดสไตล์ Vampire Survivors</p>
+        </div>
+        <div class="repo-mini-footer">
+          <div class="repo-mini-btns">
+            <a href="https://thagoose3.github.io/goose-survivor" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-xs">เล่นเกม ↗</a>
+            <a href="https://github.com/Thagoose3/goose-survivor" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-xs">โค้ด</a>
           </div>
         </div>
       </div>

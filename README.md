@@ -1,4 +1,4 @@
-﻿# 🪿🌾 Thagoose - Daily Life Ecosystem
+# 🪿🌾 Thagoose - Daily Life Ecosystem
 
 เว็บไซต์โปรไฟล์ส่วนตัวและศูนย์รวมเว็บแอปพลิเคชัน (Portfolio & App Hub) สไตล์ **Modern Farm & Space Universe Theme 🪿🌾🚀**
 
@@ -24,6 +24,8 @@
   - 💰 **[Money Memo](https://thagoose3.github.io/Money-memo)**: เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอด
   - 🏋️ **[Exercise Tracker](https://thagoose3.github.io/Exercise)**: แอปพลิเคชันบันทึกตารางการออกกำลังกายและ Routine
   - 🥗 **[Calories Tracker](https://thagoose3.github.io/Calories_Tracker)**: ระบบคำนวณและติดตามโภชนาการ แคลอรี่
+  - 🪿 **[GooseFocus](https://thagoose3.github.io/GooseFocus/)**: ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas
+  - 🦆💥 **[Goose Survivor](https://thagoose3.github.io/goose-survivor/)**: เกมแอ็กชันเอาชีวิตรอด Roguelite ผสม Bullet Hell: เดิน WASD หลบกระสุน ยิงขนนก ปล่อยไข่ระเบิด และ Mega Honk
 - ⚡ **Live GitHub Repos Sync**: ดึงข้อมูลคลัง Repository สดจากบัญชี `@Thagoose3` อัตโนมัติ
 - 🔊 **"Honk!" & Cosmic Audio Synthesizer**: สังเคราะห์เสียงร้องเจ้าห่านและเสียงอวกาศผ่าน Web Audio API
 
@@ -49,5 +51,6 @@ Profile-Domain/
         ├── thesis-preview.svg          # พรีวิวแอป PaperVault Workspace
         ├── money-memo-preview.svg      # พรีวิวแอป Money Memo
         ├── exercise-preview.svg        # พรีวิวแอป Exercise Tracker
-        └── nutritrack-preview.svg      # พรีวิวแอป Calories Tracker
+        ├── nutritrack-preview.svg      # พรีวิวแอป Calories Tracker
+        └── goose-survivor-preview.svg  # พรีวิวเกม Goose Survivor: Bullet Hell
 ```
