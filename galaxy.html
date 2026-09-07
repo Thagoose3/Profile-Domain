@@ -38,6 +38,10 @@
         <span>🕹️</span>
         <span>บินสำรวจ (Flight)</span>
       </button>
+      <button class="hud-btn" id="orbitToggleBtn" title="หยุด/เริ่มการหมุนวงโคจรของระบบสุริยะ">
+        <span id="orbitIcon">⏸️</span>
+        <span id="orbitText">หยุดโคจร</span>
+      </button>
       <button class="hud-btn" id="resetViewBtn" title="รีเซ็ตมุมมองสู่จุดศูนย์กลาง">
         <span>🎯</span>
         <span>รีเซ็ต</span>
@@ -46,7 +50,7 @@
 
     <div class="hud-panel hud-title-wrap">
       <h1 class="hud-title">THAGOOSE GALAXY</h1>
-      <span class="hud-subtitle">SPACE MAP • DAILY LIFE ECOSYSTEM 🪐</span>
+      <span class="hud-subtitle">SOLAR SYSTEM • CHRONOLOGICAL ORBITS 🪐</span>
     </div>
 
     <div class="hud-panel">
@@ -79,25 +83,31 @@
   <main id="galaxyViewport">
     <div id="galaxyWorld">
 
-      <!-- Constellation Timeline & Orbit SVG Overlay -->
+      <!-- Constellation Timeline & Solar System Orbit SVG Overlay -->
       <svg id="constellationSvg" viewBox="0 0 2400 2400" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="constellationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FB923C" />
-            <stop offset="25%" stop-color="#10B981" />
-            <stop offset="50%" stop-color="#A855F7" />
-            <stop offset="75%" stop-color="#818CF8" />
-            <stop offset="100%" stop-color="#38BDF8" />
+            <stop offset="16%" stop-color="#10B981" />
+            <stop offset="33%" stop-color="#A855F7" />
+            <stop offset="50%" stop-color="#818CF8" />
+            <stop offset="66%" stop-color="#38BDF8" />
+            <stop offset="83%" stop-color="#10B981" />
+            <stop offset="100%" stop-color="#EF4444" />
           </linearGradient>
         </defs>
 
-        <!-- Orbit Concentric Rings -->
-        <circle cx="1200" cy="1200" r="280" class="orbit-line" />
-        <circle cx="1200" cy="1200" r="460" class="orbit-line" />
-        <circle cx="1200" cy="1200" r="640" class="orbit-line" />
+        <!-- 7 Concentric Solar System Orbit Rings (Innermost to Outermost by Release Date) -->
+        <circle cx="1200" cy="1200" r="240" class="orbit-line orbit-calories" id="orbit-ring-calories" />
+        <circle cx="1200" cy="1200" r="350" class="orbit-line orbit-moneymemo" id="orbit-ring-moneymemo" />
+        <circle cx="1200" cy="1200" r="460" class="orbit-line orbit-exercise" id="orbit-ring-exercise" />
+        <circle cx="1200" cy="1200" r="580" class="orbit-line orbit-papervault" id="orbit-ring-papervault" />
+        <circle cx="1200" cy="1200" r="700" class="orbit-line orbit-timeflow" id="orbit-ring-timeflow" />
+        <circle cx="1200" cy="1200" r="820" class="orbit-line orbit-goosefocus" id="orbit-ring-goosefocus" />
+        <circle cx="1200" cy="1200" r="950" class="orbit-line orbit-survivor" id="orbit-ring-survivor" />
 
-        <!-- Constellation Path in Chronological Order: Calories -> MoneyMemo -> Exercise -> PaperVault -> TimeFlow -> GooseFocus -> Goose Survivor -->
-        <path d="M 750 1020 L 960 1560 L 1320 1640 L 1640 1300 L 1480 820 L 880 880 L 700 1320" class="timeline-constellation-path" />
+        <!-- Live Real-Time Dynamic Constellation Timeline Path -->
+        <path id="liveConstellationPath" class="timeline-constellation-path" d="" />
       </svg>
 
       <!-- Central Sun: Thagoose Prime 🪿☀️ -->

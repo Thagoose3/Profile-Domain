@@ -10,17 +10,18 @@
 document.addEventListener('DOMContentLoaded', () => {
   initStarfieldCanvas();
   initGalaxyViewport();
+  initSolarOrbitSystem();
   initPlanetInteraction();
   initCosmicAudio();
   initGalaxySimulator();
   initSpaceshipFlightMode();
   initHyperspaceWarp();
   initPlanetaryCoreScan();
-  showToast('🚀 ยินดีต้อนรับสู่ Thagoose Space Ecosystem! ลองกดปุ่ม "🕹️ บินสำรวจ" ดูสิ');
+  showToast('🪐 ยินดีต้อนรับสู่ Thagoose Solar System! ดวงดาวโคจรรอบ Thagoose Prime ตามลำดับเวลา');
 });
 
 /* ==========================================================================
-   Project Planets Data (Timeline, Exact GitHub Launch Dates & Tech Stack Core)
+   Project Planets Data (Chronological Solar Orbits from Inner to Outer)
    ========================================================================== */
 const PLANETS_DATA = {
   calories: {
@@ -34,8 +35,11 @@ const PLANETS_DATA = {
     desc: 'ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats) เพื่อสุขภาพและรูปร่างที่ดี',
     url: 'https://thagoose3.github.io/Calories_Tracker',
     github: 'https://github.com/Thagoose3/Calories_Tracker',
-    x: 1200 - 450,
-    y: 1200 - 180,
+    orbitRadius: 240,
+    orbitSpeed: 0.00075,
+    angle: 0.2,
+    x: 1200 + Math.cos(0.2) * 240,
+    y: 1200 + Math.sin(0.2) * 240,
     techStack: {
       crust: 'HTML5, Modern CSS Variables, Responsive Glassmorphism UI',
       mantle: 'Macronutrient Calculation Algorithms, Real-time BMR/TDEE Engine',
@@ -49,12 +53,15 @@ const PLANETS_DATA = {
     date: '23 ส.ค. 2026',
     icon: '💰',
     color: '#10B981',
-    glowRgba: 'rgba(16, 185, 129, 0.45)',
+    glowRgba: 'rgba(168, 185, 129, 0.45)',
     desc: 'เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอดเงินและกราฟวิเคราะห์หมวดหมู่อัตโนมัติ ดีไซน์ใช้งานง่ายและคลีนตา',
     url: 'https://thagoose3.github.io/Money-memo',
     github: 'https://github.com/Thagoose3/Money-memo',
-    x: 1200 - 240,
-    y: 1200 + 360,
+    orbitRadius: 350,
+    orbitSpeed: 0.00060,
+    angle: 1.3,
+    x: 1200 + Math.cos(1.3) * 350,
+    y: 1200 + Math.sin(1.3) * 350,
     techStack: {
       crust: 'Semantic HTML5, Chart.js Visualizations, Mobile-First Flexbox/Grid',
       mantle: 'Income/Expense Categorization Engine, Monthly Balance Aggregator',
@@ -72,8 +79,11 @@ const PLANETS_DATA = {
     desc: 'แอปพลิเคชันบันทึกการออกกำลังกาย วางตาราง Routine เซ็ต จำนวนครั้ง และจับเวลาฝึกซ้อมอย่างเป็นระบบ',
     url: 'https://thagoose3.github.io/Exercise',
     github: 'https://github.com/Thagoose3/Exercise',
-    x: 1200 + 120,
-    y: 1200 + 440,
+    orbitRadius: 460,
+    orbitSpeed: 0.00048,
+    angle: 2.4,
+    x: 1200 + Math.cos(2.4) * 460,
+    y: 1200 + Math.sin(2.4) * 460,
     techStack: {
       crust: 'Dark Neon Violet UI, Touch-Friendly Action Buttons, CSS Micro-animations',
       mantle: 'Workout Routine Scheduler, High-precision Interval Rest Timer',
@@ -91,8 +101,11 @@ const PLANETS_DATA = {
     desc: 'สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ระดับโปร ระบบอ่าน PDF ไฮไลต์ข้อความ สังเคราะห์ Matrix และบันทึก Citation/BibTeX สำหรับนักวิจัย',
     url: 'https://thagoose3.github.io/thesis-workspace',
     github: 'https://github.com/Thagoose3/thesis-workspace',
-    x: 1200 + 440,
-    y: 1200 + 100,
+    orbitRadius: 580,
+    orbitSpeed: 0.00038,
+    angle: 3.6,
+    x: 1200 + Math.cos(3.6) * 580,
+    y: 1200 + Math.sin(3.6) * 580,
     techStack: {
       crust: 'PaperVault Dark Studio Layout, PDF.js High-res Canvas, Split-Pane Matrix',
       mantle: 'Text Extraction & Annotation Engine, BibTeX Parser, Citation Formatter',
@@ -110,8 +123,11 @@ const PLANETS_DATA = {
     desc: 'วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, สัปดาห์, วัน) บนเดสก์ท็อป สไตล์ Frosted Glass กระจกใส ช่วยเตือนสติและบริหารเวลาอย่างมีเป้าหมาย',
     url: 'https://thagoose3.github.io/time-progress-widget',
     github: 'https://github.com/Thagoose3/time-progress-widget',
-    x: 1200 + 280,
-    y: 1200 - 380,
+    orbitRadius: 700,
+    orbitSpeed: 0.00030,
+    angle: 4.7,
+    x: 1200 + Math.cos(4.7) * 700,
+    y: 1200 + Math.sin(4.7) * 700,
     techStack: {
       crust: 'Frameless Transparent Window, Quantum Clock Gauges, Glassmorphism',
       mantle: 'Real-time Time Elapsed / Remaining Percentile Calculator',
@@ -129,8 +145,11 @@ const PLANETS_DATA = {
     desc: 'ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas พร้อมระบบสะสมชั่วโมง ยศชาวไร่ห่าน Leaderboard และ Web Audio Synthesizer',
     url: 'https://thagoose3.github.io/GooseFocus/',
     github: 'https://github.com/Thagoose3/GooseFocus',
-    x: 1200 - 320,
-    y: 1200 - 320,
+    orbitRadius: 820,
+    orbitSpeed: 0.00024,
+    angle: 5.7,
+    x: 1200 + Math.cos(5.7) * 820,
+    y: 1200 + Math.sin(5.7) * 820,
     techStack: {
       crust: 'Full-screen 2D Canvas Viewport, Glassmorphic HUD, CSS3 Animations',
       mantle: 'Live Goose Entity Physics Engine, Precision Focus Hours Accumulator',
@@ -148,8 +167,11 @@ const PLANETS_DATA = {
     desc: 'เกมแอ็กชันเอาชีวิตรอด Roguelite ผสม Bullet Hell: เดิน WASD หลบดงกระสุน สาดขนนก ปล่อยไข่ระเบิด Mega Honk ล้างจอ พร้อมระบบอัปเกรดการ์ดและดูดเลือด',
     url: 'https://thagoose3.github.io/goose-survivor/',
     github: 'https://github.com/Thagoose3/goose-survivor',
-    x: 1200 - 500,
-    y: 1200 + 120,
+    orbitRadius: 950,
+    orbitSpeed: 0.00018,
+    angle: 0.9,
+    x: 1200 + Math.cos(0.9) * 950,
+    y: 1200 + Math.sin(0.9) * 950,
     techStack: {
       crust: 'High-Performance 2D Canvas Viewport, 60FPS Entity Loop, Low-CPU Vector FX',
       mantle: 'Roguelite Card Deck, Wave Spawner Physics, Graze Bullet Hell Collision Engine',
@@ -333,13 +355,11 @@ function initGalaxyViewport() {
   // Reset View
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      focusCoordinates(0, 0, 1);
+      const idealZoom = Math.min(0.85, Math.max(0.5, (window.innerWidth - 80) / 2200));
+      focusCoordinates(0, 0, idealZoom);
       showToast('🎯 รีเซ็ตมุมมองสู่ศูนย์กลาง Thagoose Prime');
     });
   }
-
-  // Position Planets within Galaxy World
-  positionPlanetNodes();
 }
 
 function updateWorldTransform() {
@@ -363,14 +383,101 @@ function focusCoordinates(targetX, targetY, targetZoom = 1.25) {
   }, 700);
 }
 
-function positionPlanetNodes() {
-  Object.values(PLANETS_DATA).forEach(data => {
-    const el = document.getElementById(`planet-${data.id}`);
-    if (el) {
-      el.style.left = `${data.x}px`;
-      el.style.top = `${data.y}px`;
+/* ==========================================================================
+   Solar Orbit Engine (Real-Time Revolution & Dynamic Timeline Constellation)
+   ========================================================================== */
+window._isOrbitPaused = false;
+
+function initSolarOrbitSystem() {
+  const orbitBtn = document.getElementById('orbitToggleBtn');
+  const orbitIcon = document.getElementById('orbitIcon');
+  const orbitText = document.getElementById('orbitText');
+  const liveConstellationPath = document.getElementById('liveConstellationPath');
+
+  if (orbitBtn) {
+    orbitBtn.addEventListener('click', () => {
+      window._isOrbitPaused = !window._isOrbitPaused;
+      if (orbitIcon) orbitIcon.textContent = window._isOrbitPaused ? '▶️' : '⏸️';
+      if (orbitText) orbitText.textContent = window._isOrbitPaused ? 'เริ่มโคจร' : 'หยุดโคจร';
+      orbitBtn.classList.toggle('paused', window._isOrbitPaused);
+
+      if (window._isOrbitPaused) {
+        showToast('⏸️ หยุดการโคจรของระบบสุริยะชั่วคราว');
+      } else {
+        showToast('🪐 เริ่มการโคจรของระบบสุริยะ Thagoose Solar System');
+      }
+    });
+  }
+
+  // Highlight orbit rings on planet hover
+  Object.keys(PLANETS_DATA).forEach(key => {
+    const el = document.getElementById(`planet-${key}`);
+    const orbitRing = document.getElementById(`orbit-ring-${key}`);
+    if (el && orbitRing) {
+      el.addEventListener('mouseenter', () => {
+        orbitRing.classList.add('orbit-highlight');
+      });
+      el.addEventListener('mouseleave', () => {
+        if (!activePlanet || activePlanet.id !== key) {
+          orbitRing.classList.remove('orbit-highlight');
+        }
+      });
     }
   });
+
+  // Calculate default viewport zoom to fit the entire solar system on screen
+  const idealZoom = Math.min(0.85, Math.max(0.5, (window.innerWidth - 80) / 2200));
+  currentZoom = idealZoom;
+  updateWorldTransform();
+
+  const planetChronologicalOrder = ['calories', 'moneymemo', 'exercise', 'papervault', 'timeflow', 'goosefocus', 'survivor'];
+
+  // Initial placement
+  planetChronologicalOrder.forEach(key => {
+    const planet = PLANETS_DATA[key];
+    if (planet) {
+      planet.x = 1200 + Math.cos(planet.angle) * planet.orbitRadius;
+      planet.y = 1200 + Math.sin(planet.angle) * planet.orbitRadius;
+      const el = document.getElementById(`planet-${planet.id}`);
+      if (el) {
+        el.style.left = `${planet.x}px`;
+        el.style.top = `${planet.y}px`;
+      }
+    }
+  });
+
+  // 60FPS Continuous Solar Orbit Simulation
+  function animateSolarOrbit() {
+    if (!window._isOrbitPaused) {
+      const points = [];
+
+      planetChronologicalOrder.forEach(key => {
+        const planet = PLANETS_DATA[key];
+        if (planet) {
+          planet.angle = (planet.angle + planet.orbitSpeed) % (Math.PI * 2);
+          planet.x = 1200 + Math.cos(planet.angle) * planet.orbitRadius;
+          planet.y = 1200 + Math.sin(planet.angle) * planet.orbitRadius;
+
+          const el = document.getElementById(`planet-${planet.id}`);
+          if (el) {
+            el.style.left = `${planet.x}px`;
+            el.style.top = `${planet.y}px`;
+          }
+
+          points.push(`${planet.x} ${planet.y}`);
+        }
+      });
+
+      // Update dynamic SVG constellation path connecting the moving planets
+      if (liveConstellationPath && points.length > 0) {
+        liveConstellationPath.setAttribute('d', `M ${points.join(' L ')}`);
+      }
+    }
+
+    requestAnimationFrame(animateSolarOrbit);
+  }
+
+  requestAnimationFrame(animateSolarOrbit);
 }
 
 /* ==========================================================================
@@ -673,8 +780,10 @@ function initPlanetInteraction() {
     // Update 3D Tech Stack Details
     updateCoreScanDetails(data);
 
-    // Set custom theme glow color
-    document.documentElement.style.setProperty('--active-planet-glow', data.color);
+    // Highlight active orbit ring
+    document.querySelectorAll('.orbit-line').forEach(ring => ring.classList.remove('orbit-highlight'));
+    const targetRing = document.getElementById(`orbit-ring-${planetKey}`);
+    if (targetRing) targetRing.classList.add('orbit-highlight');
 
     modal.classList.add('active');
     playWarpSound();
@@ -688,6 +797,8 @@ function initPlanetInteraction() {
   function closeHologram() {
     if (modal) modal.classList.remove('active');
     document.querySelectorAll('.selector-chip').forEach(chip => chip.classList.remove('active'));
+    document.querySelectorAll('.orbit-line').forEach(ring => ring.classList.remove('orbit-highlight'));
+    activePlanet = null;
   }
 
   if (closeBtn) closeBtn.addEventListener('click', closeHologram);
