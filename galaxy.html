@@ -38,19 +38,19 @@
         <span>🕹️</span>
         <span>บินสำรวจ (Flight)</span>
       </button>
-      <button class="hud-btn" id="orbitToggleBtn" title="หยุด/เริ่มการหมุนวงโคจรของระบบสุริยะ">
+      <button class="hud-btn" id="orbitToggleBtn" title="หยุด/เริ่มการลอยตัวของระบบสุริยะ">
         <span id="orbitIcon">⏸️</span>
-        <span id="orbitText">หยุดโคจร</span>
+        <span id="orbitText">ลอยตัว (Float)</span>
       </button>
-      <button class="hud-btn" id="resetViewBtn" title="รีเซ็ตมุมมองสู่จุดศูนย์กลาง">
+      <button class="hud-btn" id="resetViewBtn" title="รีเซ็ตมุมมองสู่จุดเริ่มต้น">
         <span>🎯</span>
-        <span>รีเซ็ต</span>
+        <span>มุมมองกว้าง</span>
       </button>
     </div>
 
     <div class="hud-panel hud-title-wrap">
-      <h1 class="hud-title">THAGOOSE GALAXY</h1>
-      <span class="hud-subtitle">SOLAR SYSTEM • CHRONOLOGICAL ORBITS 🪐</span>
+      <h1 class="hud-title">THAGOOSE SOLAR SYSTEM</h1>
+      <span class="hud-subtitle">CHRONOLOGICAL SOLAR RUNWAY • DAILY LIFE ECOSYSTEM 🪐☀️</span>
     </div>
 
     <div class="hud-panel">
@@ -83,8 +83,8 @@
   <main id="galaxyViewport">
     <div id="galaxyWorld">
 
-      <!-- Constellation Timeline & Solar System Orbit SVG Overlay -->
-      <svg id="constellationSvg" viewBox="0 0 2400 2400" xmlns="http://www.w3.org/2000/svg">
+      <!-- Panoramic Solar System SVG Overlay (Orbits, Asteroid Belt, Comet, Timeline) -->
+      <svg id="constellationSvg" viewBox="0 0 2800 1000" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="constellationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FB923C" />
@@ -95,23 +95,75 @@
             <stop offset="83%" stop-color="#10B981" />
             <stop offset="100%" stop-color="#EF4444" />
           </linearGradient>
+
+          <!-- Blue Comet Glowing Tail -->
+          <linearGradient id="cometTailGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+            <stop offset="60%" stop-color="#0284C7" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#1E1B4B" stop-opacity="0" />
+          </linearGradient>
+
+          <!-- Asteroid Rock Gradient -->
+          <radialGradient id="rockGrad" cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#A1A1AA" />
+            <stop offset="60%" stop-color="#52525B" />
+            <stop offset="100%" stop-color="#27272A" />
+          </radialGradient>
         </defs>
 
-        <!-- 7 Concentric Solar System Orbit Rings (Innermost to Outermost by Release Date) -->
-        <circle cx="1200" cy="1200" r="240" class="orbit-line orbit-calories" id="orbit-ring-calories" />
-        <circle cx="1200" cy="1200" r="350" class="orbit-line orbit-moneymemo" id="orbit-ring-moneymemo" />
-        <circle cx="1200" cy="1200" r="460" class="orbit-line orbit-exercise" id="orbit-ring-exercise" />
-        <circle cx="1200" cy="1200" r="580" class="orbit-line orbit-papervault" id="orbit-ring-papervault" />
-        <circle cx="1200" cy="1200" r="700" class="orbit-line orbit-timeflow" id="orbit-ring-timeflow" />
-        <circle cx="1200" cy="1200" r="820" class="orbit-line orbit-goosefocus" id="orbit-ring-goosefocus" />
-        <circle cx="1200" cy="1200" r="950" class="orbit-line orbit-survivor" id="orbit-ring-survivor" />
+        <!-- Cosmic Horizon Plane Laser Guide -->
+        <line x1="0" y1="500" x2="2800" y2="500" stroke="rgba(56, 189, 248, 0.08)" stroke-dasharray="8 8" stroke-width="1.5" />
+
+        <!-- 7 Panoramic Perspective Orbit Arcs (Curving back towards the Left Sun) -->
+        <ellipse cx="0" cy="500" rx="420" ry="320" class="orbit-line orbit-calories" id="orbit-ring-calories" />
+        <ellipse cx="0" cy="500" rx="720" ry="420" class="orbit-line orbit-moneymemo" id="orbit-ring-moneymemo" />
+        <ellipse cx="0" cy="500" rx="1020" ry="520" class="orbit-line orbit-exercise" id="orbit-ring-exercise" />
+        <ellipse cx="0" cy="500" rx="1520" ry="620" class="orbit-line orbit-papervault" id="orbit-ring-papervault" />
+        <ellipse cx="0" cy="500" rx="1860" ry="700" class="orbit-line orbit-timeflow" id="orbit-ring-timeflow" />
+        <ellipse cx="0" cy="500" rx="2180" ry="780" class="orbit-line orbit-goosefocus" id="orbit-ring-goosefocus" />
+        <ellipse cx="0" cy="500" rx="2520" ry="860" class="orbit-line orbit-survivor" id="orbit-ring-survivor" />
+
+        <!-- Floating Asteroid Belt between Exercise and PaperVault (x: 1200 - 1340) -->
+        <g class="asteroid-belt" opacity="0.65">
+          <!-- Asteroid stream particles -->
+          <circle cx="1220" cy="480" r="7" fill="url(#rockGrad)" />
+          <circle cx="1250" cy="530" r="5" fill="url(#rockGrad)" />
+          <circle cx="1235" cy="420" r="9" fill="url(#rockGrad)" />
+          <circle cx="1270" cy="460" r="4" fill="url(#rockGrad)" />
+          <circle cx="1290" cy="550" r="8" fill="url(#rockGrad)" />
+          <circle cx="1260" cy="380" r="6" fill="url(#rockGrad)" />
+          <circle cx="1285" cy="490" r="11" fill="url(#rockGrad)" />
+          <circle cx="1310" cy="430" r="5" fill="url(#rockGrad)" />
+          <circle cx="1325" cy="520" r="7" fill="url(#rockGrad)" />
+          <circle cx="1240" cy="580" r="6" fill="url(#rockGrad)" />
+          <circle cx="1300" cy="360" r="8" fill="url(#rockGrad)" />
+          <circle cx="1335" cy="470" r="4" fill="url(#rockGrad)" />
+          <circle cx="1215" cy="510" r="5" fill="url(#rockGrad)" />
+          <circle cx="1275" cy="620" r="7" fill="url(#rockGrad)" />
+          <circle cx="1315" cy="570" r="9" fill="url(#rockGrad)" />
+          <!-- Fine dust -->
+          <circle cx="1245" cy="450" r="2" fill="#A1A1AA" opacity="0.8" />
+          <circle cx="1265" cy="510" r="1.5" fill="#A1A1AA" opacity="0.8" />
+          <circle cx="1295" cy="470" r="2.5" fill="#A1A1AA" opacity="0.8" />
+          <circle cx="1320" cy="390" r="2" fill="#A1A1AA" opacity="0.8" />
+        </g>
+
+        <!-- Cosmic Glowing Blue Comet (Soaring across upper atmosphere) -->
+        <g class="cosmic-comet" transform="translate(1420, 150) rotate(-12)">
+          <!-- Comet Ion Tail -->
+          <polygon points="0,0 240,-12 240,12" fill="url(#cometTailGrad)" />
+          <!-- Comet Core -->
+          <circle cx="0" cy="0" r="8" fill="#FFFFFF" filter="drop-shadow(0 0 12px #38BDF8)" />
+          <circle cx="0" cy="0" r="14" fill="#38BDF8" opacity="0.4" />
+        </g>
 
         <!-- Live Real-Time Dynamic Constellation Timeline Path -->
         <path id="liveConstellationPath" class="timeline-constellation-path" d="" />
       </svg>
 
-      <!-- Central Sun: Thagoose Prime 🪿☀️ -->
-      <div class="galaxy-core-sun" id="coreSun" title="Thagoose Prime • คลิกเพื่อส่งเสียง Honk! 🪿">
+      <!-- Giant Left Sun: Thagoose Prime 🪿☀️ -->
+      <div class="galaxy-core-sun solar-giant-sun" id="coreSun" title="Thagoose Prime • คลิกเพื่อส่งเสียง Honk! 🪿">
+        <div class="sun-flare-aura"></div>
         <span class="core-sun-mascot">🪿</span>
         <span class="core-sun-tag">THAGOOSE PRIME</span>
       </div>

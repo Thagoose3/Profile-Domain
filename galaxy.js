@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   Project Planets Data (Chronological Solar Orbits from Inner to Outer)
+   Project Planets Data (Panoramic Chronological Solar Runway)
    ========================================================================== */
 const PLANETS_DATA = {
   calories: {
@@ -35,11 +35,13 @@ const PLANETS_DATA = {
     desc: 'ระบบคำนวณและติดตามโภชนาการ แคลอรี่ และสัดส่วนสารอาหารหลัก (Protein, Carbs, Fats) เพื่อสุขภาพและรูปร่างที่ดี',
     url: 'https://thagoose3.github.io/Calories_Tracker',
     github: 'https://github.com/Thagoose3/Calories_Tracker',
-    orbitRadius: 240,
-    orbitSpeed: 0.00075,
-    angle: 0.2,
-    x: 1200 + Math.cos(0.2) * 240,
-    y: 1200 + Math.sin(0.2) * 240,
+    baseX: 420,
+    baseY: 500,
+    floatAmp: 14,
+    floatSpeed: 0.0018,
+    phase: 0.2,
+    x: 420,
+    y: 500,
     techStack: {
       crust: 'HTML5, Modern CSS Variables, Responsive Glassmorphism UI',
       mantle: 'Macronutrient Calculation Algorithms, Real-time BMR/TDEE Engine',
@@ -53,15 +55,17 @@ const PLANETS_DATA = {
     date: '23 ส.ค. 2026',
     icon: '💰',
     color: '#10B981',
-    glowRgba: 'rgba(168, 185, 129, 0.45)',
+    glowRgba: 'rgba(16, 185, 129, 0.45)',
     desc: 'เว็บแอปบันทึกรายรับ-รายจ่ายอัจฉริยะ พร้อมแดชบอร์ดสรุปยอดเงินและกราฟวิเคราะห์หมวดหมู่อัตโนมัติ ดีไซน์ใช้งานง่ายและคลีนตา',
     url: 'https://thagoose3.github.io/Money-memo',
     github: 'https://github.com/Thagoose3/Money-memo',
-    orbitRadius: 350,
-    orbitSpeed: 0.00060,
-    angle: 1.3,
-    x: 1200 + Math.cos(1.3) * 350,
-    y: 1200 + Math.sin(1.3) * 350,
+    baseX: 720,
+    baseY: 500,
+    floatAmp: 16,
+    floatSpeed: 0.0016,
+    phase: 1.4,
+    x: 720,
+    y: 500,
     techStack: {
       crust: 'Semantic HTML5, Chart.js Visualizations, Mobile-First Flexbox/Grid',
       mantle: 'Income/Expense Categorization Engine, Monthly Balance Aggregator',
@@ -79,11 +83,13 @@ const PLANETS_DATA = {
     desc: 'แอปพลิเคชันบันทึกการออกกำลังกาย วางตาราง Routine เซ็ต จำนวนครั้ง และจับเวลาฝึกซ้อมอย่างเป็นระบบ',
     url: 'https://thagoose3.github.io/Exercise',
     github: 'https://github.com/Thagoose3/Exercise',
-    orbitRadius: 460,
-    orbitSpeed: 0.00048,
-    angle: 2.4,
-    x: 1200 + Math.cos(2.4) * 460,
-    y: 1200 + Math.sin(2.4) * 460,
+    baseX: 1020,
+    baseY: 500,
+    floatAmp: 15,
+    floatSpeed: 0.0017,
+    phase: 2.6,
+    x: 1020,
+    y: 500,
     techStack: {
       crust: 'Dark Neon Violet UI, Touch-Friendly Action Buttons, CSS Micro-animations',
       mantle: 'Workout Routine Scheduler, High-precision Interval Rest Timer',
@@ -101,11 +107,13 @@ const PLANETS_DATA = {
     desc: 'สตูดิโอจัดการเอกสารวิจัยและวิทยานิพนธ์ระดับโปร ระบบอ่าน PDF ไฮไลต์ข้อความ สังเคราะห์ Matrix และบันทึก Citation/BibTeX สำหรับนักวิจัย',
     url: 'https://thagoose3.github.io/thesis-workspace',
     github: 'https://github.com/Thagoose3/thesis-workspace',
-    orbitRadius: 580,
-    orbitSpeed: 0.00038,
-    angle: 3.6,
-    x: 1200 + Math.cos(3.6) * 580,
-    y: 1200 + Math.sin(3.6) * 580,
+    baseX: 1520,
+    baseY: 500,
+    floatAmp: 18,
+    floatSpeed: 0.0014,
+    phase: 3.8,
+    x: 1520,
+    y: 500,
     techStack: {
       crust: 'PaperVault Dark Studio Layout, PDF.js High-res Canvas, Split-Pane Matrix',
       mantle: 'Text Extraction & Annotation Engine, BibTeX Parser, Citation Formatter',
@@ -123,11 +131,13 @@ const PLANETS_DATA = {
     desc: 'วิดเจ็ตแสดงความคืบหน้าของเวลา Real-time (ปี, เดือน, สัปดาห์, วัน) บนเดสก์ท็อป สไตล์ Frosted Glass กระจกใส ช่วยเตือนสติและบริหารเวลาอย่างมีเป้าหมาย',
     url: 'https://thagoose3.github.io/time-progress-widget',
     github: 'https://github.com/Thagoose3/time-progress-widget',
-    orbitRadius: 700,
-    orbitSpeed: 0.00030,
-    angle: 4.7,
-    x: 1200 + Math.cos(4.7) * 700,
-    y: 1200 + Math.sin(4.7) * 700,
+    baseX: 1860,
+    baseY: 500,
+    floatAmp: 15,
+    floatSpeed: 0.0015,
+    phase: 4.9,
+    x: 1860,
+    y: 500,
     techStack: {
       crust: 'Frameless Transparent Window, Quantum Clock Gauges, Glassmorphism',
       mantle: 'Real-time Time Elapsed / Remaining Percentile Calculator',
@@ -145,11 +155,13 @@ const PLANETS_DATA = {
     desc: 'ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas พร้อมระบบสะสมชั่วโมง ยศชาวไร่ห่าน Leaderboard และ Web Audio Synthesizer',
     url: 'https://thagoose3.github.io/GooseFocus/',
     github: 'https://github.com/Thagoose3/GooseFocus',
-    orbitRadius: 820,
-    orbitSpeed: 0.00024,
-    angle: 5.7,
-    x: 1200 + Math.cos(5.7) * 820,
-    y: 1200 + Math.sin(5.7) * 820,
+    baseX: 2180,
+    baseY: 500,
+    floatAmp: 17,
+    floatSpeed: 0.0013,
+    phase: 0.8,
+    x: 2180,
+    y: 500,
     techStack: {
       crust: 'Full-screen 2D Canvas Viewport, Glassmorphic HUD, CSS3 Animations',
       mantle: 'Live Goose Entity Physics Engine, Precision Focus Hours Accumulator',
@@ -167,11 +179,13 @@ const PLANETS_DATA = {
     desc: 'เกมแอ็กชันเอาชีวิตรอด Roguelite ผสม Bullet Hell: เดิน WASD หลบดงกระสุน สาดขนนก ปล่อยไข่ระเบิด Mega Honk ล้างจอ พร้อมระบบอัปเกรดการ์ดและดูดเลือด',
     url: 'https://thagoose3.github.io/goose-survivor/',
     github: 'https://github.com/Thagoose3/goose-survivor',
-    orbitRadius: 950,
-    orbitSpeed: 0.00018,
-    angle: 0.9,
-    x: 1200 + Math.cos(0.9) * 950,
-    y: 1200 + Math.sin(0.9) * 950,
+    baseX: 2520,
+    baseY: 500,
+    floatAmp: 19,
+    floatSpeed: 0.0012,
+    phase: 2.1,
+    x: 2520,
+    y: 500,
     techStack: {
       crust: 'High-Performance 2D Canvas Viewport, 60FPS Entity Loop, Low-CPU Vector FX',
       mantle: 'Roguelite Card Deck, Wave Spawner Physics, Graze Bullet Hell Collision Engine',
@@ -348,16 +362,16 @@ function initGalaxyViewport() {
   viewport.addEventListener('wheel', (e) => {
     e.preventDefault();
     const zoomFactor = e.deltaY < 0 ? 1.08 : 0.92;
-    currentZoom = Math.min(Math.max(currentZoom * zoomFactor, 0.45), 1.9);
+    currentZoom = Math.min(Math.max(currentZoom * zoomFactor, 0.4), 1.8);
     updateWorldTransform();
   }, { passive: false });
 
-  // Reset View
+  // Reset View / Overview
   if (resetBtn) {
     resetBtn.addEventListener('click', () => {
-      const idealZoom = Math.min(0.85, Math.max(0.5, (window.innerWidth - 80) / 2200));
+      const idealZoom = Math.min(0.95, Math.max(0.48, (window.innerWidth - 60) / 2800));
       focusCoordinates(0, 0, idealZoom);
-      showToast('🎯 รีเซ็ตมุมมองสู่ศูนย์กลาง Thagoose Prime');
+      showToast('🎯 มุมมองกว้าง Thagoose Solar Runway');
     });
   }
 }
@@ -368,13 +382,13 @@ function updateWorldTransform() {
   world.style.transform = `translate(${currentPanX}px, ${currentPanY}px) scale(${currentZoom})`;
 }
 
-function focusCoordinates(targetX, targetY, targetZoom = 1.25) {
+function focusCoordinates(targetX, targetY, targetZoom = 1.2) {
   const world = document.getElementById('galaxyWorld');
   if (!world) return;
 
   world.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
-  currentPanX = -targetX;
-  currentPanY = -targetY;
+  currentPanX = -targetX * targetZoom;
+  currentPanY = -targetY * targetZoom;
   currentZoom = targetZoom;
   updateWorldTransform();
 
@@ -384,7 +398,7 @@ function focusCoordinates(targetX, targetY, targetZoom = 1.25) {
 }
 
 /* ==========================================================================
-   Solar Orbit Engine (Real-Time Revolution & Dynamic Timeline Constellation)
+   Solar Runway Engine (Zero-G Planetary Levitation & Constellation Beam)
    ========================================================================== */
 window._isOrbitPaused = false;
 
@@ -398,18 +412,18 @@ function initSolarOrbitSystem() {
     orbitBtn.addEventListener('click', () => {
       window._isOrbitPaused = !window._isOrbitPaused;
       if (orbitIcon) orbitIcon.textContent = window._isOrbitPaused ? '▶️' : '⏸️';
-      if (orbitText) orbitText.textContent = window._isOrbitPaused ? 'เริ่มโคจร' : 'หยุดโคจร';
+      if (orbitText) orbitText.textContent = window._isOrbitPaused ? 'ลอยตัว (Play)' : 'ลอยตัว (Float)';
       orbitBtn.classList.toggle('paused', window._isOrbitPaused);
 
       if (window._isOrbitPaused) {
-        showToast('⏸️ หยุดการโคจรของระบบสุริยะชั่วคราว');
+        showToast('⏸️ หยุดการลอยตัวของระบบสุริยะ');
       } else {
-        showToast('🪐 เริ่มการโคจรของระบบสุริยะ Thagoose Solar System');
+        showToast('🪐 ระบบสุริยะลอยตัวในสภาวะไร้น้ำหนัก');
       }
     });
   }
 
-  // Highlight orbit rings on planet hover
+  // Highlight orbit arcs on planet hover
   Object.keys(PLANETS_DATA).forEach(key => {
     const el = document.getElementById(`planet-${key}`);
     const orbitRing = document.getElementById(`orbit-ring-${key}`);
@@ -425,8 +439,8 @@ function initSolarOrbitSystem() {
     }
   });
 
-  // Calculate default viewport zoom to fit the entire solar system on screen
-  const idealZoom = Math.min(0.85, Math.max(0.5, (window.innerWidth - 80) / 2200));
+  // Calculate default viewport zoom to fit the entire horizontal runway nicely
+  const idealZoom = Math.min(0.95, Math.max(0.48, (window.innerWidth - 60) / 2800));
   currentZoom = idealZoom;
   updateWorldTransform();
 
@@ -436,42 +450,40 @@ function initSolarOrbitSystem() {
   planetChronologicalOrder.forEach(key => {
     const planet = PLANETS_DATA[key];
     if (planet) {
-      planet.x = 1200 + Math.cos(planet.angle) * planet.orbitRadius;
-      planet.y = 1200 + Math.sin(planet.angle) * planet.orbitRadius;
       const el = document.getElementById(`planet-${planet.id}`);
       if (el) {
-        el.style.left = `${planet.x}px`;
-        el.style.top = `${planet.y}px`;
+        el.style.left = `${planet.baseX}px`;
+        el.style.top = `${planet.baseY}px`;
       }
     }
   });
 
-  // 60FPS Continuous Solar Orbit Simulation
-  function animateSolarOrbit() {
-    if (!window._isOrbitPaused) {
-      const points = [];
+  // Continuous Zero-G Cosmic Levitation & Dynamic Beam Simulation
+  function animateSolarOrbit(timestamp) {
+    const now = timestamp || performance.now();
+    const points = [];
 
-      planetChronologicalOrder.forEach(key => {
-        const planet = PLANETS_DATA[key];
-        if (planet) {
-          planet.angle = (planet.angle + planet.orbitSpeed) % (Math.PI * 2);
-          planet.x = 1200 + Math.cos(planet.angle) * planet.orbitRadius;
-          planet.y = 1200 + Math.sin(planet.angle) * planet.orbitRadius;
-
-          const el = document.getElementById(`planet-${planet.id}`);
-          if (el) {
-            el.style.left = `${planet.x}px`;
-            el.style.top = `${planet.y}px`;
-          }
-
-          points.push(`${planet.x} ${planet.y}`);
+    planetChronologicalOrder.forEach(key => {
+      const planet = PLANETS_DATA[key];
+      if (planet) {
+        if (!window._isOrbitPaused) {
+          planet.y = planet.baseY + Math.sin(now * planet.floatSpeed + planet.phase) * planet.floatAmp;
+          planet.x = planet.baseX + Math.cos(now * 0.001 + planet.phase) * 5;
         }
-      });
 
-      // Update dynamic SVG constellation path connecting the moving planets
-      if (liveConstellationPath && points.length > 0) {
-        liveConstellationPath.setAttribute('d', `M ${points.join(' L ')}`);
+        const el = document.getElementById(`planet-${planet.id}`);
+        if (el) {
+          el.style.left = `${planet.x}px`;
+          el.style.top = `${planet.y}px`;
+        }
+
+        points.push(`${planet.x} ${planet.y}`);
       }
+    });
+
+    // Update dynamic SVG constellation laser trail connecting the moving planets
+    if (liveConstellationPath && points.length > 0) {
+      liveConstellationPath.setAttribute('d', `M ${points.join(' L ')}`);
     }
 
     requestAnimationFrame(animateSolarOrbit);
@@ -539,7 +551,7 @@ function initSpaceshipFlightMode() {
       const shipBody = ship.querySelector('.ship-body');
       if (shipBody) shipBody.style.transform = `rotate(${shipAngle}rad)`;
 
-      // Proximity detection with planets in galaxyWorld coordinates
+      // Proximity detection with planets in galaxyWorld coordinates (world center: 1400, 500)
       const worldCenterX = window.innerWidth / 2 + currentPanX;
       const worldCenterY = window.innerHeight / 2 + currentPanY;
 
@@ -547,8 +559,8 @@ function initSpaceshipFlightMode() {
       let minDistance = Infinity;
 
       Object.values(PLANETS_DATA).forEach(data => {
-        const planetScreenX = worldCenterX + (data.x - 1200) * currentZoom;
-        const planetScreenY = worldCenterY + (data.y - 1200) * currentZoom;
+        const planetScreenX = worldCenterX + (data.x - 1400) * currentZoom;
+        const planetScreenY = worldCenterY + (data.y - 500) * currentZoom;
         const pDist = Math.hypot(shipX - planetScreenX, shipY - planetScreenY);
 
         const el = document.getElementById(`planet-${data.id}`);
@@ -584,7 +596,7 @@ function initSpaceshipFlightMode() {
 
     if (lastProximityPlanet && PLANETS_DATA[lastProximityPlanet]) {
       const data = PLANETS_DATA[lastProximityPlanet];
-      focusCoordinates(data.x - 1200, data.y - 1200, 1.35);
+      focusCoordinates(data.x - 1400, data.y - 500, 1.25);
       openHologram(lastProximityPlanet);
     } else {
       playPhotonSound();
@@ -819,7 +831,7 @@ function initPlanetInteraction() {
       el.addEventListener('click', (e) => {
         e.stopPropagation();
         const data = PLANETS_DATA[key];
-        focusCoordinates(data.x - 1200, data.y - 1200, 1.35);
+        focusCoordinates(data.x - 1400, data.y - 500, 1.35);
         openHologram(key);
       });
     }
@@ -831,7 +843,7 @@ function initPlanetInteraction() {
       const key = chip.getAttribute('data-planet');
       if (key && PLANETS_DATA[key]) {
         const data = PLANETS_DATA[key];
-        focusCoordinates(data.x - 1200, data.y - 1200, 1.35);
+        focusCoordinates(data.x - 1400, data.y - 500, 1.35);
         openHologram(key);
       }
     });
@@ -840,7 +852,7 @@ function initPlanetInteraction() {
   // Central Sun Honk Easter Egg
   if (coreSun) {
     coreSun.addEventListener('click', () => {
-      focusCoordinates(0, 0, 1.15);
+      focusCoordinates(-1200, 0, 1.15);
       playHonkSound();
       showToast('🪿 HONK! ศูนย์กลางจักรวาล Thagoose Prime ส่องสว่างทั่วทั้ง Ecosystem');
     });
