@@ -191,6 +191,30 @@ const PLANETS_DATA = {
       mantle: 'Roguelite Card Deck, Wave Spawner Physics, Graze Bullet Hell Collision Engine',
       core: 'Web Audio API Synthesizer (Zero External Libs), Local Storage High Scores'
     }
+  },
+  morningpulse: {
+    id: 'morningpulse',
+    name: 'MorningPulse AI 🍵⚡',
+    suite: 'AI Intelligence & Finance Suite',
+    date: '8 ก.ย. 2026',
+    icon: '🍵⚡',
+    color: '#10B981',
+    glowRgba: 'rgba(16, 185, 129, 0.55)',
+    desc: 'แดชบอร์ดสรุปข่าวกรองยามเช้า & หุ้นอัจฉริยะ (Tea Time Edition) รวบรวมดัชนีตลาดโลก ข่าวสารเศรษฐกิจ และคำแนะนำ AI สรุปข้อมูลวิเคราะห์แบบกระชับ',
+    url: 'https://thagoose3.github.io/morning-pulse-ai/',
+    github: 'https://github.com/Thagoose3/morning-pulse-ai',
+    baseX: 2860,
+    baseY: 500,
+    floatAmp: 16,
+    floatSpeed: 0.0014,
+    phase: 3.4,
+    x: 2860,
+    y: 500,
+    techStack: {
+      crust: 'TypeScript, React Architecture, Modern Glassmorphic Finance UI',
+      mantle: 'Market Intelligence Aggregator, Economic Sentiment Analyzer Engine',
+      core: 'Live Stock Market API, Gemini AI Summary Engine, Local Storage Cache'
+    }
   }
 };
 
@@ -440,11 +464,11 @@ function initSolarOrbitSystem() {
   });
 
   // Calculate default viewport zoom to fit the entire horizontal runway nicely
-  const idealZoom = Math.min(0.95, Math.max(0.48, (window.innerWidth - 60) / 2800));
+  const idealZoom = Math.min(0.95, Math.max(0.42, (window.innerWidth - 60) / 3200));
   currentZoom = idealZoom;
   updateWorldTransform();
 
-  const planetChronologicalOrder = ['calories', 'moneymemo', 'exercise', 'papervault', 'timeflow', 'goosefocus', 'survivor'];
+  const planetChronologicalOrder = ['calories', 'moneymemo', 'exercise', 'papervault', 'timeflow', 'goosefocus', 'survivor', 'morningpulse'];
 
   // Initial placement
   planetChronologicalOrder.forEach(key => {

@@ -186,10 +186,10 @@ body.flight-mode #galaxyViewport {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 2800px;
+  width: 3200px;
   height: 1000px;
   margin-top: -500px;
-  margin-left: -1400px;
+  margin-left: -1600px;
   transform-origin: center center;
   transition: transform 0.08s ease-out;
   pointer-events: none;
@@ -515,6 +515,8 @@ body.flight-mode #galaxyViewport {
 .planet-papervault { --planet-glow: #818CF8; }
 .planet-timeflow { --planet-glow: #38BDF8; }
 .planet-goosefocus { --planet-glow: #10B981; }
+.planet-survivor { --planet-glow: #EF4444; }
+.planet-morningpulse { --planet-glow: #10B981; }
 
 /* --- Holographic Planet Detail Modal HUD --- */
 .hologram-modal-overlay {

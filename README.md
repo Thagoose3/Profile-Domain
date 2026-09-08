@@ -26,6 +26,7 @@
   - 🥗 **[Calories Tracker](https://thagoose3.github.io/Calories_Tracker)**: ระบบคำนวณและติดตามโภชนาการ แคลอรี่
   - 🪿 **[GooseFocus](https://thagoose3.github.io/GooseFocus/)**: ฟาร์มห่านสะสมชั่วโมงโฟกัส & Ranking เต็มหน้าจอ 2D Live Canvas
   - 🦆💥 **[Goose Survivor](https://thagoose3.github.io/goose-survivor/)**: เกมแอ็กชันเอาชีวิตรอด Roguelite ผสม Bullet Hell: เดิน WASD หลบกระสุน ยิงขนนก ปล่อยไข่ระเบิด และ Mega Honk
+  - 🍵⚡ **[MorningPulse AI](https://thagoose3.github.io/morning-pulse-ai/)**: แดชบอร์ดสรุปข่าวกรองยามเช้า & หุ้นอัจฉริยะ (Tea Time Edition) รวบรวมดัชนีตลาดโลก ข่าวสารเศรษฐกิจ และคำแนะนำ AI
 - ⚡ **Live GitHub Repos Sync**: ดึงข้อมูลคลัง Repository สดจากบัญชี `@Thagoose3` อัตโนมัติ
 - 🔊 **"Honk!" & Cosmic Audio Synthesizer**: สังเคราะห์เสียงร้องเจ้าห่านและเสียงอวกาศผ่าน Web Audio API
 

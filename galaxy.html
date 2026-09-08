@@ -84,16 +84,17 @@
     <div id="galaxyWorld">
 
       <!-- Panoramic Solar System SVG Overlay (Orbits, Asteroid Belt, Comet, Timeline) -->
-      <svg id="constellationSvg" viewBox="0 0 2800 1000" xmlns="http://www.w3.org/2000/svg">
+      <svg id="constellationSvg" viewBox="0 0 3200 1000" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="constellationGrad" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#FB923C" />
-            <stop offset="16%" stop-color="#10B981" />
-            <stop offset="33%" stop-color="#A855F7" />
-            <stop offset="50%" stop-color="#818CF8" />
-            <stop offset="66%" stop-color="#38BDF8" />
-            <stop offset="83%" stop-color="#10B981" />
-            <stop offset="100%" stop-color="#EF4444" />
+            <stop offset="14%" stop-color="#10B981" />
+            <stop offset="28%" stop-color="#A855F7" />
+            <stop offset="42%" stop-color="#818CF8" />
+            <stop offset="57%" stop-color="#38BDF8" />
+            <stop offset="71%" stop-color="#10B981" />
+            <stop offset="85%" stop-color="#EF4444" />
+            <stop offset="100%" stop-color="#10B981" />
           </linearGradient>
 
           <!-- Blue Comet Glowing Tail -->
@@ -112,9 +113,9 @@
         </defs>
 
         <!-- Cosmic Horizon Plane Laser Guide -->
-        <line x1="0" y1="500" x2="2800" y2="500" stroke="rgba(56, 189, 248, 0.08)" stroke-dasharray="8 8" stroke-width="1.5" />
+        <line x1="0" y1="500" x2="3200" y2="500" stroke="rgba(56, 189, 248, 0.08)" stroke-dasharray="8 8" stroke-width="1.5" />
 
-        <!-- 7 Panoramic Perspective Orbit Arcs (Curving back towards the Left Sun) -->
+        <!-- 8 Panoramic Perspective Orbit Arcs (Curving back towards the Left Sun) -->
         <ellipse cx="0" cy="500" rx="420" ry="320" class="orbit-line orbit-calories" id="orbit-ring-calories" />
         <ellipse cx="0" cy="500" rx="720" ry="420" class="orbit-line orbit-moneymemo" id="orbit-ring-moneymemo" />
         <ellipse cx="0" cy="500" rx="1020" ry="520" class="orbit-line orbit-exercise" id="orbit-ring-exercise" />
@@ -122,6 +123,7 @@
         <ellipse cx="0" cy="500" rx="1860" ry="700" class="orbit-line orbit-timeflow" id="orbit-ring-timeflow" />
         <ellipse cx="0" cy="500" rx="2180" ry="780" class="orbit-line orbit-goosefocus" id="orbit-ring-goosefocus" />
         <ellipse cx="0" cy="500" rx="2520" ry="860" class="orbit-line orbit-survivor" id="orbit-ring-survivor" />
+        <ellipse cx="0" cy="500" rx="2860" ry="940" class="orbit-line orbit-morningpulse" id="orbit-ring-morningpulse" />
 
         <!-- Floating Asteroid Belt between Exercise and PaperVault (x: 1200 - 1340) -->
         <g class="asteroid-belt" opacity="0.65">
@@ -479,6 +481,55 @@
         </div>
       </div>
 
+      <!-- Planet 8: MorningPulse AI (Emerald Tea Time Intelligence - 8 ก.ย. 2026) -->
+      <div class="planet-node planet-morningpulse" id="planet-morningpulse">
+        <div class="planet-render-wrap">
+          <svg class="planet-svg-scene" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="morningpulseGrad" cx="35%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#ECFDF5" />
+                <stop offset="25%" stop-color="#6EE7B7" />
+                <stop offset="55%" stop-color="#10B981" />
+                <stop offset="80%" stop-color="#047857" />
+                <stop offset="100%" stop-color="#022C22" />
+              </radialGradient>
+              <linearGradient id="teaRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FDE047" />
+                <stop offset="50%" stop-color="#10B981" />
+                <stop offset="100%" stop-color="#059669" />
+              </linearGradient>
+              <filter id="morningpulseGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+            <!-- Atmosphere Glow -->
+            <circle cx="85" cy="85" r="50" fill="#10B981" opacity="0.4" filter="url(#morningpulseGlow)" />
+            <!-- Pulse Stock Horizon Ring -->
+            <circle cx="85" cy="85" r="62" fill="none" stroke="url(#teaRingGrad)" stroke-width="1.8" stroke-dasharray="8 4" opacity="0.8" />
+            <!-- Planet Sphere -->
+            <circle cx="85" cy="85" r="44" fill="url(#morningpulseGrad)" />
+            <!-- Financial Stock Candlestick & Tea Steam Swirls -->
+            <path d="M 50 76 Q 85 64 120 78 Q 85 90 50 76 Z" fill="#FDE047" opacity="0.3" />
+            <path d="M 52 96 Q 85 86 122 102 Q 85 114 52 96 Z" fill="#065F46" opacity="0.5" />
+            <!-- Tea Cup / Morning Sun Icon -->
+            <circle cx="85" cy="80" r="10" fill="#FFFBEB" />
+            <path d="M 80 80 L 90 80 L 88 88 L 82 88 Z" fill="#10B981" />
+            <path d="M 90 82 Q 94 84 90 86" stroke="#10B981" stroke-width="1.2" fill="none" />
+            <!-- Steam -->
+            <path d="M 83 76 Q 81 72 83 68" stroke="#FDE047" stroke-width="1.2" fill="none" />
+            <path d="M 87 76 Q 89 72 87 68" stroke="#FDE047" stroke-width="1.2" fill="none" />
+          </svg>
+        </div>
+        <div class="planet-meta-tag">
+          <div class="planet-name-badge">
+            <span>🍵⚡</span>
+            <span>MorningPulse AI</span>
+          </div>
+          <span class="planet-date-pill">📅 8 ก.ย. 2026</span>
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -512,6 +563,10 @@
       <button class="selector-chip" data-planet="survivor">
         <span>🦆💥</span>
         <span>Survivor</span>
+      </button>
+      <button class="selector-chip" data-planet="morningpulse">
+        <span>🍵⚡</span>
+        <span>MorningPulse</span>
       </button>
     </nav>
   </footer>

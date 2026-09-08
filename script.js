@@ -206,6 +206,9 @@ function initTypewriter() {
 
   const words = [
     'Thagoose Daily Life Ecosystem 🌐',
+    'MorningPulse AI (Market Intelligence) 🍵⚡',
+    'Goose Survivor (Bullet Hell Roguelite) 🦆💥',
+    'GooseFocus (Living Farm & Focus) 🪿',
     'TimeFlow (Productivity Suite) ⏳',
     'PaperVault (Research Suite) 🎓',
     'Money Memo (Finance Suite) 💰',
