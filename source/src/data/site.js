@@ -74,6 +74,21 @@ export const projects = [
     },
   },
   {
+    slug: "ai-office",
+    title: "AI Office",
+    icon: "🏢",
+    year: 2026,
+    category: "ai",
+    accent: "#a3e635",
+    live: "https://thagoose3.github.io/ai-office/",
+    repo: "https://github.com/Thagoose3/ai-office",
+    tags: ["Pixel art", "Canvas", "AI agents"],
+    desc: {
+      th: "ออฟฟิศพิกเซลที่โชว์ว่าทีม AI (PM, UI, Dev, Tester) กำลังทำงานอะไรในโปรเจกต์จริงแบบสดๆ น้องๆ นั่งทำงาน เดินคุยกัน และไปเช็กบอร์ดงาน",
+      en: "A live pixel-art office showing what an AI agent team — PM, UI, Dev, Tester — is doing in a real project. They work, chat and check the task board.",
+    },
+  },
+  {
     slug: "goosefocus",
     title: "GooseFocus",
     icon: "🪿",
