@@ -80,8 +80,8 @@ export const projects = [
     year: 2026,
     category: "ai",
     accent: "#a3e635",
-    live: "https://thagoose3.github.io/ai-office/",
-    repo: "https://github.com/Thagoose3/ai-office",
+    live: "https://thagoose3.github.io/AI-Office/",
+    repo: "https://github.com/Thagoose3/AI-Office",
     tags: ["Pixel art", "Canvas", "AI agents"],
     desc: {
       th: "ออฟฟิศพิกเซลที่โชว์ว่าทีม AI (PM, UI, Dev, Tester) กำลังทำงานอะไรในโปรเจกต์จริงแบบสดๆ น้องๆ นั่งทำงาน เดินคุยกัน และไปเช็กบอร์ดงาน",
