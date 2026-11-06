@@ -1,0 +1,16 @@
+---
+import T from "./T.astro";
+---
+<dialog id="palette" class="palette m-0 mx-auto mt-[12vh] w-[min(36rem,calc(100vw-2rem))] overflow-hidden border border-line bg-surface p-0 text-ink shadow-2xl" aria-label="Command menu">
+  <div class="flex items-center gap-3 border-b border-line px-4">
+    <span class="text-muted" aria-hidden="true">⌕</span>
+    <input id="palette-input" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-controls="palette-list" aria-expanded="true" class="h-14 flex-1 bg-transparent text-base outline-none placeholder:text-muted" placeholder="Search… / ค้นหา…" />
+    <span class="kbd">Esc</span>
+  </div>
+  <ul id="palette-list" role="listbox" class="max-h-[50vh] overflow-y-auto p-2"></ul>
+  <div class="flex items-center gap-4 border-t border-line px-4 py-2.5 text-xs text-muted">
+    <span><span class="kbd">↑</span> <span class="kbd">↓</span> <T th="เลือก" en="move" /></span>
+    <span><span class="kbd">Enter</span> <T th="เปิด" en="open" /></span>
+  </div>
+</dialog>
+<div id="toast" data-show="false" role="status" class="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 border border-beak/50 bg-paper px-5 py-2.5 text-xs uppercase tracking-[0.25em] text-beak shadow-xl transition"></div>

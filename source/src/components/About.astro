@@ -1,0 +1,51 @@
+---
+import T from "./T.astro";
+import { profile, stack, now, principles } from "../data/site.js";
+---
+<section id="about" class="mx-auto max-w-[1400px] px-6 py-[18vh] sm:px-10">
+  <div class="grid gap-16 lg:grid-cols-[1fr_1.4fr]">
+    <div class="lg:sticky lg:top-32 lg:self-start">
+      <p class="label reveal mb-6 flex items-center gap-4"><span class="h-px w-10 bg-beak"></span>III — <T th="เรื่องราว" en="Story" /></p>
+      <h2 class="display reveal text-[clamp(2.2rem,4.6vw,4.2rem)]">
+        <T th="ห่านหนึ่งตัว" en="One goose," /><br />
+        <span class="accent-grad"><T th="กับคีย์บอร์ดหนึ่งอัน" en="one keyboard." /></span>
+      </h2>
+      <p class="reveal mt-8 max-w-md text-muted" style="--d:120ms"><T v={profile.intro} /></p>
+      <div class="reveal mt-10 flex items-center gap-4 text-sm" style="--d:200ms">
+        <span class="pulse-dot relative size-2 rounded-full bg-emerald-500 text-emerald-500"></span>
+        <T v={profile.status} />
+      </div>
+    </div>
+
+    <div class="divide-y divide-line border-y border-line">
+      <div class="reveal grid gap-6 py-10 sm:grid-cols-[10rem_1fr]">
+        <h3 class="label pt-2"><T th="หลักการ" en="Principles" /></h3>
+        <ol class="space-y-5">
+          {principles.map((pr, i) => (
+            <li class="flex gap-5 text-xl font-medium tracking-tight sm:text-2xl">
+              <span class="pt-2 font-mono text-xs text-beak">0{i + 1}</span><T v={pr} />
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="reveal grid gap-6 py-10 sm:grid-cols-[10rem_1fr]">
+        <h3 class="label pt-1"><T th="ตอนนี้" en="Now" /></h3>
+        <ul class="space-y-3">
+          {now.th.map((_, i) => (
+            <li class="flex gap-3"><span class="accent-grad">—</span><T th={now.th[i]} en={now.en[i]} /></li>
+          ))}
+        </ul>
+      </div>
+      <div class="reveal grid gap-6 py-10 sm:grid-cols-[10rem_1fr]">
+        <h3 class="label pt-1"><T th="เครื่องมือ" en="Toolbox" /></h3>
+        <div class="flex flex-wrap gap-2">{stack.map((s) => <span class="chip">{s}</span>)}</div>
+      </div>
+      <div class="reveal grid gap-6 py-10 sm:grid-cols-[10rem_1fr]">
+        <h3 class="label pt-1">GitHub <span class="ml-2 text-beak">★ <span data-star-count>—</span></span></h3>
+        <div id="repo-list" aria-live="polite">
+          {[0, 1, 2, 3].map(() => <div class="my-3 h-4 animate-pulse bg-line"></div>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

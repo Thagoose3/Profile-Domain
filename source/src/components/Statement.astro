@@ -1,0 +1,23 @@
+---
+import { statement } from "../data/site.js";
+// Words marked *like this* turn beak. Thai has no spaces, so segment by word.
+function words(text, locale) {
+  const out = [];
+  let beak = false;
+  const seg = new Intl.Segmenter(locale, { granularity: "word" });
+  for (const part of text.split(/(\*)/)) {
+    if (part === "*") { beak = !beak; continue; }
+    for (const s of seg.segment(part)) out.push({ w: s.segment, beak, space: /^\s+$/.test(s.segment) });
+  }
+  return out;
+}
+const th = words(statement.th, "th");
+const en = words(statement.en, "en");
+---
+<section id="about-intro" class="relative mx-auto max-w-[1400px] px-6 py-[22vh] sm:px-10">
+  <p class="label reveal mb-10 flex items-center gap-4"><span class="h-px w-10 bg-beak"></span>I — Manifesto</p>
+  <p class="fill-words display max-w-[20ch] text-[clamp(2rem,5vw,4.8rem)] !normal-case !font-semibold !leading-[1.1]" data-fill>
+    <span lang="en">{en.map((t) => (t.space ? " " : <span class={`fw ${t.beak ? "beak" : ""}`}>{t.w}</span>))}</span>
+    <span lang="th">{th.map((t) => (t.space ? " " : <span class={`fw ${t.beak ? "beak" : ""}`}>{t.w}</span>))}</span>
+  </p>
+</section>

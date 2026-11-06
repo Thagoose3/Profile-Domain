@@ -1,0 +1,14 @@
+---
+const items = ["Web apps", "Goose games", "AI tools", "Daily rituals", "Small delights"];
+const row = [...items, ...items, ...items];
+---
+<div class="relative overflow-hidden border-y border-line py-8" aria-hidden="true">
+  <div class="marquee-track flex w-max gap-12 whitespace-nowrap" data-marquee>
+    {row.map((it, i) => (
+      <span class="flex items-center gap-12 font-display text-[clamp(2.6rem,7vw,6.5rem)] font-bold uppercase leading-none tracking-tight">
+        <span class={i % 2 ? "outline-text" : ""}>{it}</span>
+        <span class="text-[0.5em] text-beak">✦</span>
+      </span>
+    ))}
+  </div>
+</div>

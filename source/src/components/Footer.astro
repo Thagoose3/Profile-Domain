@@ -1,0 +1,9 @@
+---
+import T from "./T.astro";
+import { profile } from "../data/site.js";
+---
+<footer class="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 border-t border-line px-6 py-8 sm:px-10">
+  <p class="label">© <span id="year">2026</span> {profile.name}</p>
+  <p class="font-mono text-xs uppercase tracking-[0.14em] text-muted"><T th="ห่านไม่เคยหลับ" en="Peace was never an option." /></p>
+  <p class="label flex items-center gap-2"><span class="kbd">Ctrl K</span> <T th="ทางลัด" en="Shortcuts" /></p>
+</footer>

@@ -1,0 +1,38 @@
+---
+import T from "./T.astro";
+import { categories } from "../data/site.js";
+const { project: p, index } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
+const cat = categories.find((c) => c.id === p.category);
+---
+<article
+  data-project
+  data-title={p.title}
+  data-icon={p.icon}
+  data-live={p.live}
+  style={`--accent:${p.accent}`}
+  class="rail-card group relative w-[min(80vw,27rem)] shrink-0"
+  data-tilt
+>
+  <a href={p.live} target="_blank" rel="noopener" class="cover hud relative block h-[min(46svh,30rem)] overflow-hidden rounded-sm border border-line" data-cursor="OPEN" aria-label={`${p.title} — open app`}>
+    <span class="cover-num absolute -left-2 -top-6 font-display text-[8rem] font-bold leading-none tracking-tighter sm:text-[9.5rem]">{num}</span>
+    <span class="cover-glyph absolute inset-0 grid place-items-center">
+      <span class="grid size-32 place-items-center rounded-full border border-white/15 bg-black/20 text-6xl backdrop-blur-sm sm:size-40 sm:text-7xl">{p.icon}</span>
+    </span>
+    <span class="label absolute bottom-5 left-5 !text-[#eef1f5]/70">{p.year}</span>
+    <span class="label absolute bottom-5 right-5 !text-[#eef1f5]/70"><T th={cat.th} en={cat.en} /></span>
+    <span class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></span>
+  </a>
+  <div class="mt-6 flex items-baseline justify-between gap-4">
+    <h3 class="font-display text-xl font-bold uppercase tracking-tight sm:text-2xl">{p.title}</h3>
+    <span class="font-mono text-xs text-muted">{num}</span>
+  </div>
+  <p class="mt-2 line-clamp-2 max-w-[46ch] text-sm text-muted"><T v={p.desc} /></p>
+  <div class="mt-4 flex flex-wrap items-center gap-2">
+    {p.tags.map((tag) => <span class="chip">{tag}</span>)}
+  </div>
+  <div class="mt-5 flex items-center gap-8">
+    <a href={p.live} target="_blank" rel="noopener" class="link-line text-beak" data-cursor-link><T th="เปิดแอป" en="Launch" /> ↗</a>
+    <a href={p.repo} target="_blank" rel="noopener" class="link-line text-muted transition hover:text-ink" data-cursor-link><T th="ซอร์สโค้ด" en="Source" /></a>
+  </div>
+</article>

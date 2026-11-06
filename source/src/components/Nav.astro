@@ -1,0 +1,31 @@
+---
+import T from "./T.astro";
+import { profile } from "../data/site.js";
+const links = [
+  { href: "#work", th: "ผลงาน", en: "Work" },
+  { href: "#about", th: "เรื่องราว", en: "Story" },
+  { href: "#contact", th: "ติดต่อ", en: "Contact" },
+];
+---
+<header id="nav" class="fixed inset-x-0 top-0 z-40 transition-[background,backdrop-filter,border-color] duration-500 border-b border-transparent data-[solid=true]:border-line data-[solid=true]:bg-paper/70 data-[solid=true]:backdrop-blur-xl">
+  <span id="progress" class="absolute inset-x-0 bottom-0 h-px bg-beak/70"></span>
+  <nav class="mx-auto flex max-w-[1400px] items-center gap-6 px-6 py-5 sm:px-10">
+    <a href="#top" class="flex items-center gap-2 font-display text-[15px] font-bold uppercase tracking-tight text-ink" data-cursor-link><span class="size-2.5 rounded-full bg-beak shadow-[0_0_12px_var(--color-beak)]"></span><span data-scramble>{profile.name}</span></a>
+    <div class="ml-auto hidden items-center gap-9 md:flex">
+      {links.map((l) => (
+        <a href={l.href} class="link-line text-muted transition hover:text-ink" data-cursor-link data-scramble><T th={l.th} en={l.en} /></a>
+      ))}
+    </div>
+    <div class="ml-auto flex items-center gap-2 md:ml-6">
+      <button type="button" data-palette-open class="hidden items-center gap-2 px-2 text-muted transition hover:text-ink lg:flex" data-cursor-link aria-label="Command menu"><span class="kbd">Ctrl K</span></button>
+      <div class="flex font-mono text-[11px]" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="th" aria-pressed="true" class="filter border border-transparent px-2 py-1 text-muted" data-cursor-link>TH</button>
+        <button type="button" data-lang-btn="en" aria-pressed="false" class="filter border border-transparent px-2 py-1 text-muted" data-cursor-link>EN</button>
+      </div>
+      <button type="button" data-theme-toggle class="grid size-8 place-items-center text-muted transition hover:text-ink" aria-label="Toggle theme" data-cursor-link>
+        <svg viewBox="0 0 24 24" class="size-4" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="8.5" /><path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" /></svg>
+      </button>
+      <a href="#contact" class="btn-line hidden !px-5 !py-2.5 sm:inline-flex" data-magnetic data-cursor-link><T th="จ้างผม" en="Hire me" /></a>
+    </div>
+  </nav>
+</header>

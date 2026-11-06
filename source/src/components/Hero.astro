@@ -1,0 +1,53 @@
+---
+import T from "./T.astro";
+import Split from "./Split.astro";
+import { profile, hero } from "../data/site.js";
+---
+<section id="top" data-hero class="relative h-[100svh] min-h-[620px] overflow-hidden">
+  <canvas id="gl" class="absolute inset-0 size-full" aria-hidden="true"></canvas>
+  <div class="vignette pointer-events-none absolute inset-0"></div>
+  <div class="scanline pointer-events-none absolute inset-0"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-paper to-transparent"></div>
+
+  <h1 class="sr-only">{profile.name} — {profile.role.en}</h1>
+
+  {/* Shown only when WebGL is unavailable */}
+  <div id="gl-fallback" class="display absolute inset-x-0 top-1/2 hidden -translate-y-1/2 text-center text-[11vw] text-ink">{profile.name}</div>
+
+  <div class="relative z-10 flex h-full flex-col items-center px-6 text-center">
+    <p class="label absolute top-[calc(50%-22vh)] flex items-center gap-3" data-intro>
+      <span class="text-beak">[</span>
+      <span class="relative size-1.5 rounded-full bg-beak pulse-dot text-beak"></span>
+      <T v={hero.eyebrow} />
+      <span class="text-beak">]</span>
+    </p>
+
+    <div class="label absolute left-6 top-28 hidden text-left leading-6 sm:left-10 md:block" aria-hidden="true">
+      <div>x <span data-hud-x class="text-ink">0.000</span></div>
+      <div>y <span data-hud-y class="text-ink">0.000</span></div>
+      <div>fps <span data-fps class="text-pond">60</span></div>
+    </div>
+    <div class="label absolute right-6 top-28 hidden text-right leading-6 sm:right-10 md:block" aria-hidden="true">
+      <div>13.7563° N</div><div>100.5018° E</div><div class="text-beak">● live</div>
+    </div>
+
+    <div class="absolute top-[calc(50%+13vh)] flex flex-col items-center gap-9">
+      <p class="font-sans text-[clamp(1.15rem,2vw,1.6rem)] font-medium tracking-tight text-ink/80">
+        <span lang="en"><Split text={hero.sub.en} delay={200} class="intro-split" /></span>
+        <span lang="th"><Split text={hero.sub.th} delay={200} class="intro-split" /></span>
+      </p>
+      <div class="reveal flex flex-wrap items-center justify-center gap-8" style="--d:700ms" data-intro>
+        <a href="#work" class="btn-line" data-magnetic data-cursor-link><T th="ดูผลงาน" en="See the work" /> <span aria-hidden="true">→</span></a>
+        <button type="button" data-copy-email class="link-line text-ink/80 transition hover:text-beak" data-cursor-link><T th="คัดลอกอีเมล" en="Copy email" /></button>
+      </div>
+    </div>
+
+    <div class="label absolute bottom-8 left-6 flex items-center gap-3 sm:left-10">
+      <span class="relative block h-10 w-px overflow-hidden bg-line"><span class="scroll-cue absolute inset-0 bg-beak"></span></span>
+      <T th="เลื่อนลง" en="Scroll" />
+    </div>
+    <div class="label absolute bottom-8 right-6 hidden text-right sm:right-10 sm:block">
+      BKK <span data-clock class="text-ink">--:--</span><br /><span data-awake class="normal-case tracking-normal"></span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+---
+// Bilingual text. Usage: <T th="สวัสดี" en="Hello" />  or  <T v={{ th, en }} />
+const { th, en, v } = Astro.props;
+const thText = v ? v.th : th;
+const enText = v ? v.en : en;
+---
+<span lang="th">{thText}</span><span lang="en">{enText}</span>
