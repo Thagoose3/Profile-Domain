@@ -4,6 +4,8 @@ import { categories } from "../data/site.js";
 const { project: p, index } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
 const cat = categories.find((c) => c.id === p.category);
+const cta = p.cta ?? { th: "เปิดแอป", en: "Launch" };
+const desktop = p.live === p.repo;
 ---
 <article
   data-project
@@ -14,7 +16,7 @@ const cat = categories.find((c) => c.id === p.category);
   class="rail-card group relative w-[min(80vw,27rem)] shrink-0"
   data-tilt
 >
-  <a href={p.live} target="_blank" rel="noopener" class="cover hud relative block h-[min(46svh,30rem)] overflow-hidden rounded-sm border border-line" data-cursor="OPEN" aria-label={`${p.title} — open app`}>
+  <a href={p.live} target="_blank" rel="noopener" class="cover hud relative block h-[min(46svh,30rem)] overflow-hidden rounded-sm border border-line" data-cursor={desktop ? "CODE" : "OPEN"} aria-label={`${p.title} — open app`}>
     <span class="cover-num absolute -left-2 -top-6 font-display text-[8rem] font-bold leading-none tracking-tighter sm:text-[9.5rem]">{num}</span>
     <span class="cover-glyph absolute inset-0 grid place-items-center">
       <span class="grid size-32 place-items-center rounded-full border border-white/15 bg-black/20 text-6xl backdrop-blur-sm sm:size-40 sm:text-7xl">{p.icon}</span>
@@ -32,7 +34,7 @@ const cat = categories.find((c) => c.id === p.category);
     {p.tags.map((tag) => <span class="chip">{tag}</span>)}
   </div>
   <div class="mt-5 flex items-center gap-8">
-    <a href={p.live} target="_blank" rel="noopener" class="link-line text-beak" data-cursor-link><T th="เปิดแอป" en="Launch" /> ↗</a>
-    <a href={p.repo} target="_blank" rel="noopener" class="link-line text-muted transition hover:text-ink" data-cursor-link><T th="ซอร์สโค้ด" en="Source" /></a>
+    <a href={p.live} target="_blank" rel="noopener" class="link-line text-beak" data-cursor-link><T th={cta.th} en={cta.en} /> ↗</a>
+    {!desktop && <a href={p.repo} target="_blank" rel="noopener" class="link-line text-muted transition hover:text-ink" data-cursor-link><T th="ซอร์สโค้ด" en="Source" /></a>}
   </div>
 </article>
