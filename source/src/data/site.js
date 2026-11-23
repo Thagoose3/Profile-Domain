@@ -38,6 +38,7 @@ export const categories = [
   { id: "research", th: "วิจัย", en: "Research" },
   { id: "games", th: "เกม", en: "Games" },
   { id: "ai", th: "AI", en: "AI" },
+  { id: "tools", th: "เครื่องมือ", en: "Tools" },
 ];
 
 export const projects = [
@@ -74,6 +75,22 @@ export const projects = [
     },
   },
   {
+    slug: "specvs",
+    title: "SpecVS",
+    icon: "💻",
+    year: 2026,
+    category: "tools",
+    accent: "#60a5fa",
+    live: "https://github.com/Thagoose3/SpecVS",
+    repo: "https://github.com/Thagoose3/SpecVS",
+    cta: { th: "ดูบน GitHub", en: "View on GitHub" },
+    tags: ["Astro 6", "React", "TypeScript"],
+    desc: {
+      th: "เว็บเทียบสเปกโน้ตบุ๊กและชิป CPU/GPU กว่า 580 ตัว ค้นหา จัดอันดับตามการใช้งาน เทียบได้สูงสุด 3 รุ่นพร้อมสรุปว่าตัวไหนดีกว่าด้านไหน และมีหน้าแนะนำสเปกที่ควรซื้อตามงบ",
+      en: "Compare laptops and 580+ CPUs/GPUs: search, rank by use case, put up to three side by side with a plain verdict, or get the spec to buy for your budget.",
+    },
+  },
+  {
     slug: "kopknob",
     title: "KopKnob",
     icon: "🎛️",
@@ -85,8 +102,8 @@ export const projects = [
     cta: { th: "ดูบน GitHub", en: "View on GitHub" },
     tags: ["C# · .NET 8", "WPF", "Windows"],
     desc: {
-      th: "แถบ notch เล็กๆ บนขอบจอ Windows ที่กางออกเป็นแผงเครื่องมือ: Pomodoro, คุมเพลง, ประวัติคลิปบอร์ด, OCR ไทย/อังกฤษ, QR และเครื่องคิดเลข ตอนพับเก็บใช้ CPU แทบ 0%",
-      en: "A tiny notch for Windows: a pill on the screen edge that opens into Pomodoro, media controls, clipboard history, Thai/English OCR, QR and a calculator — ~0% CPU while idle.",
+      th: "Dynamic Island บน Windows: แถบเล็กบนขอบจอที่กางออกเป็นหน้าเครื่องมือ Pomodoro คุมเพลง เสียง ความสว่าง สภาพอากาศ คลิปบอร์ด OCR ไทย/อังกฤษ และ QR มีหลายธีม ใช้แรมแค่ราว 31 MB",
+      en: "A Dynamic Island for Windows: a pill on the screen edge that opens into pages of tools — Pomodoro, media, volume and brightness, weather, clipboard, Thai/English OCR and QR — with themes, in about 31 MB of RAM.",
     },
   },
   {
