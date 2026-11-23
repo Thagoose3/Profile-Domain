@@ -67,7 +67,9 @@ function inkGeometry(e) {
   const r = src ? src.getBoundingClientRect() : { left: innerWidth - 40, top: 40, width: 0, height: 0 };
   const x = r.left + r.width / 2, y = r.top + r.height / 2;
   const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-  const size = far * 4.8; // blob body is ~45/200 of the image → covers the farthest corner
+  // blob body is ~45/200 of the image; 6.5× leaves margin for the rough edge,
+  // so no specks of the old theme are left in the corners to pop at the end
+  const size = far * 6.5;
   return {
     maskSize: ["0px 0px", `${size}px ${size}px`],
     maskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
@@ -83,7 +85,7 @@ function inkViewTransition(next, frames, mask) {
   const tr = document.startViewTransition(() => setTheme(next));
   tr.finished.finally(() => root.classList.remove("theme-swap"));
   return tr.ready.then(() =>
-    root.animate(frames, { duration: INK_MS, easing: INK_EASE, pseudoElement: "::view-transition-new(root)" }).finished
+    root.animate(frames, { duration: INK_MS, easing: INK_EASE, fill: "forwards", pseudoElement: "::view-transition-new(root)" }).finished
   );
 }
 
@@ -97,12 +99,16 @@ function inkOverlay(next, frames, mask) {
     `-webkit-mask-size:0 0;mask-size:0 0;`;
   document.body.appendChild(ink);
   const a = ink.animate(frames, { duration: INK_MS, easing: INK_EASE, fill: "forwards" });
-  return a.finished.then(() => {
+  // flip the theme under the ink once it covers most of the screen, and let
+  // the new page show through while the ink is still spreading (no blank frame)
+  const flipAt = INK_MS * 0.45;
+  const flip = new Promise((res) => setTimeout(res, flipAt)).then(() => {
     root.classList.add("theme-swap");
     setTheme(next);
     requestAnimationFrame(() => root.classList.remove("theme-swap"));
-    return ink.animate({ opacity: [1, 0] }, { duration: 450, easing: "ease-out", fill: "forwards" }).finished;
-  }).finally(() => ink.remove());
+    return ink.animate({ opacity: [1, 0] }, { duration: INK_MS - flipAt + 250, easing: "ease-in", fill: "forwards" }).finished;
+  });
+  return Promise.all([a.finished, flip]).finally(() => ink.remove());
 }
 
 function toggleTheme(e) {
