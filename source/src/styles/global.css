@@ -260,7 +260,7 @@ dialog.palette[open] { animation: pop 0.2s ease-out; }
 @keyframes cue { 0% { transform: scaleY(0); } 45% { transform: scaleY(1); transform-origin: top; } 55% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
+  *:not(html), *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
   .reveal, .split .ch { opacity: 1; transform: none; }
   .mask-reveal { clip-path: none; }
 }

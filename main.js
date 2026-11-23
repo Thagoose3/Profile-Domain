@@ -1,5 +1,5 @@
 // Thagoose v2 — all client behaviour, no libraries.
-import { initParticles } from "./gl.js";
+import { initParticles } from "./gl.js?v=e11acb4d";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -59,7 +59,15 @@ function inkSplatter() {
 }
 function toggleTheme(e) {
   const next = root.dataset.theme === "dark" ? "light" : "dark";
-  if (!document.startViewTransition || reduced) return setTheme(next);
+  if (!document.startViewTransition) return setTheme(next);
+  if (reduced) {
+    // motion-sensitive users get a gentle cross-fade instead of the splash
+    root.classList.add("theme-swap");
+    const tr = document.startViewTransition(() => setTheme(next));
+    tr.finished.finally(() => root.classList.remove("theme-swap"));
+    tr.ready.then(() => root.animate({ opacity: [0, 1] }, { duration: 350, easing: "ease-out", pseudoElement: "::view-transition-new(root)" }));
+    return;
+  }
   // origin: the button that was clicked, else the toggle in the nav
   const src = e?.currentTarget?.getBoundingClientRect ? e.currentTarget : $("[data-theme-toggle]");
   const r = src ? src.getBoundingClientRect() : { left: innerWidth - 40, top: 40, width: 0, height: 0 };

@@ -41,6 +41,7 @@
     --tracking-tight: -0.025em;
     --tracking-normal: 0em;
     --radius-sm: 0.25rem;
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-sm: 8px;
     --blur-xl: 24px;
@@ -1036,6 +1037,10 @@
     --tw-duration: 500ms;
     transition-duration: 500ms;
   }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
   .will-change-transform {
     will-change: transform;
   }
@@ -1579,7 +1584,7 @@ dialog.palette[open] {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *:not(html), *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
@@ -1943,6 +1948,10 @@ html[data-lang="th"] .split .w {
   syntax: "*";
   inherits: false;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @keyframes ping {
   75%, 100% {
     transform: scale(2);
@@ -2025,6 +2034,7 @@ html[data-lang="th"] .split .w {
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }
