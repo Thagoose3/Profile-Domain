@@ -57,38 +57,69 @@ function inkSplatter() {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200"><filter id="r" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="3" seed="${(rnd() * 99) | 0}"/><feDisplacementMap in="SourceGraphic" scale="15"/></filter><g filter="url(#r)" fill="#000"><path d="${d}Z"/>${lobes}${drops}</g></svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 }
-function toggleTheme(e) {
-  const next = root.dataset.theme === "dark" ? "light" : "dark";
-  if (!document.startViewTransition) return setTheme(next);
-  if (reduced) {
-    // motion-sensitive users get a gentle cross-fade instead of the splash
-    root.classList.add("theme-swap");
-    const tr = document.startViewTransition(() => setTheme(next));
-    tr.finished.finally(() => root.classList.remove("theme-swap"));
-    tr.ready.then(() => root.animate({ opacity: [0, 1] }, { duration: 350, easing: "ease-out", pseudoElement: "::view-transition-new(root)" }));
-    return;
-  }
-  // origin: the button that was clicked, else the toggle in the nav
+const PAPER = { dark: "#07090d", light: "#f1f0ec" };
+const INK_MS = 1900;
+const INK_EASE = "cubic-bezier(.5,.05,.3,1)";
+let inkBusy = false;
+
+function inkGeometry(e) {
   const src = e?.currentTarget?.getBoundingClientRect ? e.currentTarget : $("[data-theme-toggle]");
   const r = src ? src.getBoundingClientRect() : { left: innerWidth - 40, top: 40, width: 0, height: 0 };
   const x = r.left + r.width / 2, y = r.top + r.height / 2;
   const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-  const size = far * 4.8; // the blob body is ~45/200 of the image, so this covers the farthest corner
-  root.style.setProperty("--ink-mask", inkSplatter());
-  root.classList.add("theme-swap"); // no colour tweening inside the snapshot
+  const size = far * 4.8; // blob body is ~45/200 of the image → covers the farthest corner
+  return {
+    maskSize: ["0px 0px", `${size}px ${size}px`],
+    maskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
+    webkitMaskSize: ["0px 0px", `${size}px ${size}px`],
+    webkitMaskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
+  };
+}
+
+// Path 1: View Transition — the real new page is revealed through the ink.
+function inkViewTransition(next, frames, mask) {
+  root.style.setProperty("--ink-mask", mask);
+  root.classList.add("theme-swap");
   const tr = document.startViewTransition(() => setTheme(next));
   tr.finished.finally(() => root.classList.remove("theme-swap"));
-  tr.ready.then(() => {
-    root.animate(
-      {
-        maskSize: ["0px 0px", `${size}px ${size}px`],
-        maskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
-        webkitMaskSize: ["0px 0px", `${size}px ${size}px`],
-        webkitMaskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
-      },
-      { duration: 1900, easing: "cubic-bezier(.5,.05,.3,1)", pseudoElement: "::view-transition-new(root)" }
-    );
-  });
+  return tr.ready.then(() =>
+    root.animate(frames, { duration: INK_MS, easing: INK_EASE, pseudoElement: "::view-transition-new(root)" }).finished
+  );
+}
+
+// Path 2: works everywhere — an ink layer in the new theme's colour floods
+// the screen, the theme flips underneath, then the layer fades away.
+function inkOverlay(next, frames, mask) {
+  const ink = document.createElement("div");
+  ink.setAttribute("aria-hidden", "true");
+  ink.style.cssText = `position:fixed;inset:0;z-index:95;pointer-events:none;background:${PAPER[next]};` +
+    `-webkit-mask-image:${mask};mask-image:${mask};-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;` +
+    `-webkit-mask-size:0 0;mask-size:0 0;`;
+  document.body.appendChild(ink);
+  const a = ink.animate(frames, { duration: INK_MS, easing: INK_EASE, fill: "forwards" });
+  return a.finished.then(() => {
+    root.classList.add("theme-swap");
+    setTheme(next);
+    requestAnimationFrame(() => root.classList.remove("theme-swap"));
+    return ink.animate({ opacity: [1, 0] }, { duration: 450, easing: "ease-out", fill: "forwards" }).finished;
+  }).finally(() => ink.remove());
+}
+
+function toggleTheme(e) {
+  if (inkBusy) return;
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  const frames = inkGeometry(e);
+  const mask = inkSplatter();
+  inkBusy = true;
+  let run;
+  try {
+    run = document.startViewTransition ? inkViewTransition(next, frames, mask) : inkOverlay(next, frames, mask);
+  } catch {
+    run = inkOverlay(next, frames, mask);
+  }
+  Promise.resolve(run)
+    .catch(() => { if (root.dataset.theme !== next) return inkOverlay(next, frames, mask); })
+    .finally(() => { inkBusy = false; if (root.dataset.theme !== next) setTheme(next); });
 }
 function setLang(l) {
   root.dataset.lang = l;
