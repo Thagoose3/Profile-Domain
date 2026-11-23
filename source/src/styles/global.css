@@ -284,3 +284,17 @@ html[data-lang="th"] .split .w { padding-top: 0.18em; margin-top: -0.18em; }
   background: repeating-linear-gradient(to bottom, transparent 0 3px, rgb(255 255 255 / 0.018) 3px 4px);
 }
 [data-theme="light"] .scanline { display: none; }
+
+/* Ink-splash theme switch (see toggleTheme in main.js) */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  -webkit-mask-image: var(--ink-mask);
+  mask-image: var(--ink-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.theme-swap, .theme-swap * { transition: none !important; }

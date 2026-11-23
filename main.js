@@ -22,7 +22,66 @@ function setTheme(theme) {
   store.set("theme", theme);
   particles?.setTheme(theme === "light");
 }
-const toggleTheme = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+/* ---- Ink-splash theme switch ----
+   The new theme spreads out from the toggle like a drop of ink: a View
+   Transition whose new snapshot is masked by a random splatter SVG that
+   scales up from the click point. Falls back to an instant switch. */
+function inkSplatter() {
+  const rnd = Math.random;
+  const pts = [];
+  const N = 72;
+  for (let i = 0; i < N; i++) {
+    const a = (i / N) * Math.PI * 2;
+    let r = 44 + rnd() * 6;
+    if (rnd() < 0.18) r += 10 + rnd() * 26; // spikes
+    pts.push([Math.cos(a) * r, Math.sin(a) * r]);
+  }
+  // smooth closed path through the points (quadratic midpoints)
+  const mid = (p, q) => [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+  let d = `M${mid(pts[N - 1], pts[0]).join(" ")}`;
+  for (let i = 0; i < N; i++) {
+    const p = pts[i], m = mid(p, pts[(i + 1) % N]);
+    d += ` Q${p[0].toFixed(1)} ${p[1].toFixed(1)} ${m[0].toFixed(1)} ${m[1].toFixed(1)}`;
+  }
+  // lumpy body: a few overlapping lobes so the silhouette isn't a circle
+  let lobes = "";
+  for (let i = 0; i < 7; i++) {
+    const a = rnd() * Math.PI * 2, r = 18 + rnd() * 20, s = 16 + rnd() * 14;
+    lobes += `<circle cx="${(Math.cos(a) * r).toFixed(1)}" cy="${(Math.sin(a) * r).toFixed(1)}" r="${s.toFixed(1)}"/>`;
+  }
+  let drops = "";
+  for (let i = 0; i < 34; i++) {
+    const a = rnd() * Math.PI * 2, r = 50 + rnd() * 46, s = 0.8 + rnd() * 5.5;
+    drops += `<circle cx="${(Math.cos(a) * r).toFixed(1)}" cy="${(Math.sin(a) * r).toFixed(1)}" r="${s.toFixed(1)}"/>`;
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200"><filter id="r" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="3" seed="${(rnd() * 99) | 0}"/><feDisplacementMap in="SourceGraphic" scale="15"/></filter><g filter="url(#r)" fill="#000"><path d="${d}Z"/>${lobes}${drops}</g></svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+function toggleTheme(e) {
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  if (!document.startViewTransition || reduced) return setTheme(next);
+  // origin: the button that was clicked, else the toggle in the nav
+  const src = e?.currentTarget?.getBoundingClientRect ? e.currentTarget : $("[data-theme-toggle]");
+  const r = src ? src.getBoundingClientRect() : { left: innerWidth - 40, top: 40, width: 0, height: 0 };
+  const x = r.left + r.width / 2, y = r.top + r.height / 2;
+  const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  const size = far * 4.8; // the blob body is ~45/200 of the image, so this covers the farthest corner
+  root.style.setProperty("--ink-mask", inkSplatter());
+  root.classList.add("theme-swap"); // no colour tweening inside the snapshot
+  const tr = document.startViewTransition(() => setTheme(next));
+  tr.finished.finally(() => root.classList.remove("theme-swap"));
+  tr.ready.then(() => {
+    root.animate(
+      {
+        maskSize: ["0px 0px", `${size}px ${size}px`],
+        maskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
+        webkitMaskSize: ["0px 0px", `${size}px ${size}px`],
+        webkitMaskPosition: [`${x}px ${y}px`, `${x - size / 2}px ${y - size / 2}px`],
+      },
+      { duration: 1900, easing: "cubic-bezier(.5,.05,.3,1)", pseudoElement: "::view-transition-new(root)" }
+    );
+  });
+}
 function setLang(l) {
   root.dataset.lang = l;
   root.lang = l;

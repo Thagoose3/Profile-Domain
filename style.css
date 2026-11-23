@@ -1633,6 +1633,19 @@ html[data-lang="th"] .split .w {
 [data-theme="light"] .scanline {
   display: none;
 }
+::view-transition-old(root), ::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  -webkit-mask-image: var(--ink-mask);
+  mask-image: var(--ink-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.theme-swap, .theme-swap * {
+  transition: none !important;
+}
 @property --tw-translate-x {
   syntax: "*";
   inherits: false;
